@@ -1,0 +1,7 @@
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\obj\Debug\MapsforgeSharpe.Core.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\bin\Debug\MapsforgeSharpe.Core.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\bin\Debug\MapsforgeSharpe.Core.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\obj\Debug\MapsforgeSharpe.Core.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\obj\Debug\MapsforgeSharpe.Core.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\bin\Debug\Acrotech.PortableLogAdapter.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core\bin\Debug\Acrotech.PortableLogAdapter.xml
