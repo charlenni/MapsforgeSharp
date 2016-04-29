@@ -1,0 +1,2 @@
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.WinPhone\MapsforgeSharp.WinPhone.csproj;neutral
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp\MapsforgeSharp.csproj;neutral

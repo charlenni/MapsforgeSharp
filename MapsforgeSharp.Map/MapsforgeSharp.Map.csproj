@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C993E88-53A4-4F92-9885-8281E474569C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MapsforgeSharp.Map</RootNamespace>
+    <AssemblyName>MapsforgeSharp.Map</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\MapsforgeSharp.Core\MapsforgeSharp.Core.csproj">
+      <Project>{d141d385-2c78-482f-bfff-dfa66f05e0bd}</Project>
+      <Name>MapsforgeSharp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\main\controller\FrameBufferController.cs" />
+    <Compile Include="src\main\controller\LayerManagerController.cs" />
+    <Compile Include="src\main\controller\MapViewController.cs" />
+    <Compile Include="src\main\layer\cache\FileSystemTileCache.cs" />
+    <Compile Include="src\main\layer\cache\FileWorkingSetCache.cs" />
+    <Compile Include="src\main\layer\cache\ImageFileNameFilter.cs" />
+    <Compile Include="src\main\layer\cache\InMemoryTileCache.cs" />
+    <Compile Include="src\main\layer\cache\TileCache.cs" />
+    <Compile Include="src\main\layer\cache\TileStore.cs" />
+    <Compile Include="src\main\layer\cache\TwoLevelTileCache.cs" />
+    <Compile Include="src\main\layer\debug\TileCoordinatesLayer.cs" />
+    <Compile Include="src\main\layer\debug\TileGridLayer.cs" />
+    <Compile Include="src\main\layer\download\DownloadJob.cs" />
+    <Compile Include="src\main\layer\download\TileDownloader.cs" />
+    <Compile Include="src\main\layer\download\TileDownloadLayer.cs" />
+    <Compile Include="src\main\layer\download\TileDownloadThread.cs" />
+    <Compile Include="src\main\layer\download\tilesource\AbstractTileSource.cs" />
+    <Compile Include="src\main\layer\download\tilesource\OnlineTileSource.cs" />
+    <Compile Include="src\main\layer\download\tilesource\OpenCycleMap.cs" />
+    <Compile Include="src\main\layer\download\tilesource\OpenStreetMapMapnik.cs" />
+    <Compile Include="src\main\layer\download\tilesource\TileSource.cs" />
+    <Compile Include="src\main\layer\labels\LabelLayer.cs" />
+    <Compile Include="src\main\layer\labels\LabelStore.cs" />
+    <Compile Include="src\main\layer\labels\TileBasedLabelStore.cs" />
+    <Compile Include="src\main\layer\Layer.cs" />
+    <Compile Include="src\main\layer\LayerManager.cs" />
+    <Compile Include="src\main\layer\Layers.cs" />
+    <Compile Include="src\main\layer\overlay\Circle.cs" />
+    <Compile Include="src\main\layer\overlay\FixedPixelCircle.cs" />
+    <Compile Include="src\main\layer\overlay\Grid.cs" />
+    <Compile Include="src\main\layer\overlay\Marker.cs" />
+    <Compile Include="src\main\layer\overlay\Polygon.cs" />
+    <Compile Include="src\main\layer\overlay\Polyline.cs" />
+    <Compile Include="src\main\layer\queue\Job.cs" />
+    <Compile Include="src\main\layer\queue\JobQueue.cs" />
+    <Compile Include="src\main\layer\queue\QueueItem.cs" />
+    <Compile Include="src\main\layer\queue\QueueItemComparator.cs" />
+    <Compile Include="src\main\layer\queue\QueueItemScheduler.cs" />
+    <Compile Include="src\main\layer\Redrawer.cs" />
+    <Compile Include="src\main\layer\renderer\CanvasRasterer.cs" />
+    <Compile Include="src\main\layer\renderer\CircleContainer.cs" />
+    <Compile Include="src\main\layer\renderer\DatabaseRenderer.cs" />
+    <Compile Include="src\main\model\DateTimeHelperClass.cs" />
+    <Compile Include="src\main\layer\renderer\GeometryUtils.cs" />
+    <Compile Include="src\main\layer\renderer\MapWorkerPool.cs" />
+    <Compile Include="src\main\layer\renderer\PolylineContainer.cs" />
+    <Compile Include="src\main\layer\renderer\RendererJob.cs" />
+    <Compile Include="src\main\layer\renderer\RendererUtils.cs" />
+    <Compile Include="src\main\layer\renderer\ShapeContainer.cs" />
+    <Compile Include="src\main\layer\renderer\ShapePaintContainer.cs" />
+    <Compile Include="src\main\layer\renderer\ShapeType.cs" />
+    <Compile Include="src\main\layer\renderer\TileDependencies.cs" />
+    <Compile Include="src\main\layer\renderer\TileRendererLayer.cs" />
+    <Compile Include="src\main\layer\renderer\WayDecorator.cs" />
+    <Compile Include="src\main\layer\TileLayer.cs" />
+    <Compile Include="src\main\layer\TilePosition.cs" />
+    <Compile Include="src\main\layer\tilestore\TileStoreLayer.cs" />
+    <Compile Include="src\main\model\common\Observable.cs" />
+    <Compile Include="src\main\model\common\ObservableInterface.cs" />
+    <Compile Include="src\main\model\common\Observer.cs" />
+    <Compile Include="src\main\model\common\Persistable.cs" />
+    <Compile Include="src\main\model\common\PreferencesFacade.cs" />
+    <Compile Include="src\main\model\DisplayModel.cs" />
+    <Compile Include="src\main\model\FixedTileSizeDisplayModel.cs" />
+    <Compile Include="src\main\model\FrameBufferModel.cs" />
+    <Compile Include="src\main\model\MapViewDimension.cs" />
+    <Compile Include="src\main\model\MapViewPosition.cs" />
+    <Compile Include="src\main\model\Model.cs" />
+    <Compile Include="src\main\rendertheme\ExternalRenderTheme.cs" />
+    <Compile Include="src\main\rendertheme\InternalRenderTheme.cs" />
+    <Compile Include="src\main\rendertheme\RenderCallback.cs" />
+    <Compile Include="src\main\rendertheme\RenderContext.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\Area.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\Caption.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\Circle.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\Line.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\LineSymbol.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\PathText.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\RenderInstruction.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\Symbol.cs" />
+    <Compile Include="src\main\rendertheme\renderinstruction\TextKey.cs" />
+    <Compile Include="src\main\rendertheme\rule\AnyMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\AttributeMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\Closed.cs" />
+    <Compile Include="src\main\rendertheme\rule\ClosedMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\ClosedWayMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\Element.cs" />
+    <Compile Include="src\main\rendertheme\rule\ElementMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\ElementNodeMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\ElementWayMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\KeyMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\LinearWayMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\MatchingCacheKey.cs" />
+    <Compile Include="src\main\rendertheme\rule\NegativeMatcher.cs" />
+    <Compile Include="src\main\rendertheme\rule\NegativeRule.cs" />
+    <Compile Include="src\main\rendertheme\rule\PositiveRule.cs" />
+    <Compile Include="src\main\rendertheme\rule\RenderTheme.cs" />
+    <Compile Include="src\main\rendertheme\rule\RenderThemeBuilder.cs" />
+    <Compile Include="src\main\rendertheme\rule\RenderThemeFuture.cs" />
+    <Compile Include="src\main\rendertheme\rule\RenderThemeHandler.cs" />
+    <Compile Include="src\main\rendertheme\rule\Rule.cs" />
+    <Compile Include="src\main\rendertheme\rule\RuleBuilder.cs" />
+    <Compile Include="src\main\rendertheme\rule\RuleOptimizer.cs" />
+    <Compile Include="src\main\rendertheme\rule\ValueMatcher.cs" />
+    <Compile Include="src\main\rendertheme\XmlReaderException.cs" />
+    <Compile Include="src\main\rendertheme\XmlRenderTheme.cs" />
+    <Compile Include="src\main\rendertheme\XmlRenderThemeMenuCallback.cs" />
+    <Compile Include="src\main\rendertheme\XmlRenderThemeStyleLayer.cs" />
+    <Compile Include="src\main\rendertheme\XmlRenderThemeStyleMenu.cs" />
+    <Compile Include="src\main\rendertheme\XmlUtils.cs" />
+    <Compile Include="src\main\scalebar\DefaultMapScaleBar.cs" />
+    <Compile Include="src\main\scalebar\DistanceUnitAdapter.cs" />
+    <Compile Include="src\main\scalebar\ImperialUnitAdapter.cs" />
+    <Compile Include="src\main\scalebar\MapScaleBar.cs" />
+    <Compile Include="src\main\scalebar\MetricUnitAdapter.cs" />
+    <Compile Include="src\main\scalebar\NauticalUnitAdapter.cs" />
+    <Compile Include="src\main\util\LayerUtil.cs" />
+    <Compile Include="src\main\util\MapPositionUtil.cs" />
+    <Compile Include="src\main\util\MapViewProjection.cs" />
+    <Compile Include="src\main\util\PausableThread.cs" />
+    <Compile Include="src\main\view\FpsCounter.cs" />
+    <Compile Include="src\main\view\FrameBuffer.cs" />
+    <Compile Include="src\main\view\MapView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Acrotech.PortableLogAdapter, Version=1.1.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acrotech.PortableLogAdapter.1.1.2\lib\portable-net45+sl50+win+wpa81+wp80\Acrotech.PortableLogAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="src\resource\osmarender\osmarender.xml" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\access-destination.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\access-private.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\cemetery.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\marsh.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\military.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\nature-reserve.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\wood-coniferous.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\wood-deciduous.png" />
+    <EmbeddedResource Include="src\resource\osmarender\patterns\wood-mixed.png" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\airport.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\alpine_hut.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\atm.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bakery.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bank.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bench.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bicycle_rental.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bus.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\bus_sta.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\cable_car.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\cafe.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\campSite.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\cave_entrance.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\chair_lift_2.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\church.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\cinema.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\drinking_water.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\fastfood.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\firebrigade.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\florist.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\fountain.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\gondola.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\helipad.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\hospital.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\hostel.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\hotel.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\information.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\kindergarten.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\library.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\monument.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\mosque.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\oneway.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\parking.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\peak.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\petrolStation.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\pharmacy.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\playground.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\postbox.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\postoffice.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\pub.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\railway-crossing-small.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\railway-crossing.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\recycling.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\restaurant.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\school.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\shelter.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\soccer-borderless.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\supermarket.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\synagogue.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\telephone.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\tennis.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\theatre.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\toilets.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\traffic_signal.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\train_station.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\train_station2.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\tree.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\university.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\viewpoint.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\vulcan.svg" />
+    <EmbeddedResource Include="src\resource\osmarender\symbols\windmill.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

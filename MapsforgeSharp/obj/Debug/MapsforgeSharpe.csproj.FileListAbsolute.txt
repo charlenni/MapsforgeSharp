@@ -1,0 +1,12 @@
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\MapsforgeSharpe.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\MapsforgeSharpe.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\Xamarin.Forms.Core.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\Xamarin.Forms.Core.xml
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\obj\Debug\MapsforgeSharpe.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\obj\Debug\MapsforgeSharpe.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\obj\Debug\MapsforgeSharpe.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\obj\Debug\MapsforgeSharpe.dll.mdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe\bin\Debug\MapsforgeSharpe.dll.mdb

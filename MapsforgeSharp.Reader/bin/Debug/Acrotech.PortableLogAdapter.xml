@@ -1,0 +1,699 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Acrotech.PortableLogAdapter</name>
+    </assembly>
+    <members>
+        <member name="T:Acrotech.PortableLogAdapter.ExtensionMethods">
+            <summary>
+            Extensions to simplify logging calls by replacing the level param with an explicit function call
+            </summary>
+            <summary>
+            Extensions to simplify logger creation
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsEnabled(Acrotech.PortableLogAdapter.ILogger,Acrotech.PortableLogAdapter.LogLevel)">
+            <summary>
+            Check if <paramref name="level"/> is enabled for <paramref name="source"/>
+            </summary>
+            <param name="source">Logger to check against</param>
+            <param name="level">Log Level</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetAllLogLevels(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Returns all valid log levels that can be used to log a message
+            </summary>
+            <param name="source">Logger</param>
+            <returns>All valid log levels</returns>
+            <remarks>Returns all LogLevel enum values except Off</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.FormatWith(System.String,System.Object[])">
+            <summary>
+            Format the <paramref name="format"/> with the provided <paramref name="args"/> only if 
+            the format is non-null and non-empty, and there are <paramref name="args"/> to format with.
+            </summary>
+            <param name="format">String to Format</param>
+            <param name="args">Format Args</param>
+            <returns>The formatted string, or <paramref name="format"/> if there is nothing to format</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Trace(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Trace message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Trace(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Trace message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.TraceException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Trace <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.TraceException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Trace <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsTraceEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Trace is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Debug(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Debug message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Debug(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Debug message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.DebugException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Debug <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.DebugException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Debug <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsDebugEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Debug is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Info(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Info message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Info(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Info message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.InfoException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Info <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.InfoException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Info <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsInfoEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Info is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Warn(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Warn message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Warn(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Warn message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.WarnException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Warn <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.WarnException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Warn <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsWarnEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Warn is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Error(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Error message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Error(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Error message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.ErrorException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Error <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.ErrorException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Error <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsErrorEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Error is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Fatal(Acrotech.PortableLogAdapter.ILogger,System.String,System.Object[])">
+            <summary>
+            Log a Fatal message by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.Fatal(Acrotech.PortableLogAdapter.ILogger,System.Func{System.String})">
+            <summary>
+            Log a Fatal message by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.FatalException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a Fatal <see cref="T:System.Exception"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.FatalException(Acrotech.PortableLogAdapter.ILogger,System.Exception,System.Func{System.String})">
+            <summary>
+            Log a Fatal <see cref="T:System.Exception"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="logger">Source Logger</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsFatalEnabled(Acrotech.PortableLogAdapter.ILogger)">
+            <summary>
+            Check if Fatal is enabled for this logger
+            </summary>
+            <param name="logger">Source Logger</param>
+            <returns>True if the level is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetLoggerName(System.Type)">
+            <summary>
+            Simplify translation of a <see cref="T:System.Type"/> to a logger name
+            </summary>
+            <param name="source">Source Type</param>
+            <returns>Name of the logger based on the provided <paramref name="source"/></returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetLogger(Acrotech.PortableLogAdapter.ILogManager)">
+            <summary>
+            Create a logger without a name (uses an empty string instead)
+            </summary>
+            <param name="source">Source Log Manager</param>
+            <returns>A logger with an empty name</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetLogger(Acrotech.PortableLogAdapter.ILogManager,System.Object)">
+            <summary>
+            Create a logger for a object instance (uses the object instance type for name translation)
+            </summary>
+            <param name="source">Source Log Manager</param>
+            <param name="target">Object instance</param>
+            <returns>Logger with <paramref name="target"/> used for name translation</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetLogger(Acrotech.PortableLogAdapter.ILogManager,System.Type)">
+            <summary>
+            Create a logger using a specified type for name translation
+            </summary>
+            <param name="source">Source Log Manager</param>
+            <param name="type">Type for name translation</param>
+            <returns>Logger with <paramref name="type"/> used for name translation</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetLogger``1(Acrotech.PortableLogAdapter.ILogManager)">
+            <summary>
+            Create a logger using a specified generic type for name translation
+            </summary>
+            <typeparam name="T">Type for name translation</typeparam>
+            <param name="source">Source Log Manager</param>
+            <returns>Logger with <typeparamref name="T"/> used for name translation</returns>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetAllLogLevels(Acrotech.PortableLogAdapter.ILogManager)">
+            <summary>
+            Returns all valid log levels that can be used to log a message
+            </summary>
+            <param name="source">Log manager</param>
+            <returns>All valid log levels</returns>
+            <remarks>Returns all LogLevel enum values except Off</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.GetAllLogLevels">
+            <summary>
+            Returns all valid log levels that can be used to log a message
+            </summary>
+            <returns>All valid log levels</returns>
+            <remarks>Returns all LogLevel enum values except Off</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ExtensionMethods.IsEnabledFor(Acrotech.PortableLogAdapter.LogLevel,Acrotech.PortableLogAdapter.LogLevel)">
+            <summary>
+            Checks if <paramref name="source"/> level is enabled under <paramref name="level"/>
+            </summary>
+            <param name="source">LogLevel to check</param>
+            <param name="level">LogLevel to check against</param>
+            <returns>true if <paramref name="source"/> is enabled under <paramref name="level"/>, false otherwise</returns>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.Loggers.DelegateLogger">
+            <summary>
+            Simple logger that forwards all log calls to the provided delegate action
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.#ctor(System.String,Acrotech.PortableLogAdapter.LogLevel,System.Action{Acrotech.PortableLogAdapter.ILogger,System.String})">
+            <summary>
+            Creates a simple name and delegate based delegate logger
+            </summary>
+            <param name="name">Logger name</param>
+            <param name="level">Log level</param>
+            <param name="delegateAction">Logger delegate action</param>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.Func{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.Func{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Loggers.DelegateLogger.LogLevel">
+            <inheritdoc/>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.Loggers.NullLogger">
+            <summary>
+            Null Logger simply ignores all log calls.
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Loggers.NullLogger.LoggerName">
+            <summary>
+            Null Logger Name
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Loggers.NullLogger.Default">
+            <summary>
+            Default (and only available) Null Logger Instance
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Loggers.NullLogger.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.NullLogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.String,System.Object[])">
+            <inheritdoc/>
+            <remarks>This will not log anything</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.NullLogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.Func{System.String})">
+            <inheritdoc/>
+            <remarks>This will not log anything</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.NullLogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.String,System.Object[])">
+            <inheritdoc/>
+            <remarks>This will not log anything</remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Loggers.NullLogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.Func{System.String})">
+            <inheritdoc/>
+            <remarks>This will not log anything</remarks>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Loggers.NullLogger.LogLevel">
+            <inheritdoc/>
+            <remarks>Always returns Off</remarks>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.ILogger">
+            <summary>
+            Interface for a custom logger
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.ILogger.Name">
+            <summary>
+            Logger Name
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ILogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.String,System.Object[])">
+            <summary>
+            Log a message at <paramref name="level"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="level">Log Level</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ILogger.Log(Acrotech.PortableLogAdapter.LogLevel,System.Func{System.String})">
+            <summary>
+            Log a message at <paramref name="level"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="level">Log Level</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ILogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.String,System.Object[])">
+            <summary>
+            Log an <see cref="T:System.Exception"/> at <paramref name="level"/> by formatting the format parameter with the args parameter
+            </summary>
+            <param name="level">Log Level</param>
+            <param name="exception">Exception</param>
+            <param name="format">Message Format</param>
+            <param name="args">Message Format Args</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ILogger.LogException(Acrotech.PortableLogAdapter.LogLevel,System.Exception,System.Func{System.String})">
+            <summary>
+            Log an <see cref="T:System.Exception"/> at <paramref name="level"/> by executing the <paramref name="messageCreator"/> delegate only if the message will be logged
+            </summary>
+            <param name="level">Log Level</param>
+            <param name="exception">Exception</param>
+            <param name="messageCreator">Message Creator Delegate</param>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.ILogger.LogLevel">
+            <summary>
+            returns the current log level
+            </summary>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.ILogManager">
+            <summary>
+            Interface for a custom log manager
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.ILogManager.GetLogger(System.String)">
+            <summary>
+            Produces a logger using the <paramref name="name"/> provided
+            </summary>
+            <param name="name">Name to supply the logger with</param>
+            <returns>A logger</returns>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.Managers.DelegateLogManager">
+            <summary>
+            Delegate Log Manager creates a <see cref="T:Acrotech.PortableLogAdapter.Loggers.DelegateLogger"/> that writes to the configured logging delegate
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Managers.DelegateLogManager.#ctor(System.Action{Acrotech.PortableLogAdapter.ILogger,System.String})">
+            <summary>
+            Create a new delegate log manager
+            </summary>
+            <param name="delegateAction">Logging delegate</param>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Managers.DelegateLogManager.#ctor(System.Action{Acrotech.PortableLogAdapter.ILogger,System.String},Acrotech.PortableLogAdapter.LogLevel)">
+            <summary>
+            Create a new delegate log manager
+            </summary>
+            <param name="delegateAction">Logging delegate</param>
+            <param name="defaultLevel">Default logger level (defaults to Trace)</param>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Managers.DelegateLogManager.DefaultLevel">
+            <summary>
+            Logging level used when creating loggers
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Managers.DelegateLogManager.GetLogger(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.Managers.NullLogManager">
+            <summary>
+            Null Log Manager always returns the default Null Logger.
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Managers.NullLogManager.Default">
+            <summary>
+            Default Null Log Manager Instance
+            </summary>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Managers.NullLogManager.GetLogger(System.String)">
+            <inheritdoc/>
+            <remarks>Always returns the default debug logger instance</remarks>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.Properties.VersionDetails">
+            <summary>
+            This class privides version and build details that follow the SemVer conventions
+            </summary>
+            <remarks>see http://semver.org/ for more details</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.Major">
+            <summary>
+            Major version number (1)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.Minor">
+            <summary>
+            Minor version number (1)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.Patch">
+            <summary>
+            Patch version number (2)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.Branch">
+            <summary>
+            Branch used to build this assembly (master)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.Commit">
+            <summary>
+            Commit ID used to build this assembly (47231ebd2ce3747e35622fa423768d1314a167cd)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildNumber">
+            <summary>
+            Number (counter) associated with the build (3)
+            </summary>
+            <remarks>This is set to 0 by default</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildTag">
+            <summary>
+            Tag associated with the build ()
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.TagName">
+            <summary>
+            Name of the Tag (excludes MetaData) ()
+            </summary>
+            <remarks>This is set to MANUAL by default</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildMetaData">
+            <summary>
+            Metadata associated with the build ()
+            </summary>
+            <remarks>This can be any text data provided by the build</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildUtcTicks">
+            <summary>
+            (Timestamp) Ticks at build time (635697278555069114)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.ShortVersionString">
+            <summary>
+            Short Version (1.1.2)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.LongVersionString">
+            <summary>
+            Long Version (1.1.2-master.3)
+            </summary>
+            <remarks>A master build will use the branch name instead of the TagName</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.AssemblyVersionString">
+            <summary>
+            Assembly Version (1.1.2.3)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.NuGetVersionString">
+            <summary>
+            NuGet Version with 0-Padded Build Number (1.1.2)
+            </summary>
+            <remarks>This is the Short version for Master builds</remarks>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.FullSemanticVersionString">
+            <summary>
+            Full Semantic Version (1.1.2)
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.MasterBranchName">
+            <summary>
+            The main/primary branch name
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.IsMasterBuild">
+            <summary>
+            True if built on the master branch, false otherwise
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.IsVersionPropertiesValid">
+            <summary>
+            True if version properties contains valid data, false otherwise
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.IsBuildPropertiesValid">
+            <summary>
+            True if build properties contains valid data, false otherwise
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.IsVersionDetailsValid">
+            <summary>
+            True if version and build properties contain valid data, false otherwise
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.Properties.VersionDetails.IsDebugBuild">
+            <summary>
+            True if built in debug mode, false otherwise
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Properties.VersionDetails.Version">
+            <summary>
+            Version representation of the ShortVersion
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Properties.VersionDetails.DisplayVersionString">
+            <summary>
+            Displays ShortVersion when built on the master branch, otherwise LongVersion
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildTimestamp">
+            <summary>
+            Build timestamp as a DateTimeOffset representation of the BuildUtcTicks
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Properties.VersionDetails.ShortCommit">
+            <summary>
+            The first 7 characters of the Commit (standard git convention)
+            </summary>
+        </member>
+        <member name="P:Acrotech.PortableLogAdapter.Properties.VersionDetails.BuildCode">
+            <summary>
+            Unique build code composed of the BuildTimestamp and ShortCommit
+            </summary>
+            <remarks>
+            Format is yyDOY.HHmmss[-ShortCommit] 
+            * DOY is day of year
+            * ShortCommit only included if present
+            </remarks>
+        </member>
+        <member name="M:Acrotech.PortableLogAdapter.Properties.VersionDetails.GenerateBuildCode(System.DateTimeOffset,System.String,System.String)">
+            <summary>
+            Generates the build code using the provided timestamp and commit (or tag if commit is empty)
+            </summary>
+            <param name="timestamp">Build timestamp</param>
+            <param name="shortCommit">Build commit ID</param>
+            <param name="tagName">Build tag name</param>
+            <returns>A build code string</returns>
+        </member>
+        <member name="T:Acrotech.PortableLogAdapter.LogLevel">
+            <summary>
+            Log Levels
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Trace">
+            <summary>
+            For very detailed log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Debug">
+            <summary>
+            For diagnostic log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Info">
+            <summary>
+            For informational log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Warn">
+            <summary>
+            For warning log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Error">
+            <summary>
+            For error log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Fatal">
+            <summary>
+            For critical failure log messages
+            </summary>
+        </member>
+        <member name="F:Acrotech.PortableLogAdapter.LogLevel.Off">
+            <summary>
+            Disable logging
+            </summary>
+        </member>
+    </members>
+</doc>

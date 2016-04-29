@@ -1,0 +1,5 @@
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Forms\bin\Debug\MapsforgeSharpe.Forms.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Forms\bin\Debug\MapsforgeSharpe.Forms.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Forms\obj\Debug\MapsforgeSharpe.Forms.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Forms\obj\Debug\MapsforgeSharpe.Forms.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Forms\obj\Debug\MapsforgeSharpe.Forms.pdb

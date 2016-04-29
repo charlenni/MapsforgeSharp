@@ -1,0 +1,13 @@
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\MapsforgeSharp.Reader.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\MapsforgeSharp.Reader.pdb
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\Acrotech.PortableLogAdapter.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\MapsforgeSharp.Core.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\PCLStorage.Abstractions.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\PCLStorage.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\MapsforgeSharp.Core.pdb
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\Acrotech.PortableLogAdapter.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\PCLStorage.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\bin\Debug\PCLStorage.Abstractions.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\obj\Debug\MapsforgeSharp.Reader.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\obj\Debug\MapsforgeSharp.Reader.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Reader\obj\Debug\MapsforgeSharp.Reader.pdb
