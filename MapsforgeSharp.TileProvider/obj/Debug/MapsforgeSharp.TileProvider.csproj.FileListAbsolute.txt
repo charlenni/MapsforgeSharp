@@ -1,0 +1,17 @@
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\obj\Debug\MapsforgeSharp.TileProvider.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.TileProvider.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.TileProvider.pdb
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\Acrotech.PortableLogAdapter.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.Core.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.Reader.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\PCLStorage.Abstractions.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\PCLStorage.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\SkiaSharp.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.Core.pdb
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\MapsforgeSharp.Reader.pdb
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\Acrotech.PortableLogAdapter.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\PCLStorage.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\PCLStorage.Abstractions.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\bin\Debug\SkiaSharp.xml
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\obj\Debug\MapsforgeSharp.TileProvider.dll
+C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.TileProvider\obj\Debug\MapsforgeSharp.TileProvider.pdb

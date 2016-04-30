@@ -1,0 +1,13 @@
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\obj\Debug\MapsforgeSharpe.Core.Test.csprojResolveAssemblyReference.cache
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\MapsforgeSharpe.Core.Test.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\MapsforgeSharpe.Core.Test.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\MapsforgeSharpe.Core.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\nunit.framework.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\PCLStorage.Abstractions.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\PCLStorage.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\MapsforgeSharpe.Core.pdb
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\nunit.framework.xml
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\PCLStorage.xml
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\bin\Debug\PCLStorage.Abstractions.xml
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\obj\Debug\MapsforgeSharpe.Core.Test.dll
+C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Core.Test\obj\Debug\MapsforgeSharpe.Core.Test.pdb

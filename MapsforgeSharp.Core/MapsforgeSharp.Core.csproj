@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D141D385-2C78-482F-BFFF-DFA66F05E0BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MapsforgeSharp.Core</RootNamespace>
+    <AssemblyName>MapsforgeSharp.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="datastore\MapDataStore.cs" />
+    <Compile Include="datastore\MapReadResult.cs" />
+    <Compile Include="datastore\MultiMapDataStore.cs" />
+    <Compile Include="datastore\PointOfInterest.cs" />
+    <Compile Include="datastore\PoiWayBundle.cs" />
+    <Compile Include="datastore\StringHelperClass.cs" />
+    <Compile Include="datastore\Way.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="graphics\Align.cs" />
+    <Compile Include="graphics\Bitmap.cs" />
+    <Compile Include="graphics\Canvas.cs" />
+    <Compile Include="graphics\Cap.cs" />
+    <Compile Include="graphics\Color.cs" />
+    <Compile Include="graphics\CorruptedInputStreamException.cs" />
+    <Compile Include="graphics\Display.cs" />
+    <Compile Include="graphics\FillRule.cs" />
+    <Compile Include="graphics\FontFamily.cs" />
+    <Compile Include="graphics\FontStyle.cs" />
+    <Compile Include="graphics\GraphicContext.cs" />
+    <Compile Include="graphics\GraphicFactory.cs" />
+    <Compile Include="graphics\GraphicUtils.cs" />
+    <Compile Include="graphics\Join.cs" />
+    <Compile Include="graphics\Matrix.cs" />
+    <Compile Include="graphics\Paint.cs" />
+    <Compile Include="graphics\Path.cs" />
+    <Compile Include="graphics\Position.cs" />
+    <Compile Include="graphics\ResourceBitmap.cs" />
+    <Compile Include="graphics\Style.cs" />
+    <Compile Include="graphics\TileBitmap.cs" />
+    <Compile Include="mapelements\MapElementContainer.cs" />
+    <Compile Include="mapelements\PointTextContainer.cs" />
+    <Compile Include="mapelements\SymbolContainer.cs" />
+    <Compile Include="mapelements\WayTextContainer.cs" />
+    <Compile Include="model\BoundingBox.cs" />
+    <Compile Include="model\Dimension.cs" />
+    <Compile Include="model\LatLong.cs" />
+    <Compile Include="model\LineSegment.cs" />
+    <Compile Include="model\MapPosition.cs" />
+    <Compile Include="model\Point.cs" />
+    <Compile Include="model\Rectangle.cs" />
+    <Compile Include="model\Tag.cs" />
+    <Compile Include="model\Tile.cs" />
+    <Compile Include="util\CopyOnWriteArrayList.cs" />
+    <Compile Include="util\LatLongUtils.cs" />
+    <Compile Include="util\LinkedHashSet.cs" />
+    <Compile Include="util\LRUCache.cs" />
+    <Compile Include="util\MercatorProjection.cs" />
+    <Compile Include="util\WorkingSetCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Acrotech.PortableLogAdapter, Version=1.1.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acrotech.PortableLogAdapter.1.1.2\lib\portable-net45+sl50+win+wpa81+wp80\Acrotech.PortableLogAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
