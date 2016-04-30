@@ -27,6 +27,7 @@ namespace org.mapsforge.map.rendertheme
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using System.Reflection;
     using PCLStorage;
+    using SkiaSharp;
     public sealed class XmlUtils
 	{
 		public static bool supportOlderRenderThemes = true;
@@ -111,24 +112,38 @@ namespace org.mapsforge.map.rendertheme
 		/// <summary>
 		/// Supported formats are {@code #RRGGBB} and {@code #AARRGGBB}.
 		/// </summary>
-		public static int GetColor(string colorString)
+		public static SKColor GetColor(string colorString)
 		{
+            byte alpha = 255;
+            byte red;
+            byte green;
+            byte blue;
+
 			if (colorString.Length == 0 || colorString[0] != '#')
 			{
 				throw new System.ArgumentException(UNSUPPORTED_COLOR_FORMAT + colorString);
 			}
 			else if (colorString.Length == 7)
 			{
-				return 255 >> 24 & int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
+                var rgb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
+                red = (byte)(rgb >> 16 & 0xff);
+                green = (byte)(rgb >> 8 & 0xff);
+                blue = (byte)(rgb & 0xff);
 			}
 			else if (colorString.Length == 9)
 			{
-				return int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
+                var argb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
+                alpha = (byte)(argb >> 24 & 0xff);
+                red = (byte)(argb >> 16 & 0xff);
+                green = (byte)(argb >> 8 & 0xff);
+                blue = (byte)(argb & 0xff);
             }
-			else
+            else
 			{
 				throw new System.ArgumentException(UNSUPPORTED_COLOR_FORMAT + colorString);
 			}
+
+            return new SKColor(red, green, blue, alpha);
 		}
 
         public static sbyte ParseNonNegativeByte(string name, string value)

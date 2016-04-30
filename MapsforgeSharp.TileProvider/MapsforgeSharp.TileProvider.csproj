@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="graphics\SkiaBitmap.cs" />
     <Compile Include="graphics\SkiaGraphicFactory.cs" />
+    <Compile Include="graphics\SkiaPaint.cs" />
     <Compile Include="layer\cache\FileSystemTileCache.cs" />
     <Compile Include="layer\cache\FileWorkingSetCache.cs" />
     <Compile Include="layer\cache\ImageFileNameFilter.cs" />

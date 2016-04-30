@@ -22,9 +22,17 @@ namespace org.mapsforge.provider.graphics
     using System.Text;
     using System.Threading.Tasks;
     using core.model;
+    using SkiaSharp;
 
     public class SkiaPaint : Paint
     {
+        readonly SKPaint skPaint;
+
+        public SkiaPaint(Paint paint)
+        {
+            skPaint = new SKPaint();
+        }
+
         public Bitmap BitmapShader
         {
             set

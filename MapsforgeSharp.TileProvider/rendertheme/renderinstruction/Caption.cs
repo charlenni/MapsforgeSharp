@@ -20,6 +20,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 {
     using System.Collections.Generic;
     using System.Xml;
+    using SkiaSharp;
 
     using Align = org.mapsforge.core.graphics.Align;
     using Bitmap = org.mapsforge.core.graphics.Bitmap;
@@ -28,13 +29,12 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using FontFamily = org.mapsforge.core.graphics.FontFamily;
     using FontStyle = org.mapsforge.core.graphics.FontStyle;
     using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using Paint = org.mapsforge.core.graphics.Paint;
     using Position = org.mapsforge.core.graphics.Position;
     using Style = org.mapsforge.core.graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-
+    using System;
     /// <summary>
     /// Represents a text label on the map.
     /// 
@@ -51,15 +51,15 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private float dy;
 		private readonly IDictionary<sbyte?, float?> dyScaled;
 
-		private readonly Paint fill;
-		private readonly IDictionary<sbyte?, Paint> fills;
+		private readonly SKPaint fill;
+		private readonly IDictionary<sbyte?, SKPaint> fills;
 
 		private float fontSize;
 		private readonly float gap;
 		private readonly int maxTextWidth;
 		private int priority;
-		private readonly Paint stroke;
-		private readonly IDictionary<sbyte?, Paint> strokes;
+		private readonly SKPaint stroke;
+		private readonly IDictionary<sbyte?, SKPaint> strokes;
 
 		private TextKey textKey;
 		public const float DEFAULT_GAP = 5f;
@@ -68,15 +68,15 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public Caption(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, IDictionary<string, Symbol> symbols) : base(graphicFactory, displayModel)
 		{
-			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.BLACK;
-			this.fill.Style = Style.FILL;
-			this.fills = new Dictionary<sbyte?, Paint>();
+			this.fill = new SKPaint();
+			this.fill.Color = SKColors.Black;
+			this.fill.IsStroke = false;
+			this.fills = new Dictionary<sbyte?, SKPaint>();
 
-			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.BLACK;
-			this.stroke.Style = Style.STROKE;
-			this.strokes = new Dictionary<sbyte?, Paint>();
+			this.stroke = new SKPaint();
+			this.stroke.Color = SKColors.Black;
+			this.stroke.IsStroke = true;
+			this.strokes = new Dictionary<sbyte?, SKPaint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 
 
@@ -109,18 +109,18 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
             }
             else if (this.position == Position.CENTER || this.position == Position.BELOW || this.position == Position.ABOVE)
             {
-                this.stroke.TextAlign = Align.CENTER;
-                this.fill.TextAlign = Align.CENTER;
+                this.stroke.TextAlign = SKTextAlign.Center;
+                this.fill.TextAlign = SKTextAlign.Center;
             }
             else if (this.position == Position.BELOW_LEFT || this.position == Position.ABOVE_LEFT || this.position == Position.LEFT)
             {
-                this.stroke.TextAlign = Align.RIGHT;
-                this.fill.TextAlign = Align.RIGHT;
+                this.stroke.TextAlign = SKTextAlign.Right;
+                this.fill.TextAlign = SKTextAlign.Right;
             }
             else if (this.position == Position.BELOW_RIGHT || this.position == Position.ABOVE_RIGHT || this.position == Position.RIGHT)
             {
-                this.stroke.TextAlign = Align.LEFT;
-                this.fill.TextAlign = Align.LEFT;
+                this.stroke.TextAlign = SKTextAlign.Left;
+                this.fill.TextAlign = SKTextAlign.Left;
             }
             else {
                 throw new System.ArgumentException("Position invalid");
@@ -194,11 +194,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public override void ScaleTextSize(float scaleFactor, sbyte zoomLevel)
 		{
-			Paint f = graphicFactory.CreatePaint(this.fill);
+			SKPaint f = graphicFactory.CreatePaint(this.fill);
 			f.TextSize = this.fontSize * scaleFactor;
 			this.fills[zoomLevel] = f;
 
-			Paint s = graphicFactory.CreatePaint(this.stroke);
+			SKPaint s = graphicFactory.CreatePaint(this.stroke);
 			s.TextSize = this.fontSize * scaleFactor;
 			this.strokes[zoomLevel] = s;
 
@@ -238,8 +238,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
         private void ExtractValues(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
 		{
-			FontFamily fontFamily = FontFamily.DEFAULT;
-			FontStyle fontStyle = FontStyle.NORMAL;
+			string fontFamily = null;
+			SKTypefaceStyle fontStyle = SKTypefaceStyle.Normal;
 
 			for (int i = 0; i < reader.AttributeCount; ++i)
 			{
@@ -270,11 +270,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (FONT_FAMILY.Equals(name))
 				{
-					fontFamily = FontFamily.FromString(value);
+					fontFamily = value;
 				}
 				else if (FONT_STYLE.Equals(name))
 				{
-					fontStyle = FontStyle.FromString(value);
+                    if (!Enum.TryParse<SKTypefaceStyle>(value, true, out fontStyle))
+                    {
+                        throw new System.ArgumentException("Invalid value for FontStyle: " + value);
+                    }
 				}
 				else if (FONT_SIZE.Equals(name))
 				{
@@ -282,7 +285,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (FILL.Equals(name))
 				{
-					this.fill.Color = (Color)XmlUtils.GetColor(value);
+					this.fill.Color = XmlUtils.GetColor(value);
 				}
 				else if (PRIORITY.Equals(name))
 				{
@@ -290,7 +293,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (STROKE.Equals(name))
 				{
-					this.stroke.Color = (Color)XmlUtils.GetColor(value);
+					this.stroke.Color = XmlUtils.GetColor(value);
 				}
 				else if (STROKE_WIDTH.Equals(name))
 				{
@@ -306,15 +309,15 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 			}
 
-			this.fill.SetTypeface(fontFamily, fontStyle);
-			this.stroke.SetTypeface(fontFamily, fontStyle);
+            this.fill.Typeface = SKTypeface.FromFamilyName(fontFamily, fontStyle);
+			this.stroke.Typeface = SKTypeface.FromFamilyName(fontFamily, fontStyle);
 
-			XmlUtils.CheckMandatoryAttribute(elementName, K, this.textKey);
+            XmlUtils.CheckMandatoryAttribute(elementName, K, this.textKey);
 		}
 
-		private Paint getFillPaint(sbyte zoomLevel)
+		private SKPaint getFillPaint(sbyte zoomLevel)
 		{
-			Paint paint = fills[zoomLevel];
+			SKPaint paint = fills[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.fill;
@@ -322,9 +325,9 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			return paint;
 		}
 
-		private Paint getStrokePaint(sbyte zoomLevel)
+		private SKPaint getStrokePaint(sbyte zoomLevel)
 		{
-			Paint paint = strokes[zoomLevel];
+			SKPaint paint = strokes[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.stroke;
