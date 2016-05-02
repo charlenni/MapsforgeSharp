@@ -20,6 +20,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 {
     using System.Collections.Generic;
     using System.Xml;
+    using System.IO;
+    using core.graphics;
 
     using Bitmap = org.mapsforge.core.graphics.Bitmap;
     using Cap = org.mapsforge.core.graphics.Cap;
@@ -30,20 +32,20 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-    using System.IO;
-    using SkiaSharp;    /// <summary>
-                        /// Represents a closed polygon on the map.
-                        /// </summary>
+
+    /// <summary>
+    /// Represents a closed polygon on the map.
+    /// </summary>
     public class Area : RenderInstruction
 	{
 		private bool bitmapInvalid;
-		private readonly SKPaint fill;
+		private readonly Paint fill;
 		private readonly int level;
 		private readonly string relativePathPrefix;
 		private Bitmap shaderBitmap;
 		private string src;
-		private readonly SKPaint stroke;
-		private readonly IDictionary<sbyte?, SKPaint> strokes;
+		private readonly Paint stroke;
+		private readonly IDictionary<sbyte?, Paint> strokes;
 		private float strokeWidth;
 
 		public Area(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level, string relativePathPrefix) : base(graphicFactory, displayModel)
@@ -51,17 +53,17 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.level = level;
 			this.relativePathPrefix = relativePathPrefix;
 
-			this.fill = new SKPaint();
-			this.fill.Color = SKColors.Transparent;
-			this.fill.IsStroke = false;
-			this.fill.StrokeCap = SKStrokeCap.Round;
+			this.fill = graphicFactory.CreatePaint();
+			this.fill.Color = Color.TRANSPARENT.ToARGB();
+			this.fill.Style = Style.FILL;
+			this.fill.StrokeCap = Cap.ROUND;
 
-			this.stroke = new SKPaint();
-			this.stroke.Color = SKColors.Transparent;
-			this.stroke.IsStroke = true;
-			this.stroke.StrokeCap = SKStrokeCap.Round;
+			this.stroke = graphicFactory.CreatePaint();
+			this.stroke.Color = Color.TRANSPARENT.ToARGB();
+			this.stroke.Style = Style.STROKE;
+			this.stroke.StrokeCap = Cap.ROUND;
 
-			this.strokes = new Dictionary<sbyte?, SKPaint>();
+			this.strokes = new Dictionary<sbyte?, Paint>();
 
 			ExtractValues(elementName, reader);
 		}
@@ -134,7 +136,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			{
 				// this needs to be synchronized as we potentially set a shift in the shader and
 				// the shift is particular to the tile when rendered in multi-thread mode
-				SKPaint fillPaint = GetFillPaint(renderContext.rendererJob.tile.ZoomLevel);
+				Paint fillPaint = getFillPaint(renderContext.rendererJob.tile.ZoomLevel);
 				if (shaderBitmap == null && !bitmapInvalid)
 				{
 					try
@@ -154,7 +156,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 				fillPaint.BitmapShaderShift = way.Tile.Origin;
 
-				renderCallback.RenderArea(renderContext, fillPaint, GetStrokePaint(renderContext.rendererJob.tile.ZoomLevel), this.level, way);
+				renderCallback.RenderArea(renderContext, fillPaint, getStrokePaint(renderContext.rendererJob.tile.ZoomLevel), this.level, way);
 			}
 		}
 
@@ -162,7 +164,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			if (this.stroke != null)
 			{
-				var zlPaint = this.stroke;
+				Paint zlPaint = graphicFactory.CreatePaint(this.stroke);
 				zlPaint.StrokeWidth = this.strokeWidth * scaleFactor;
 				this.strokes[zoomLevel] = zlPaint;
 			}
@@ -173,14 +175,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			// do nothing
 		}
 
-		private SKPaint GetFillPaint(sbyte zoomLevel)
+		private Paint getFillPaint(sbyte zoomLevel)
 		{
 			return this.fill;
 		}
 
-		private SKPaint GetStrokePaint(sbyte zoomLevel)
+		private Paint getStrokePaint(sbyte zoomLevel)
 		{
-			var paint = strokes[zoomLevel];
+			Paint paint = strokes[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.stroke;

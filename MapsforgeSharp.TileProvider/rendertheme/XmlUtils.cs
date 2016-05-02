@@ -21,13 +21,15 @@ namespace org.mapsforge.map.rendertheme
     using System;
     using System.Text;
     using System.IO;
+    using System.Reflection;
+    using PCLStorage;
+    using SkiaSharp;
+    using core.graphics;
 
     using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
     using ResourceBitmap = org.mapsforge.core.graphics.ResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
-    using System.Reflection;
-    using PCLStorage;
-    using SkiaSharp;
+
     public sealed class XmlUtils
 	{
 		public static bool supportOlderRenderThemes = true;
@@ -112,12 +114,9 @@ namespace org.mapsforge.map.rendertheme
 		/// <summary>
 		/// Supported formats are {@code #RRGGBB} and {@code #AARRGGBB}.
 		/// </summary>
-		public static SKColor GetColor(string colorString)
+		public static int GetColor(string colorString)
 		{
-            byte alpha = 255;
-            byte red;
-            byte green;
-            byte blue;
+            int argb = 0;
 
 			if (colorString.Length == 0 || colorString[0] != '#')
 			{
@@ -126,24 +125,18 @@ namespace org.mapsforge.map.rendertheme
 			else if (colorString.Length == 7)
 			{
                 var rgb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
-                red = (byte)(rgb >> 16 & 0xff);
-                green = (byte)(rgb >> 8 & 0xff);
-                blue = (byte)(rgb & 0xff);
+                argb = 255 >> 24 & rgb;
 			}
 			else if (colorString.Length == 9)
 			{
-                var argb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
-                alpha = (byte)(argb >> 24 & 0xff);
-                red = (byte)(argb >> 16 & 0xff);
-                green = (byte)(argb >> 8 & 0xff);
-                blue = (byte)(argb & 0xff);
+                argb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
             }
             else
 			{
 				throw new System.ArgumentException(UNSUPPORTED_COLOR_FORMAT + colorString);
 			}
 
-            return new SKColor(red, green, blue, alpha);
+            return argb;
 		}
 
         public static sbyte ParseNonNegativeByte(string name, string value)

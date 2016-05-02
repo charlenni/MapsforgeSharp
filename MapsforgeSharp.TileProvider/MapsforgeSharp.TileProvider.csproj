@@ -35,6 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="graphics\SkiaBitmap.cs" />
+    <Compile Include="graphics\SkiaCanvas.cs" />
+    <Compile Include="graphics\SkiaExtensions.cs" />
     <Compile Include="graphics\SkiaGraphicFactory.cs" />
     <Compile Include="graphics\SkiaPaint.cs" />
     <Compile Include="layer\cache\FileSystemTileCache.cs" />

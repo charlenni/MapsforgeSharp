@@ -15,13 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace org.mapsforge.map.rendertheme.renderinstruction
 {
     using System.Collections.Generic;
     using System.Xml;
     using System.IO;
     using System;
+    using core.graphics;
 
     using Bitmap = org.mapsforge.core.graphics.Bitmap;
     using Cap = org.mapsforge.core.graphics.Cap;
@@ -59,7 +59,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.relativePathPrefix = relativePathPrefix;
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.BLACK;
+			this.stroke.Color = Color.BLACK.ToARGB();
 			this.stroke.Style = Style.STROKE;
 			this.stroke.StrokeCap = Cap.ROUND;
 			this.stroke.StrokeJoin = Join.ROUND;
@@ -151,7 +151,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (STROKE.Equals(name))
 				{
-					this.stroke.Color = (Color)XmlUtils.GetColor(value);
+					this.stroke.Color = XmlUtils.GetColor(value);
 				}
 				else if (STROKE_WIDTH.Equals(name))
 				{

@@ -30,7 +30,7 @@ namespace org.mapsforge.core.graphics
 		Bitmap BitmapShader {set;}
 		Point BitmapShaderShift {set;}
 
-        Color Color { get; set; }
+        int Color { get; set; }
 
 		float[] DashPathEffect {set;}
 

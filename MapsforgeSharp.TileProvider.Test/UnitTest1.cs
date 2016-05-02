@@ -26,11 +26,20 @@ namespace org.mapsforge.provider.test
     using map.rendertheme.rule;
     using map.rendertheme;
     using map.model;
+
     public class UnitTest1
     {
-        [Test()]
+        static void Main(string[] args)
+        {
+            var unit = new UnitTest1();
+            unit.ExecuteDatabaseRenderer();
+        }
+
+//        [Test()]
         public void ExecuteDatabaseRenderer()
         {
+            var filename = PortablePath.Combine(new string[] { "baden-wuerttemberg.map" });
+            var file = FileSystem.Current.LocalStorage.GetFileAsync(PortablePath.Combine(new string[] { "baden-wuerttemberg.map" })).Result;
             var mapFile = new MapFile(FileSystem.Current.LocalStorage.GetFileAsync(PortablePath.Combine(new string[] { "baden-wuerttemberg.map" })).Result);
             var graphicFactory = new SkiaGraphicFactory();
             var tileCache = new InMemoryTileCache(20);

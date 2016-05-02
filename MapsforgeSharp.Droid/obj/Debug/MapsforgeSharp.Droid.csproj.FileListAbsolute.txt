@@ -1,1 +1,0 @@
-C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Droid\obj\Debug\MapsforgeSharp.Droid.csprojResolveAssemblyReference.cache

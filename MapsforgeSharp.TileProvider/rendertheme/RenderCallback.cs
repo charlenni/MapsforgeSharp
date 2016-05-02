@@ -16,18 +16,17 @@
 
 namespace org.mapsforge.map.rendertheme
 {
-    using SkiaSharp;
+	using Bitmap = org.mapsforge.core.graphics.Bitmap;
+	using Display = org.mapsforge.core.graphics.Display;
+	using Position = org.mapsforge.core.graphics.Position;
+	using Paint = org.mapsforge.core.graphics.Paint;
+	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
+	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-    using Display = org.mapsforge.core.graphics.Display;
-    using Position = org.mapsforge.core.graphics.Position;
-    using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-
-    /// <summary>
-    /// Callback methods for rendering areas, ways and points of interest (POIs).
-    /// </summary>
-    public interface RenderCallback
+	/// <summary>
+	/// Callback methods for rendering areas, ways and points of interest (POIs).
+	/// </summary>
+	public interface RenderCallback
 	{
 		/// <summary>
 		/// Renders an area with the given parameters.
@@ -38,7 +37,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="stroke">
 		///            an optional paint for the area casing (may be null). </param>
 		/// <param name="level"> </param>
-		void RenderArea(RenderContext renderContext, SKPaint fill, SKPaint stroke, int level, PolylineContainer way);
+		void RenderArea(RenderContext renderContext, Paint fill, Paint stroke, int level, PolylineContainer way);
 
 		/// <summary>
 		/// Renders an area caption with the given text. </summary>
@@ -53,7 +52,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="position"> optional position (may be null) </param>
 		/// <param name="maxTextWidth"> maximum text width . </param>
 		/// <param name="way"> the way for the caption. </param>
-		 void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, SKPaint fill, SKPaint stroke, Position position, int maxTextWidth, PolylineContainer way);
+		 void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PolylineContainer way);
 
 		/// <summary>
 		/// Renders an area symbol with the given bitmap.
@@ -78,7 +77,7 @@ namespace org.mapsforge.map.rendertheme
 		///            an optional paint for the text casing (may be null). </param>
 		/// <param name="position">
 		///  </param>
-		void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, SKPaint fill, SKPaint stroke, Position position, int maxTextWidth, PointOfInterest poi);
+		void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PointOfInterest poi);
 
 		/// <summary>
 		/// Renders a point of interest circle with the given parameters.
@@ -91,7 +90,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="stroke">
 		///            an optional paint for the circle casing (may be null). </param>
 		/// <param name="level"> </param>
-		void RenderPointOfInterestCircle(RenderContext renderContext, float radius, SKPaint fill, SKPaint stroke, int level, PointOfInterest poi);
+		void RenderPointOfInterestCircle(RenderContext renderContext, float radius, Paint fill, Paint stroke, int level, PointOfInterest poi);
 
 		/// <summary>
 		/// Renders a point of interest symbol with the given bitmap.
@@ -109,7 +108,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="dy">
 		///            the offset of the way. </param>
 		/// <param name="level"> </param>
-		void RenderWay(RenderContext renderContext, SKPaint stroke, float dy, int level, PolylineContainer way);
+		void RenderWay(RenderContext renderContext, Paint stroke, float dy, int level, PolylineContainer way);
 
 		/// <summary>
 		/// Renders a way with the given symbol along the way path.
@@ -139,6 +138,6 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="fill">
 		///            the paint to be used for rendering the text. </param>
 		/// <param name="stroke"> </param>
-		void RenderWayText(RenderContext renderContext, Display display, int priority, string text, float dy, SKPaint fill, SKPaint stroke, PolylineContainer way);
+		void RenderWayText(RenderContext renderContext, Display display, int priority, string text, float dy, Paint fill, Paint stroke, PolylineContainer way);
 	}
 }

@@ -26,11 +26,22 @@ namespace org.mapsforge.provider.graphics
 
     public class SkiaPaint : Paint
     {
-        readonly SKPaint skPaint;
+        public SkiaPaint()
+        {
+            nativePaint = new SKPaint();
+        }
 
         public SkiaPaint(Paint paint)
         {
-            skPaint = new SKPaint();
+            // TODO
+            nativePaint = new SKPaint(); // new SKPaint(((SkiaPaint)paint).NativePaint);
+        }
+
+        private readonly SKPaint nativePaint;
+
+        public SKPaint NativePaint
+        {
+            get { return nativePaint; }
         }
 
         public Bitmap BitmapShader
@@ -49,16 +60,17 @@ namespace org.mapsforge.provider.graphics
             }
         }
 
-        public Color Color
+        public int Color
         {
             get
             {
-                throw new NotImplementedException();
+                var color = nativePaint.Color;
+                return color.Alpha << 24 & color.Red << 16 & color.Green << 8 & color.Blue;
             }
 
             set
             {
-                throw new NotImplementedException();
+                nativePaint.Color = new SKColor((byte)(value >> 16 & 0xff), (byte)(value >> 8 & 0xff), (byte)(value & 0xff), (byte)(value >> 24 & 0xff));
             }
         }
 
@@ -66,7 +78,7 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                // TODO: Set dash effect if it is availible in SkiaSharp
             }
         }
 
@@ -74,7 +86,18 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                if (value == Cap.BUTT)
+                {
+                    nativePaint.StrokeCap = SKStrokeCap.Butt;
+                }
+                if (value == Cap.ROUND)
+                {
+                    nativePaint.StrokeCap = SKStrokeCap.Round;
+                }
+                if (value == Cap.SQUARE)
+                {
+                    nativePaint.StrokeCap = SKStrokeCap.Square;
+                }
             }
         }
 
@@ -82,7 +105,18 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                if (value == Join.BEVEL)
+                {
+                    nativePaint.StrokeJoin = SKStrokeJoin.Bevel;
+                }
+                if (value == Join.MITER)
+                {
+                    nativePaint.StrokeJoin = SKStrokeJoin.Mitter;
+                }
+                if (value == Join.ROUND)
+                {
+                    nativePaint.StrokeJoin = SKStrokeJoin.Round;
+                }
             }
         }
 
@@ -90,7 +124,7 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                nativePaint.StrokeWidth = value;
             }
         }
 
@@ -98,7 +132,15 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                switch (value)
+                {
+                    case Style.FILL:
+                        nativePaint.IsStroke = false;
+                        break;
+                    case Style.STROKE:
+                        nativePaint.IsStroke = true;
+                        break;
+                }
             }
         }
 
@@ -106,7 +148,7 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                nativePaint.TextAlign = value.ToSkia();
             }
         }
 
@@ -114,7 +156,7 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+                nativePaint.TextSize = value;
             }
         }
 
@@ -138,7 +180,7 @@ namespace org.mapsforge.provider.graphics
 
         public void SetTypeface(FontFamily fontFamily, FontStyle fontStyle)
         {
-            throw new NotImplementedException();
+            nativePaint.Typeface = SKTypeface.FromFamilyName(fontFamily.ToString(), fontStyle.ToSkia());
         }
     }
 }

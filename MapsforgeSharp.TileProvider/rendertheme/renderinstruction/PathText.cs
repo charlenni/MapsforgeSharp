@@ -19,6 +19,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 {
     using System.Collections.Generic;
     using System.Xml;
+    using core.graphics;
 
     using Align = org.mapsforge.core.graphics.Align;
     using Color = org.mapsforge.core.graphics.Color;
@@ -52,13 +53,13 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		public PathText(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader) : base(graphicFactory, displayModel)
 		{
 			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.BLACK;
+			this.fill.Color = Color.BLACK.ToARGB();
 			this.fill.Style = Style.FILL;
 			this.fill.TextAlign = Align.CENTER;
 			this.fills = new Dictionary<sbyte?, Paint>();
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.BLACK;
+			this.stroke.Color = Color.BLACK.ToARGB();
 			this.stroke.Style = Style.STROKE;
 			this.stroke.TextAlign = Align.CENTER;
 			this.strokes = new Dictionary<sbyte?, Paint>();
@@ -156,7 +157,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (FILL.Equals(name))
 				{
-					this.fill.Color = (Color)XmlUtils.GetColor(value);
+					this.fill.Color = XmlUtils.GetColor(value);
 				}
 				else if (PRIORITY.Equals(name))
 				{
@@ -164,7 +165,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (STROKE.Equals(name))
 				{
-					this.stroke.Color = (Color)XmlUtils.GetColor(value);
+					this.stroke.Color = XmlUtils.GetColor(value);
 				}
 				else if (STROKE_WIDTH.Equals(name))
 				{

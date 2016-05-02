@@ -1,2 +1,0 @@
-C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Map\obj\Debug\MapsforgeSharpe.Map.csprojResolveAssemblyReference.cache
-C:\Entwicklung\MapsforgeSharpe\MapsforgeSharpe.Map\obj\Debug\MapsforgeSharpe.Map.csproj.App.config

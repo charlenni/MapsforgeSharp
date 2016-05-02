@@ -1,2 +1,0 @@
-C:\Entwicklung\MapsforgeSharp\MapsforgeSharp.Windows\MapsforgeSharp.Windows.csproj;neutral
-C:\Entwicklung\MapsforgeSharp\MapsforgeSharp\MapsforgeSharp.csproj;neutral

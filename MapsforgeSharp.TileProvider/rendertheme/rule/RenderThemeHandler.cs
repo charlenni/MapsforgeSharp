@@ -101,7 +101,14 @@ namespace org.mapsforge.map.rendertheme.rule
 			{
                 if (reader.NodeType == XmlNodeType.Element)
 				{
-					StartElement();
+                    var empty = reader.IsEmptyElement;
+
+                    StartElement();
+
+                    if (empty)
+                    {
+                        EndElement();
+                    }
 				}
 				else if (reader.NodeType == XmlNodeType.EndElement)
 				{

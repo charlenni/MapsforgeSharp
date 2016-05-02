@@ -38,18 +38,17 @@ namespace org.mapsforge.provider.graphics
 
         public Canvas CreateCanvas()
         {
-            throw new NotImplementedException();
+            return new SkiaCanvas();
         }
 
         public int CreateColor(int color)
         {
             return color; 
-            //return GetColor(color);
         }
 
         public int CreateColor(int alpha, int red, int green, int blue)
         {
-            throw new NotImplementedException();
+            return (int)(alpha << 24 & red << 16 & green << 8 & blue);
         }
 
         public Matrix CreateMatrix()
@@ -59,7 +58,7 @@ namespace org.mapsforge.provider.graphics
 
         public Paint CreatePaint()
         {
-            throw new NotImplementedException();
+            return new SkiaPaint();
         }
 
         public Paint CreatePaint(Paint paint)

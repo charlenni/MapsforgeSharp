@@ -20,6 +20,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using System;
     using System.Collections.Generic;
     using System.Xml;
+    using core.graphics;
 
     using Color = org.mapsforge.core.graphics.Color;
     using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
@@ -50,12 +51,12 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.level = level;
 
 			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.TRANSPARENT;
+			this.fill.Color = Color.TRANSPARENT.ToARGB();
 			this.fill.Style = Style.FILL;
 			this.fills = new Dictionary<sbyte?, Paint>();
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.TRANSPARENT;
+			this.stroke.Color = Color.TRANSPARENT.ToARGB();
 			this.stroke.Style = Style.STROKE;
 			this.strokes = new Dictionary<sbyte?, Paint>();
 			this.renderRadiusScaled = new Dictionary<sbyte?, float?>();
@@ -127,11 +128,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (FILL.Equals(name))
 				{
-					this.fill.Color = (Color)XmlUtils.GetColor(value);
+					this.fill.Color = XmlUtils.GetColor(value);
 				}
 				else if (STROKE.Equals(name))
 				{
-					this.stroke.Color = (Color)XmlUtils.GetColor(value);
+					this.stroke.Color = XmlUtils.GetColor(value);
 				}
 				else if (STROKE_WIDTH.Equals(name))
 				{
