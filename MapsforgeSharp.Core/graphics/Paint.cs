@@ -15,11 +15,14 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using MapsforgeSharp.Core.Graphics;
+
 namespace org.mapsforge.core.graphics
 {
-	using Point = org.mapsforge.core.model.Point;
+    
+    using Point = org.mapsforge.core.model.Point;
 
-	public interface Paint
+    public interface Paint
 	{
 		int GetTextHeight(string text);
 
