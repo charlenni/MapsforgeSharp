@@ -16,10 +16,6 @@
 namespace org.mapsforge.provider.graphics
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using SkiaSharp;
     using core.graphics;
     using core.model;
@@ -41,13 +37,20 @@ namespace org.mapsforge.provider.graphics
             nativeCanvas = canvas;
         }
 
+		public SkiaCanvas Canvas
+		{
+			get { return nativeCanvas; }
+		}
+
         public Bitmap Bitmap
         {
             set
             {
-                throw new NotImplementedException();
-            }
-        }
+				// TODO
+				//nativeCanvas.Bitmap = value;
+				throw new NotImplementedException();
+			}
+		}
 
         public Dimension Dimension
         {

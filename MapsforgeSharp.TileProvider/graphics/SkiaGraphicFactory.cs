@@ -53,7 +53,7 @@ namespace org.mapsforge.provider.graphics
 
         public Matrix CreateMatrix()
         {
-            throw new NotImplementedException();
+            return new SkiaMatrix();
         }
 
         public Paint CreatePaint()
@@ -63,12 +63,12 @@ namespace org.mapsforge.provider.graphics
 
         public Paint CreatePaint(Paint paint)
         {
-            throw new NotImplementedException();
+            return new SkiaPaint();
         }
 
         public org.mapsforge.core.graphics.Path CreatePath()
         {
-            throw new NotImplementedException();
+            return new SkiaPath();
         }
 
         public PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth)
@@ -83,7 +83,7 @@ namespace org.mapsforge.provider.graphics
 
         public TileBitmap CreateTileBitmap(int tileSize, bool isTransparent)
         {
-            throw new NotImplementedException();
+            return new SkiaTileBitmap(tileSize, isTransparent);
         }
 
         public TileBitmap CreateTileBitmap(Stream inputStream, int tileSize, bool isTransparent)

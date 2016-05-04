@@ -80,13 +80,13 @@ namespace org.mapsforge.map.util
 		/// <param name="input"> list of MapElements </param>
 		/// <returns> collision-free, ordered list, a subset of the input. </returns>
 
-		public static IList<MapElementContainer> CollisionFreeOrdered(IList<MapElementContainer> input)
+		public static ICollection<MapElementContainer> CollisionFreeOrdered(ICollection<MapElementContainer> input)
 		{
 			// sort items by priority (highest first)
 			input.OrderByDescending<MapElementContainer,int>((container) => container.Priority);
 			// in order of priority, see if an item can be drawn, i.e. none of the items
 			// in the currentItemsToDraw list clashes with it.
-			IList<MapElementContainer> output = (IList < MapElementContainer > )new LinkedList<MapElementContainer>();
+			ICollection<MapElementContainer> output = (ICollection<MapElementContainer>)new LinkedList<MapElementContainer>();
 			foreach (MapElementContainer item in input)
 			{
 				bool hasSpace = true;

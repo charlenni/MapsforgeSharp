@@ -21,8 +21,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using System.Collections.Generic;
     using System.Xml;
     using core.graphics;
+    using MapsforgeSharp.Core.Graphics;
 
-    using Align = org.mapsforge.core.graphics.Align;
     using Bitmap = org.mapsforge.core.graphics.Bitmap;
     using Color = org.mapsforge.core.graphics.Color;
     using Display = org.mapsforge.core.graphics.Display;
@@ -110,18 +110,18 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
             }
             else if (this.position == Position.CENTER || this.position == Position.BELOW || this.position == Position.ABOVE)
             {
-                this.stroke.TextAlign = Align.CENTER;
-                this.fill.TextAlign = Align.CENTER;
+                this.stroke.TextAlign = Align.Center;
+                this.fill.TextAlign = Align.Center;
             }
             else if (this.position == Position.BELOW_LEFT || this.position == Position.ABOVE_LEFT || this.position == Position.LEFT)
             {
-                this.stroke.TextAlign = Align.RIGHT;
-                this.fill.TextAlign = Align.RIGHT;
+                this.stroke.TextAlign = Align.Right;
+                this.fill.TextAlign = Align.Right;
             }
             else if (this.position == Position.BELOW_RIGHT || this.position == Position.ABOVE_RIGHT || this.position == Position.RIGHT)
             {
-                this.stroke.TextAlign = Align.LEFT;
-                this.fill.TextAlign = Align.LEFT;
+                this.stroke.TextAlign = Align.Left;
+                this.fill.TextAlign = Align.Left;
             }
             else {
                 throw new System.ArgumentException("Position invalid");

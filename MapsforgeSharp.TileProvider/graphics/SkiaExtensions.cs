@@ -16,6 +16,7 @@
 namespace org.mapsforge.provider.graphics
 {
     using SkiaSharp;
+    using MapsforgeSharp.Core.Graphics;
     using core.graphics;
 
     public static class SkiaExtensions
@@ -54,11 +55,11 @@ namespace org.mapsforge.provider.graphics
         {
             SKTextAlign result = SKTextAlign.Center;
 
-            if (align == Align.LEFT)
+            if (align == Align.Left)
             {
                 result = SKTextAlign.Left;
             }
-            if (align == Align.RIGHT)
+            if (align == Align.Right)
             {
                 result = SKTextAlign.Right;
             }

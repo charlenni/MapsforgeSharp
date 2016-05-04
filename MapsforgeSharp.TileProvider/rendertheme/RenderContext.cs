@@ -45,13 +45,13 @@ namespace org.mapsforge.map.rendertheme
 
 		// Data generated for the rendering process
 		private IList<IList<ShapePaintContainer>> drawingLayers;
-		public readonly IList<MapElementContainer> labels;
+		public readonly ICollection<MapElementContainer> labels;
 		public readonly IList<IList<IList<ShapePaintContainer>>> ways;
 
 		public RenderContext(RenderTheme renderTheme, RendererJob rendererJob, CanvasRasterer canvasRasterer)
 		{
 			this.rendererJob = rendererJob;
-			this.labels = (IList<MapElementContainer>) new LinkedList<MapElementContainer>();
+			this.labels = (ICollection<MapElementContainer>) new LinkedList<MapElementContainer>();
 			this.renderTheme = renderTheme;
 			this.canvasRasterer = canvasRasterer;
 			this.ways = CreateWayLists();

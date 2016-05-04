@@ -15,67 +15,66 @@
 
 namespace org.mapsforge.provider.graphics
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.IO;
+    using core.graphics;
     using SkiaSharp;
-    using org.mapsforge.core.graphics;
+    using System;
 
-    public class SkiaBitmap : Bitmap
+    public class SkiaPath : Path
     {
-        SKBitmap nativeBitmap;
+        private SKPath nativePath;
 
-        public SkiaBitmap(int width, int height)
+        public SkiaPath()
         {
-            nativeBitmap = new SKBitmap(width, height);
+            nativePath = new SKPath();
         }
 
-        public int BackgroundColor
+        public bool Empty
         {
-            set
+            get
             {
+                // TODO
+                //nativePath.IsEmpty;
                 throw new NotImplementedException();
             }
         }
 
-        public int Height
+        public FillRule FillRule
         {
-            get
+            set
             {
-                return nativeBitmap.Height;
+				//switch (value)
+				//{
+				//    case FillRule.EvenOdd:
+				//nativePath.FillType = SKFillType.EvenOdd;
+				//        break;
+				//    case FillRule.NonZero:
+				//        nativePath.FillType = SKFillType.Winding;
+				//        break;
+				//}
+				throw new NotImplementedException();
             }
         }
 
-        public int Width
+        public void Clear()
         {
-            get
-            {
-                return nativeBitmap.Width;
-            }
-        }
-
-        public void Compress(Stream outputStream)
-        {
+            // TODO
+            //nativePath.Rewind();
             throw new NotImplementedException();
         }
 
-        public void DecrementRefCount()
+        public void Close()
         {
-            throw new NotImplementedException();
+            nativePath.Close();
         }
 
-        public void IncrementRefCount()
+        public void LineTo(float x, float y)
         {
-            throw new NotImplementedException();
+            nativePath.LineTo(x, y);
         }
 
-        public void ScaleTo(int width, int height)
+        public void MoveTo(float x, float y)
         {
-
-            throw new NotImplementedException();
+            nativePath.MoveTo(x, y);
         }
     }
 }

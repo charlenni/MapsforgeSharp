@@ -20,8 +20,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using System.Collections.Generic;
     using System.Xml;
     using core.graphics;
+    using MapsforgeSharp.Core.Graphics;
 
-    using Align = org.mapsforge.core.graphics.Align;
     using Color = org.mapsforge.core.graphics.Color;
     using Display = org.mapsforge.core.graphics.Display;
     using FontFamily = org.mapsforge.core.graphics.FontFamily;
@@ -55,13 +55,13 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.fill = graphicFactory.CreatePaint();
 			this.fill.Color = Color.BLACK.ToARGB();
 			this.fill.Style = Style.FILL;
-			this.fill.TextAlign = Align.CENTER;
+			this.fill.TextAlign = Align.Center;
 			this.fills = new Dictionary<sbyte?, Paint>();
 
 			this.stroke = graphicFactory.CreatePaint();
 			this.stroke.Color = Color.BLACK.ToARGB();
 			this.stroke.Style = Style.STROKE;
-			this.stroke.TextAlign = Align.CENTER;
+			this.stroke.TextAlign = Align.Center;
 			this.strokes = new Dictionary<sbyte?, Paint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 			this.display = Display.IFSPACE;
