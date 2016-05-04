@@ -14,11 +14,12 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using MapsforgeSharp.Core.Graphics;
+
 namespace org.mapsforge.map.rendertheme
 {
 	using Bitmap = org.mapsforge.core.graphics.Bitmap;
 	using Display = org.mapsforge.core.graphics.Display;
-	using Position = org.mapsforge.core.graphics.Position;
 	using Paint = org.mapsforge.core.graphics.Paint;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;

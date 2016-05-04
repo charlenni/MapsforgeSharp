@@ -15,19 +15,19 @@
 
 namespace org.mapsforge.provider.test
 {
-    using NUnit.Framework;
-    using PCLStorage;
+	using NUnit.Framework;
+	using PCLStorage;
+	using MapsforgeSharp.TileProvider.Graphics;
 
-    using org.mapsforge.core.graphics;
-    using org.mapsforge.map.layer.renderer;
-    using org.mapsforge.reader;
-    using org.mapsforge.provider.graphics;
-    using org.mapsforge.map.layer.cache;
-    using map.rendertheme.rule;
-    using map.rendertheme;
-    using map.model;
+	using org.mapsforge.core.graphics;
+	using org.mapsforge.map.layer.renderer;
+	using org.mapsforge.reader;
+	using org.mapsforge.map.layer.cache;
+	using map.rendertheme.rule;
+	using map.rendertheme;
+	using map.model;
 
-    public class UnitTest1
+	public class UnitTest1
     {
         static void Main(string[] args)
         {

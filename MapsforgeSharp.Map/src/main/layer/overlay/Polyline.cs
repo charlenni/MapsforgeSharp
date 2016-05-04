@@ -101,7 +101,7 @@ namespace org.mapsforge.map.layer.overlay
         
 				if (this.keepAligned)
 				{
-					this.paintStroke.BitmapShaderShift = topLeftPoint;
+					this.paintStroke.SetBitmapShaderShift = topLeftPoint;
 				}
 				canvas.DrawPath(path, this.paintStroke);
 			}

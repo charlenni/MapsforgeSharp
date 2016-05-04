@@ -13,13 +13,13 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using SkiaSharp;
-    using MapsforgeSharp.Core.Graphics;
-    using core.graphics;
+	using SkiaSharp;
+	using MapsforgeSharp.Core.Graphics;
+	using org.mapsforge.core.graphics;
 
-    public static class SkiaExtensions
+	public static class SkiaExtensions
     {
         /// <summary>
         /// Convert Mapsforge FontStyle to Skia SKTypefaceStyle

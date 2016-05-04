@@ -13,7 +13,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
     using System;
     using System.Collections.Generic;
@@ -32,6 +32,11 @@ namespace org.mapsforge.provider.graphics
         {
             nativeBitmap = new SKBitmap(width, height);
         }
+
+		public SKBitmap NativeBitmap
+		{
+			get { return nativeBitmap;  }
+		}
 
         public int BackgroundColor
         {
@@ -74,7 +79,6 @@ namespace org.mapsforge.provider.graphics
 
         public void ScaleTo(int width, int height)
         {
-
             throw new NotImplementedException();
         }
     }

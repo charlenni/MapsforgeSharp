@@ -14,9 +14,9 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using org.mapsforge.core.graphics;
+	using org.mapsforge.core.graphics;
     using SkiaSharp;
     using System;
     using System.IO;
@@ -72,16 +72,18 @@ namespace org.mapsforge.provider.graphics
             }
         }
 
+		private long timestamp;
+
         public long Timestamp
         {
             get
             {
-                throw new NotImplementedException();
+				return timestamp;
             }
 
             set
             {
-                throw new NotImplementedException();
+				timestamp = value;
             }
         }
 

@@ -20,7 +20,7 @@ namespace org.mapsforge.core.graphics
 	using PointTextContainer = org.mapsforge.core.mapelements.PointTextContainer;
 	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
 	using Point = org.mapsforge.core.model.Point;
-
+	using MapsforgeSharp.Core.Graphics;
 	public interface GraphicFactory
 	{
 		Bitmap CreateBitmap(int width, int height);

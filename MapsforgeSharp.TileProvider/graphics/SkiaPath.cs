@@ -13,13 +13,13 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using core.graphics;
-    using SkiaSharp;
-    using System;
+	using org.mapsforge.core.graphics;
+	using SkiaSharp;
+	using System;
 
-    public class SkiaPath : Path
+	public class SkiaPath : Path
     {
         private SKPath nativePath;
 

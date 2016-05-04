@@ -30,7 +30,6 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using FontStyle = org.mapsforge.core.graphics.FontStyle;
     using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
     using Paint = org.mapsforge.core.graphics.Paint;
-    using Position = org.mapsforge.core.graphics.Position;
     using Style = org.mapsforge.core.graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -96,29 +95,29 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 			}
 
-            if (this.position == null)
+            if (this.position == Position.Auto)
             {
                 // sensible defaults: below if symbolContainer is present, center if not
                 if (this.bitmap == null)
                 {
-                    this.position = Position.CENTER;
+                    this.position = Position.Center;
                 }
                 else
                 {
-                    this.position = Position.BELOW;
+                    this.position = Position.Below;
                 }
             }
-            else if (this.position == Position.CENTER || this.position == Position.BELOW || this.position == Position.ABOVE)
+            else if (this.position == Position.Center || this.position == Position.Below || this.position == Position.Above)
             {
                 this.stroke.TextAlign = Align.Center;
                 this.fill.TextAlign = Align.Center;
             }
-            else if (this.position == Position.BELOW_LEFT || this.position == Position.ABOVE_LEFT || this.position == Position.LEFT)
+            else if (this.position == Position.BelowLeft || this.position == Position.AboveLeft || this.position == Position.Left)
             {
                 this.stroke.TextAlign = Align.Right;
                 this.fill.TextAlign = Align.Right;
             }
-            else if (this.position == Position.BELOW_RIGHT || this.position == Position.ABOVE_RIGHT || this.position == Position.RIGHT)
+            else if (this.position == Position.BelowRight || this.position == Position.AboveRight || this.position == Position.Right)
             {
                 this.stroke.TextAlign = Align.Left;
                 this.fill.TextAlign = Align.Left;
@@ -210,10 +209,10 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			// compute only the offset required by the bitmap, not the text size,
 			// because at this point we do not know the text boxing
-			if (Position.RIGHT == this.position || Position.LEFT == this.position || Position.BELOW_RIGHT == this.position || Position.BELOW_LEFT == this.position || Position.ABOVE_RIGHT == this.position || Position.ABOVE_LEFT == this.position)
+			if (Position.Right == this.position || Position.Left == this.position || Position.BelowRight == this.position || Position.BelowLeft == this.position || Position.AboveRight == this.position || Position.AboveLeft == this.position)
 			{
 				float horizontalOffset = this.bitmap.Width / 2f + this.gap;
-				if (Position.LEFT == this.position || Position.BELOW_LEFT == this.position || Position.ABOVE_LEFT == this.position)
+				if (Position.Left == this.position || Position.BelowLeft == this.position || Position.AboveLeft == this.position)
 				{
 					horizontalOffset *= -1f;
 				}
@@ -226,11 +225,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			float verticalOffset = this.dyScaled[zoomLevel].Value;
 
-			if (Position.ABOVE == this.position || Position.ABOVE_LEFT == this.position || Position.ABOVE_RIGHT == this.position)
+			if (Position.Above == this.position || Position.AboveLeft == this.position || Position.AboveRight == this.position)
 			{
 				verticalOffset -= this.bitmap.Height / 2f + this.gap;
 			}
-			else if (Position.BELOW == this.position || Position.BELOW_LEFT == this.position || Position.BELOW_RIGHT == this.position)
+			else if (Position.Below == this.position || Position.BelowLeft == this.position || Position.BelowRight == this.position)
 			{
 				verticalOffset += this.bitmap.Height / 2f + this.gap;
 			}
@@ -255,7 +254,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (POSITION.Equals(name))
 				{
-					this.position = Position.FromString(value);
+					this.position = value.ToPosition();
 				}
 				else if (CAT.Equals(name))
 				{

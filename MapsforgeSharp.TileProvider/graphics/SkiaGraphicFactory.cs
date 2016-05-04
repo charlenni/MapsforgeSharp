@@ -13,16 +13,18 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using System;
-    using org.mapsforge.core.mapelements;
-    using org.mapsforge.core.model;
-    using System.IO;
-    using org.mapsforge.core.graphics;
-    using System.Reflection;
-    using SkiaSharp;
-    public class SkiaGraphicFactory : GraphicFactory
+	using System;
+	using org.mapsforge.core.mapelements;
+	using org.mapsforge.core.model;
+	using System.IO;
+	using org.mapsforge.core.graphics;
+	using System.Reflection;
+	using SkiaSharp;
+	using MapsforgeSharp.Core.Graphics;
+
+	public class SkiaGraphicFactory : GraphicFactory
     {
         private static readonly string PREFIX_ASSETS = "assets:";
 
@@ -73,7 +75,7 @@ namespace org.mapsforge.provider.graphics
 
         public PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth)
         {
-            throw new NotImplementedException();
+			return new SkiaPointTextContainer(xy, display, priority, text, paintFront, paintBack, symbolContainer, position, maxTextWidth);
         }
 
         public ResourceBitmap CreateResourceBitmap(Stream inputStream, int hash)

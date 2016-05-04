@@ -19,7 +19,6 @@ using MapsforgeSharp.Core.Graphics;
 
 namespace org.mapsforge.core.graphics
 {
-    
     using Point = org.mapsforge.core.model.Point;
 
     public interface Paint
@@ -31,7 +30,7 @@ namespace org.mapsforge.core.graphics
 		bool Transparent {get;}
 
 		Bitmap BitmapShader {set;}
-		Point BitmapShaderShift {set;}
+		Point BitmapShaderShift { set; }
 
         int Color { get; set; }
 
