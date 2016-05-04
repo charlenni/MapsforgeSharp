@@ -17,12 +17,9 @@ namespace org.mapsforge.provider.graphics
 {
     using org.mapsforge.core.graphics;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using core.model;
     using SkiaSharp;
+    using MapsforgeSharp.Core.Graphics;
 
     public class SkiaPaint : Paint
     {
@@ -65,7 +62,7 @@ namespace org.mapsforge.provider.graphics
             get
             {
                 var color = nativePaint.Color;
-                return color.Alpha << 24 & color.Red << 16 & color.Green << 8 & color.Blue;
+                return color.Alpha << 24 | color.Red << 16 | color.Green << 8 | color.Blue;
             }
 
             set

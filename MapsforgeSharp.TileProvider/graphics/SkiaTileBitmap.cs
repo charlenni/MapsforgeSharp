@@ -1,4 +1,5 @@
 ﻿/*
+ * Copyright 2015 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
  *
  * This program is free software: you can redistribute it and/or modify it under the
@@ -15,22 +16,28 @@
 
 namespace org.mapsforge.provider.graphics
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.IO;
-    using SkiaSharp;
     using org.mapsforge.core.graphics;
+    using SkiaSharp;
+    using System;
+    using System.IO;
 
-    public class SkiaBitmap : Bitmap
+    public class SkiaTileBitmap : TileBitmap
     {
-        SKBitmap nativeBitmap;
+        public SKBitmap nativeBitmap;
 
-        public SkiaBitmap(int width, int height)
+        public SkiaTileBitmap()
+        {
+            nativeBitmap = new SKBitmap();
+        }
+
+        public SkiaTileBitmap(int width, int height)
         {
             nativeBitmap = new SKBitmap(width, height);
+        }
+
+        public SkiaTileBitmap(int tileSize, bool isTransparent)
+        {
+            nativeBitmap = new SKBitmap(tileSize, tileSize, isTransparent);
         }
 
         public int BackgroundColor
@@ -41,11 +48,40 @@ namespace org.mapsforge.provider.graphics
             }
         }
 
+        public long Expiration
+        {
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool Expired
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public int Height
         {
             get
             {
-                return nativeBitmap.Height;
+                throw new NotImplementedException();
+            }
+        }
+
+        public long Timestamp
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -53,7 +89,7 @@ namespace org.mapsforge.provider.graphics
         {
             get
             {
-                return nativeBitmap.Width;
+                throw new NotImplementedException();
             }
         }
 
@@ -74,7 +110,6 @@ namespace org.mapsforge.provider.graphics
 
         public void ScaleTo(int width, int height)
         {
-
             throw new NotImplementedException();
         }
     }

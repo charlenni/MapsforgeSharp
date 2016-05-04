@@ -26,7 +26,7 @@ namespace org.mapsforge.map.layer.labels
     /// <summary>
     /// A LabelStore where the data is stored per tile.
     /// </summary>
-    public class TileBasedLabelStore : WorkingSetCache<Tile, IList<MapElementContainer>>, LabelStore
+    public class TileBasedLabelStore : WorkingSetCache<Tile, ICollection<MapElementContainer>>, LabelStore
 	{
 		private const long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ namespace org.mapsforge.map.layer.labels
 		/// </summary>
 		/// <param name="tile"> tile on which the mapItems reside. </param>
 		/// <param name="mapItems"> the map elements. </param>
-		public virtual void StoreMapItems(Tile tile, IList<MapElementContainer> mapItems)
+		public virtual void StoreMapItems(Tile tile, ICollection<MapElementContainer> mapItems)
 		{
 			lock (this)
 			{
@@ -95,7 +95,7 @@ namespace org.mapsforge.map.layer.labels
 			}
 		}
 
-		protected override bool RemoveEldestEntry(KeyValuePair<Tile, IList<MapElementContainer>> eldest)
+		protected override bool RemoveEldestEntry(KeyValuePair<Tile, ICollection<MapElementContainer>> eldest)
 		{
 			if (this.Size() > this.Capacity)
 			{

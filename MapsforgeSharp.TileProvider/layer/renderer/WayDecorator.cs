@@ -37,7 +37,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// </summary>
 		private const int WAYNAME_SAFETY_MARGIN = 10;
 
-		internal static void RenderSymbol(Bitmap symbolBitmap, Display display, int priority, float dy, bool alignCenter, bool repeatSymbol, float repeatGap, float repeatStart, bool rotate, Point[][] coordinates, IList<MapElementContainer> currentItems)
+		internal static void RenderSymbol(Bitmap symbolBitmap, Display display, int priority, float dy, bool alignCenter, bool repeatSymbol, float repeatGap, float repeatStart, bool rotate, Point[][] coordinates, ICollection<MapElementContainer> currentItems)
 		{
 			int skipPixels = (int)repeatStart;
 
@@ -131,7 +131,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// <param name="stroke"> stroke paint for text </param>
 		/// <param name="coordinates"> the list of way coordinates </param>
 		/// <param name="currentLabels"> the list of labels to which a new WayTextContainer will be added </param>
-		internal static void RenderText(Tile tile, string text, Display display, int priority, float dy, Paint fill, Paint stroke, Point[][] coordinates, IList<MapElementContainer> currentLabels)
+		internal static void RenderText(Tile tile, string text, Display display, int priority, float dy, Paint fill, Paint stroke, Point[][] coordinates, ICollection<MapElementContainer> currentLabels)
 		{
 			// Calculate the way name length plus some margin of safety
 			int wayNameWidth = (stroke == null) ? fill.GetTextWidth(text) + WAYNAME_SAFETY_MARGIN * 2 : stroke.GetTextWidth(text) + WAYNAME_SAFETY_MARGIN * 2;

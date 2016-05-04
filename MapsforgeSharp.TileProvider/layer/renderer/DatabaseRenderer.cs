@@ -381,7 +381,7 @@ namespace org.mapsforge.map.layer.renderer
 				// they already overlap from other tiles. The second one is currentLabels that contains
 				// the elements on this tile that do not overlap onto a drawn tile. Now we sort this list and
 				// remove those elements that clash in this list already.
-				IList<MapElementContainer> currentElementsOrdered = LayerUtil.CollisionFreeOrdered(renderContext.labels);
+				ICollection<MapElementContainer> currentElementsOrdered = LayerUtil.CollisionFreeOrdered(renderContext.labels);
 
 				// now we go through this list, ordered by priority, to see which can be drawn without clashing.
 				IEnumerator<MapElementContainer> currentMapElementsIterator = currentElementsOrdered.GetEnumerator();

@@ -50,7 +50,7 @@ namespace org.mapsforge.provider.test
             var displayModel = new DisplayModel();
             var renderThemeFuture = new RenderThemeFuture(graphicFactory, renderTheme, displayModel);
 
-            var renderJob = new RendererJob(new core.model.Tile(4305, 4305, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+            var renderJob = new RendererJob(new core.model.Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 
             var tile = renderer.ExecuteJob(renderJob);
         }
