@@ -29,11 +29,11 @@ namespace org.mapsforge.reader
     using Tile = org.mapsforge.core.model.Tile;
     using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
     using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
-    using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
-    using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
-    using PoiWayBundle = org.mapsforge.core.datastore.PoiWayBundle;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-    using Way = org.mapsforge.core.datastore.Way;
+    using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
+    using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
+    using PoiWayBundle = MapsforgeSharp.Core.Datastore.PoiWayBundle;
+    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
+    using Way = MapsforgeSharp.Core.Datastore.Way;
     using MapFileException = org.mapsforge.reader.header.MapFileException;
     using MapFileHeader = org.mapsforge.reader.header.MapFileHeader;
     using MapFileInfo = org.mapsforge.reader.header.MapFileInfo;

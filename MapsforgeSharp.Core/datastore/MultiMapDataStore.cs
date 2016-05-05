@@ -2,6 +2,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -15,7 +16,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.datastore
+namespace MapsforgeSharp.Core.Datastore
 {
     using System;
     using System.Collections.Generic;
@@ -110,7 +111,7 @@ namespace org.mapsforge.core.datastore
 		{
 			switch (this.dataPolicy)
 			{
-				case datastore.MultiMapDataStore.DataPolicy.RETURN_FIRST:
+				case DataPolicy.RETURN_FIRST:
 					foreach (MapDataStore mdb in mapDatabases)
 					{
 						if (mdb.SupportsTile(tile))
@@ -119,8 +120,8 @@ namespace org.mapsforge.core.datastore
 						}
 					}
 					return 0;
-				case datastore.MultiMapDataStore.DataPolicy.RETURN_ALL:
-				case datastore.MultiMapDataStore.DataPolicy.DEDUPLICATE:
+				case DataPolicy.RETURN_ALL:
+				case DataPolicy.DEDUPLICATE:
 					long result = 0;
 					foreach (MapDataStore mdb in mapDatabases)
 					{
@@ -138,7 +139,7 @@ namespace org.mapsforge.core.datastore
 		{
 			switch (this.dataPolicy)
 			{
-				case datastore.MultiMapDataStore.DataPolicy.RETURN_FIRST:
+				case DataPolicy.RETURN_FIRST:
 					foreach (MapDataStore mdb in mapDatabases)
 					{
 						if (mdb.SupportsTile(tile))
@@ -147,9 +148,9 @@ namespace org.mapsforge.core.datastore
 						}
 					}
 					return null;
-				case datastore.MultiMapDataStore.DataPolicy.RETURN_ALL:
+				case DataPolicy.RETURN_ALL:
 					return ReadMapData(tile, false);
-				case datastore.MultiMapDataStore.DataPolicy.DEDUPLICATE:
+				case DataPolicy.DEDUPLICATE:
 					return ReadMapData(tile, true);
 			}
 			throw new System.InvalidOperationException("Invalid data policy for multi map database");

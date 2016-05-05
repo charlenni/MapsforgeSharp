@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -32,7 +33,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
+    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 
     /// <summary>
     /// Represents a polyline on the map.

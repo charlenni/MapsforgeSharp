@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -40,10 +41,10 @@ namespace org.mapsforge.map.layer.renderer
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
-	using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
-	using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
-	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-	using Way = org.mapsforge.core.datastore.Way;
+	using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
+	using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
+	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
+	using Way = MapsforgeSharp.Core.Datastore.Way;
 	using RenderCallback = org.mapsforge.map.rendertheme.RenderCallback;
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 	using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;

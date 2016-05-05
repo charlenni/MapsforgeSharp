@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -22,7 +23,7 @@ namespace org.mapsforge.map.layer.renderer
     using Tile = org.mapsforge.core.model.Tile;
     using Job = org.mapsforge.map.layer.queue.Job;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
-    using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
+    using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
     using RenderThemeFuture = org.mapsforge.map.rendertheme.rule.RenderThemeFuture;
 
     public class RendererJob : Job
