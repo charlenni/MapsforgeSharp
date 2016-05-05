@@ -18,7 +18,7 @@ namespace org.mapsforge.map.layer.cache
 {
     using System.Collections.Generic;
 
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using Job = org.mapsforge.map.layer.queue.Job;
 	using ObservableInterface = org.mapsforge.map.model.common.ObservableInterface;
 

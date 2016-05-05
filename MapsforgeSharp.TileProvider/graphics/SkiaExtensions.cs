@@ -17,8 +17,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 {
 	using SkiaSharp;
 	using MapsforgeSharp.Core.Graphics;
-	using org.mapsforge.core.graphics;
-
+	
 	public static class SkiaExtensions
     {
         /// <summary>

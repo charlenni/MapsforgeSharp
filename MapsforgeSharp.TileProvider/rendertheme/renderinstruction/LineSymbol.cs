@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -22,12 +23,12 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using System.Xml;
     using System.IO;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-    using Display = org.mapsforge.core.graphics.Display;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+    using Display = MapsforgeSharp.Core.Graphics.Display;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
+    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 
     /// <summary>
     /// Represents an icon along a polyline on the map.
@@ -38,7 +39,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private const float REPEAT_START_DEFAULT = 30f;
 
 		private bool alignCenter;
-		private Bitmap bitmap;
+		private IBitmap bitmap;
 		private bool bitmapInvalid;
 		private Display display;
 		private float dy;

@@ -21,10 +21,10 @@ namespace org.mapsforge.map.layer
     using System;
     using System.Collections.Generic;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-    using Matrix = org.mapsforge.core.graphics.Matrix;
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using BoundingBox = org.mapsforge.core.model.BoundingBox;
     using Point = org.mapsforge.core.model.Point;
     using Tile = org.mapsforge.core.model.Tile;
@@ -182,7 +182,7 @@ namespace org.mapsforge.map.layer
 			Tile cachedParentTile = GetCachedParentTile(tile, 4);
 			if (cachedParentTile != null)
 			{
-				Bitmap bitmap = this.tileCache.GetImmediately(CreateJob(cachedParentTile));
+				IBitmap bitmap = this.tileCache.GetImmediately(CreateJob(cachedParentTile));
 				if (bitmap != null)
 				{
 					int tileSize = this.displayModel.TileSize;

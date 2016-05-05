@@ -19,9 +19,9 @@ namespace org.mapsforge.core.mapelements
     using System;
     using System.Text;
 
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Display = org.mapsforge.core.graphics.Display;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Point = org.mapsforge.core.model.Point;
 	using Rectangle = org.mapsforge.core.model.Rectangle;
 

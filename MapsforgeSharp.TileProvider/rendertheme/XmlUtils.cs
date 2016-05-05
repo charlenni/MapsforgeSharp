@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014 devemux86
@@ -18,20 +18,21 @@
 
 namespace org.mapsforge.map.rendertheme
 {
-	using System;
-	using System.Text;
-	using System.IO;
-	using System.Reflection;
-	using PCLStorage;
-	using SkiaSharp;
-	using core.graphics;
+    using System;
+    using System.Text;
+    using System.IO;
+    using System.Reflection;
+    using PCLStorage;
+    using SkiaSharp;
+    using MapsforgeSharp.Core.Graphics;
+  	using System.Globalization;
 
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using ResourceBitmap = org.mapsforge.core.graphics.ResourceBitmap;
-	using DisplayModel = org.mapsforge.map.model.DisplayModel;
-	using System.Globalization;
-	public sealed class XmlUtils
-	{
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using ResourceBitmap = MapsforgeSharp.Core.Graphics.ResourceBitmap;
+    using DisplayModel = org.mapsforge.map.model.DisplayModel;
+
+    public sealed class XmlUtils
+	 {
 		public static bool supportOlderRenderThemes = true;
 		private const string PREFIX_FILE = "file:";
 		private const string PREFIX_JAR = "jar:";

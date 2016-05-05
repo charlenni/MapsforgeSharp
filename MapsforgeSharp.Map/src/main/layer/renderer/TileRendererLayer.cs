@@ -20,8 +20,8 @@ namespace org.mapsforge.map.layer.renderer
 {
     using System.Threading;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using Tile = org.mapsforge.core.model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using LabelStore = org.mapsforge.map.layer.labels.LabelStore;
@@ -158,12 +158,12 @@ namespace org.mapsforge.map.layer.renderer
 		/// <summary>
 		/// Whether the tile is stale and should be refreshed.
 		/// <para>
-		/// This method is called from <seealso cref="#draw(org.mapsforge.core.model.BoundingBox, byte, org.mapsforge.core.graphics.Canvas, org.mapsforge.core.model.Point)"/> to determine whether the tile needs to
+		/// This method is called from <seealso cref="#draw(org.mapsforge.core.model.BoundingBox, byte, MapsforgeSharp.Core.Graphics.Canvas, org.mapsforge.core.model.Point)"/> to determine whether the tile needs to
 		/// be refreshed.
 		/// </para>
 		/// <para>
 		/// A tile is considered stale if the timestamp of the layer's <seealso cref="#mapDataStore"/> is more recent than the
-		/// {@code bitmap}'s <seealso cref="org.mapsforge.core.graphics.TileBitmap#getTimestamp()"/>.
+		/// {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#getTimestamp()"/>.
 		/// </para>
 		/// <para>
 		/// When a tile has become stale, the layer will first display the tile referenced by {@code bitmap} and attempt to

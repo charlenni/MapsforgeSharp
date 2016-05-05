@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -25,7 +26,7 @@ namespace org.mapsforge.map.layer.renderer
 	using Tag = org.mapsforge.core.model.Tag;
 	using Tile = org.mapsforge.core.model.Tile;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
-	using Way = org.mapsforge.core.datastore.Way;
+	using Way = MapsforgeSharp.Core.Datastore.Way;
 
 	/// <summary>
 	/// A PolylineContainer encapsulates the way data retrieved from a map file.

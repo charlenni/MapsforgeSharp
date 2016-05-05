@@ -19,9 +19,9 @@ namespace org.mapsforge.map.layer.download
 {
     using System;
 
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using Point = org.mapsforge.core.model.Point;
 	using Tile = org.mapsforge.core.model.Tile;
@@ -163,9 +163,9 @@ namespace org.mapsforge.map.layer.download
 		/// <para>
 		/// A tile is considered stale if one or more of the following two conditions apply:
 		/// <ul>
-		/// <li>The {@code bitmap}'s <seealso cref="org.mapsforge.core.graphics.TileBitmap#isExpired()"/> method returns {@code True}.</li>
+		/// <li>The {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#isExpired()"/> method returns {@code True}.</li>
 		/// <li>The layer has a time-to-live (TTL) set (<seealso cref="#getCacheTimeToLive()"/> returns a nonzero value) and the sum of
-		/// the {@code bitmap}'s <seealso cref="org.mapsforge.core.graphics.TileBitmap#getTimestamp()"/> and TTL is less than current
+		/// the {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#getTimestamp()"/> and TTL is less than current
 		/// time (as returned by <seealso cref="java.lang.System#currentTimeMillis()"/>).</li>
 		/// </ul>
 		/// </para>

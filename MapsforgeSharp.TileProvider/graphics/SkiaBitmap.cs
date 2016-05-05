@@ -22,9 +22,9 @@ namespace MapsforgeSharp.TileProvider.Graphics
     using System.Threading.Tasks;
     using System.IO;
     using SkiaSharp;
-    using org.mapsforge.core.graphics;
+    using MapsforgeSharp.Core.Graphics;
 
-    public class SkiaBitmap : Bitmap
+    public class SkiaBitmap : IBitmap
     {
         SKBitmap nativeBitmap;
 

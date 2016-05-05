@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -23,9 +24,9 @@ namespace org.mapsforge.reader
     using Tag = org.mapsforge.core.model.Tag;
     using Tile = org.mapsforge.core.model.Tile;
     using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
-    using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-    using Way = org.mapsforge.core.datastore.Way;
+    using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
+    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
+    using Way = MapsforgeSharp.Core.Datastore.Way;
     using MapFileInfo = org.mapsforge.reader.header.MapFileInfo;
 
     public class MapFileWithDataTest

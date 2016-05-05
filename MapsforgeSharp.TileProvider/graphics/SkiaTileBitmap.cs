@@ -16,7 +16,7 @@
 
 namespace MapsforgeSharp.TileProvider.Graphics
 {
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
     using SkiaSharp;
     using System;
     using System.IO;

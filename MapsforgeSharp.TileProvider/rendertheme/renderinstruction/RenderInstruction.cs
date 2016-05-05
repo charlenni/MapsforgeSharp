@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -17,11 +18,11 @@
 
 namespace org.mapsforge.map.rendertheme.renderinstruction
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
-	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
+	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 
 	/// <summary>
 	/// A RenderInstruction is a basic graphical primitive to draw a map.
@@ -117,7 +118,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		///            the factor by which the text size should be scaled. </param>
 		public abstract void ScaleTextSize(float scaleFactor, sbyte zoomLevel);
 
-		protected internal virtual Bitmap CreateBitmap(string relativePathPrefix, string src)
+		protected internal virtual IBitmap CreateBitmap(string relativePathPrefix, string src)
 		{
 			if (null == src || src.Length == 0)
 			{

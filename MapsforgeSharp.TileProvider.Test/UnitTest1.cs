@@ -19,7 +19,7 @@ namespace org.mapsforge.provider.test
 	using PCLStorage;
 	using MapsforgeSharp.TileProvider.Graphics;
 
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
 	using org.mapsforge.map.layer.renderer;
 	using org.mapsforge.reader;
 	using org.mapsforge.map.layer.cache;

@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -24,14 +25,14 @@ namespace org.mapsforge.map.layer.renderer
 	using Acrotech.PortableLogAdapter;
 	using MapsforgeSharp.Core.Graphics;
 
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Color = org.mapsforge.core.graphics.Color;
-	using Display = org.mapsforge.core.graphics.Display;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Color = MapsforgeSharp.Core.Graphics.Color;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
-	using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;
 	using Rectangle = org.mapsforge.core.model.Rectangle;
@@ -40,10 +41,10 @@ namespace org.mapsforge.map.layer.renderer
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
-	using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
-	using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
-	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-	using Way = org.mapsforge.core.datastore.Way;
+	using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
+	using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
+	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
+	using Way = MapsforgeSharp.Core.Datastore.Way;
 	using RenderCallback = org.mapsforge.map.rendertheme.RenderCallback;
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 	using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;
@@ -276,7 +277,7 @@ namespace org.mapsforge.map.layer.renderer
 			renderContext.labels.Add(this.graphicFactory.CreatePointTextContainer(centerPoint, display, priority, caption, fill, stroke, null, position, maxTextWidth));
 		}
 
-		public void RenderAreaSymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, PolylineContainer way)
+		public void RenderAreaSymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, PolylineContainer way)
 		{
 			Point centerPosition = way.CenterAbsolute;
 
@@ -297,7 +298,7 @@ namespace org.mapsforge.map.layer.renderer
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(new CircleContainer(poiPosition, radius), fill));
 		}
 
-		public void RenderPointOfInterestSymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, PointOfInterest poi)
+		public void RenderPointOfInterestSymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, PointOfInterest poi)
 		{
 			Point poiPosition = MercatorProjection.GetPixelAbsolute(poi.Position, renderContext.rendererJob.tile.MapSize);
 			renderContext.labels.Add(new SymbolContainer(poiPosition, display, priority, symbol));
@@ -308,7 +309,7 @@ namespace org.mapsforge.map.layer.renderer
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(way, stroke, dy));
 		}
 
-		public void RenderWaySymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, float dy, bool alignCenter, bool repeat, float repeatGap, float repeatStart, bool rotate, PolylineContainer way)
+		public void RenderWaySymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, float dy, bool alignCenter, bool repeat, float repeatGap, float repeatStart, bool rotate, PolylineContainer way)
 		{
 			WayDecorator.RenderSymbol(symbol, display, priority, dy, alignCenter, repeat, repeatGap, repeatStart, rotate, way.CoordinatesAbsolute, renderContext.labels);
 		}

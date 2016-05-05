@@ -19,13 +19,13 @@ namespace org.mapsforge.map.view
 {
     using System;
 
-    using Color = org.mapsforge.core.graphics.Color;
-	using FontFamily = org.mapsforge.core.graphics.FontFamily;
-	using FontStyle = org.mapsforge.core.graphics.FontStyle;
-	using GraphicContext = org.mapsforge.core.graphics.GraphicContext;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using Paint = org.mapsforge.core.graphics.Paint;
-	using Style = org.mapsforge.core.graphics.Style;
+    using Color = MapsforgeSharp.Core.Graphics.Color;
+	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
+	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
+	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
 	/// <summary>

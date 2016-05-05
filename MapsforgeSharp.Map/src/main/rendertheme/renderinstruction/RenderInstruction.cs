@@ -17,8 +17,8 @@
 
 namespace org.mapsforge.map.rendertheme.renderinstruction
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
@@ -117,7 +117,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		///            the factor by which the text size should be scaled. </param>
 		public abstract void ScaleTextSize(float scaleFactor, sbyte zoomLevel);
 
-		protected internal virtual Bitmap CreateBitmap(string relativePathPrefix, string src)
+		protected internal virtual IBitmap CreateBitmap(string relativePathPrefix, string src)
 		{
 			if (null == src || src.Length == 0)
 			{

@@ -17,9 +17,9 @@
 
 namespace org.mapsforge.map.layer.download
 {
-    using CorruptedInputStreamException = org.mapsforge.core.graphics.CorruptedInputStreamException;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using CorruptedInputStreamException = MapsforgeSharp.Core.Graphics.CorruptedInputStreamException;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using System;
     using System.Net.Http;
     using System.IO.Compression;

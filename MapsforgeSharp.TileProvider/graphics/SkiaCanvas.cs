@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright 2016 Dirk Weltz
  *
  * This program is free software: you can redistribute it and/or modify it under the
@@ -17,7 +17,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 {
 	using System;
 	using SkiaSharp;
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
 	using org.mapsforge.core.model;
 
 	public class SkiaCanvas : Canvas
@@ -99,12 +99,12 @@ namespace MapsforgeSharp.TileProvider.Graphics
 			nativeSurface.Dispose();
         }
 
-        public void DrawBitmap(Bitmap bitmap, Matrix matrix)
+        public void DrawBitmap(IBitmap bitmap, Matrix matrix)
         {
             throw new NotImplementedException();
         }
 
-        public void DrawBitmap(Bitmap bitmap, int left, int top)
+        public void DrawBitmap(IBitmap bitmap, int left, int top)
         {
             throw new NotImplementedException();
         }
