@@ -18,7 +18,7 @@
 
 namespace org.mapsforge.map.layer.overlay
 {
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;
 

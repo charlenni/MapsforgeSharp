@@ -19,16 +19,15 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 {
     using System.Collections.Generic;
     using System.Xml;
-    using core.graphics;
     using MapsforgeSharp.Core.Graphics;
 
-    using Color = org.mapsforge.core.graphics.Color;
-    using Display = org.mapsforge.core.graphics.Display;
-    using FontFamily = org.mapsforge.core.graphics.FontFamily;
-    using FontStyle = org.mapsforge.core.graphics.FontStyle;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using Paint = org.mapsforge.core.graphics.Paint;
-    using Style = org.mapsforge.core.graphics.Style;
+    using Color = MapsforgeSharp.Core.Graphics.Color;
+    using Display = MapsforgeSharp.Core.Graphics.Display;
+    using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
+    using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;

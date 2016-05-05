@@ -21,14 +21,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using System.Collections.Generic;
     using System.Xml;
     using System.IO;
-    using core.graphics;
+    using MapsforgeSharp.Core.Graphics;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-    using Cap = org.mapsforge.core.graphics.Cap;
-    using Color = org.mapsforge.core.graphics.Color;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using Paint = org.mapsforge.core.graphics.Paint;
-    using Style = org.mapsforge.core.graphics.Style;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+    using Cap = MapsforgeSharp.Core.Graphics.Cap;
+    using Color = MapsforgeSharp.Core.Graphics.Color;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
@@ -42,7 +42,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private readonly Paint fill;
 		private readonly int level;
 		private readonly string relativePathPrefix;
-		private Bitmap shaderBitmap;
+		private IBitmap shaderBitmap;
 		private string src;
 		private readonly Paint stroke;
 		private readonly IDictionary<sbyte?, Paint> strokes;

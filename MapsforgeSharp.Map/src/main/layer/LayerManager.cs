@@ -20,9 +20,9 @@ namespace org.mapsforge.map.layer
 {
     using System.Threading;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using Dimension = org.mapsforge.core.model.Dimension;
 	using MapPosition = org.mapsforge.core.model.MapPosition;
@@ -85,7 +85,7 @@ namespace org.mapsforge.map.layer
 			this.redrawNeeded = false;
 
 			FrameBuffer frameBuffer = this.mapView.FrameBuffer;
-			Bitmap bitmap = frameBuffer.DrawingBitmap;
+			IBitmap bitmap = frameBuffer.DrawingBitmap;
 			if (bitmap != null)
 			{
 				this.drawingCanvas.Bitmap = bitmap;

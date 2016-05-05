@@ -20,13 +20,13 @@ namespace org.mapsforge.map.layer.renderer
     using System.Collections.Generic;
     using System.Linq;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Color = org.mapsforge.core.graphics.Color;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using GraphicUtils = org.mapsforge.core.graphics.GraphicUtils;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
-	using Path = org.mapsforge.core.graphics.Path;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Color = MapsforgeSharp.Core.Graphics.Color;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using GraphicUtils = MapsforgeSharp.Core.Graphics.GraphicUtils;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
+	using Path = MapsforgeSharp.Core.Graphics.Path;
 	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
 	using Point = org.mapsforge.core.model.Point;
 	using Rectangle = org.mapsforge.core.model.Rectangle;
@@ -119,7 +119,7 @@ namespace org.mapsforge.map.layer.renderer
 			this.canvas.ResetClip();
 		}
 
-		internal virtual Bitmap CanvasBitmap
+		internal virtual IBitmap CanvasBitmap
 		{
 			set
 			{

@@ -19,21 +19,20 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using org.mapsforge.core.mapelements;
 	using org.mapsforge.core.model;
 	using System.IO;
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
 	using System.Reflection;
 	using SkiaSharp;
-	using MapsforgeSharp.Core.Graphics;
 
 	public class SkiaGraphicFactory : GraphicFactory
     {
         private static readonly string PREFIX_ASSETS = "assets:";
 
-        public Bitmap CreateBitmap(int width, int height)
+        public IBitmap CreateBitmap(int width, int height)
         {
             return new SkiaBitmap(width, height);
         }
 
-        public Bitmap CreateBitmap(int width, int height, bool isTransparent)
+        public IBitmap CreateBitmap(int width, int height, bool isTransparent)
         {
             throw new NotImplementedException();
         }
@@ -68,7 +67,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
             return new SkiaPaint();
         }
 
-        public org.mapsforge.core.graphics.Path CreatePath()
+        public MapsforgeSharp.Core.Graphics.Path CreatePath()
         {
             return new SkiaPath();
         }

@@ -21,7 +21,7 @@ namespace org.mapsforge.map.rendertheme.rule
     using System.Threading;
     using System.IO;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     /// <summary>

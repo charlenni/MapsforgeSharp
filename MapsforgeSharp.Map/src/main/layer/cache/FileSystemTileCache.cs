@@ -27,9 +27,9 @@ namespace org.mapsforge.map.layer.cache
     using PCLStorage;
     using System.Threading.Tasks;
 
-    using CorruptedInputStreamException = org.mapsforge.core.graphics.CorruptedInputStreamException;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using CorruptedInputStreamException = MapsforgeSharp.Core.Graphics.CorruptedInputStreamException;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using Job = org.mapsforge.map.layer.queue.Job;
     using Observable = org.mapsforge.map.model.common.Observable;
     using Observer = org.mapsforge.map.model.common.Observer;

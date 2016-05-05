@@ -24,7 +24,7 @@ namespace org.mapsforge.map.rendertheme.rule
     using System.IO;
     using Acrotech.PortableLogAdapter;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using Area = org.mapsforge.map.rendertheme.renderinstruction.Area;
     using Caption = org.mapsforge.map.rendertheme.renderinstruction.Caption;

@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer.renderer
     using Acrotech.PortableLogAdapter;
     using queue;
 
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using TileCache = org.mapsforge.map.layer.cache.TileCache;
 
     public class MapWorkerPool : Runnable

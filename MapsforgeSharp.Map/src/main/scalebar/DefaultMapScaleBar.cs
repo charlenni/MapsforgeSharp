@@ -22,14 +22,14 @@ namespace org.mapsforge.map.scalebar
 {
     using System;
 
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Cap = org.mapsforge.core.graphics.Cap;
-	using Color = org.mapsforge.core.graphics.Color;
-	using FontFamily = org.mapsforge.core.graphics.FontFamily;
-	using FontStyle = org.mapsforge.core.graphics.FontStyle;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using Paint = org.mapsforge.core.graphics.Paint;
-	using Style = org.mapsforge.core.graphics.Style;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Cap = MapsforgeSharp.Core.Graphics.Cap;
+	using Color = MapsforgeSharp.Core.Graphics.Color;
+	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
+	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using MapViewDimension = org.mapsforge.map.model.MapViewDimension;
 	using MapViewPosition = org.mapsforge.map.model.MapViewPosition;

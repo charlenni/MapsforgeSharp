@@ -19,10 +19,10 @@ namespace org.mapsforge.map.layer.labels
     using System.Collections.Generic;
     using System.Linq;
 
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using Point = org.mapsforge.core.model.Point;
 	using Tile = org.mapsforge.core.model.Tile;
