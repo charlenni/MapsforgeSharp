@@ -18,7 +18,7 @@
 
 namespace org.mapsforge.map.layer
 {
-	using Canvas = org.mapsforge.core.graphics.Canvas;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;

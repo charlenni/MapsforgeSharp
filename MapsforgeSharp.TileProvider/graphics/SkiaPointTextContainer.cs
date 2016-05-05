@@ -19,10 +19,10 @@ namespace MapsforgeSharp.TileProvider.Graphics
 {
 	using MapsforgeSharp.Core.Graphics;
 
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Display = org.mapsforge.core.graphics.Display;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using PointTextContainer = org.mapsforge.core.mapelements.PointTextContainer;
 	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
 	using Point = org.mapsforge.core.model.Point;

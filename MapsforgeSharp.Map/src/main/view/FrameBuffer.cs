@@ -18,10 +18,10 @@
 
 namespace org.mapsforge.map.view
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using GraphicContext = org.mapsforge.core.graphics.GraphicContext;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Dimension = org.mapsforge.core.model.Dimension;
 	using MapPosition = org.mapsforge.core.model.MapPosition;
 	using Point = org.mapsforge.core.model.Point;
@@ -31,8 +31,8 @@ namespace org.mapsforge.map.view
 	public class FrameBuffer
 	{
 		private const bool IS_TRANSPARENT = false;
-		private Bitmap bitmap1;
-		private Bitmap bitmap2;
+		private IBitmap bitmap1;
+		private IBitmap bitmap2;
 		private Dimension dimension;
 		private readonly DisplayModel displayModel;
 		private readonly FrameBufferModel frameBufferModel;
@@ -93,7 +93,7 @@ namespace org.mapsforge.map.view
 			lock (this)
 			{
 				// swap both bitmap references
-				Bitmap bitmapTemp = this.bitmap1;
+				IBitmap bitmapTemp = this.bitmap1;
 				this.bitmap1 = this.bitmap2;
 				this.bitmap2 = bitmapTemp;
 			}
@@ -133,7 +133,7 @@ namespace org.mapsforge.map.view
 		}
 
 		/// <returns> the bitmap of the second frame to draw on (may be null). </returns>
-		public virtual Bitmap DrawingBitmap
+		public virtual IBitmap DrawingBitmap
 		{
 			get
 			{

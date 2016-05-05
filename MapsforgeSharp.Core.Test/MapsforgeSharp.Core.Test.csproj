@@ -81,6 +81,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="graphics\EnumTests.cs" />
     <Compile Include="model\BoundingBoxTest.cs" />
     <Compile Include="model\DimensionTest.cs" />
     <Compile Include="model\LatLongTest.cs" />

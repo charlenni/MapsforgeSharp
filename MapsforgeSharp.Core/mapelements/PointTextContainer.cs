@@ -20,8 +20,8 @@ namespace org.mapsforge.core.mapelements
 	using MapsforgeSharp.Core.Graphics;
 	using System.Text;
 
-	using Display = org.mapsforge.core.graphics.Display;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using Point = org.mapsforge.core.model.Point;
 
 	public abstract class PointTextContainer : MapElementContainer

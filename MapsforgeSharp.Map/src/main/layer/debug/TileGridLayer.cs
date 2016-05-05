@@ -18,11 +18,11 @@
 
 namespace org.mapsforge.map.layer.debug
 {
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Color = org.mapsforge.core.graphics.Color;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using Paint = org.mapsforge.core.graphics.Paint;
-	using Style = org.mapsforge.core.graphics.Style;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Color = MapsforgeSharp.Core.Graphics.Color;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using Point = org.mapsforge.core.model.Point;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;

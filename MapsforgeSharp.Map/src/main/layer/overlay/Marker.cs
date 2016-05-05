@@ -17,8 +17,8 @@
 
 namespace org.mapsforge.map.layer.overlay
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Canvas = org.mapsforge.core.graphics.Canvas;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;
@@ -30,7 +30,7 @@ namespace org.mapsforge.map.layer.overlay
 	/// </summary>
 	public class Marker : Layer
 	{
-		private Bitmap bitmap;
+		private IBitmap bitmap;
 		private int horizontalOffset;
 		private LatLong latLong;
 		private int verticalOffset;
@@ -38,12 +38,12 @@ namespace org.mapsforge.map.layer.overlay
 		/// <param name="latLong">
 		///            the initial geographical coordinates of this marker (may be null). </param>
 		/// <param name="bitmap">
-		///            the initial {@code Bitmap} of this marker (may be null). </param>
+		///            the initial {@code IBitmap} of this marker (may be null). </param>
 		/// <param name="horizontalOffset">
 		///            the horizontal marker offset. </param>
 		/// <param name="verticalOffset">
 		///            the vertical marker offset. </param>
-		public Marker(LatLong latLong, Bitmap bitmap, int horizontalOffset, int verticalOffset) : base()
+		public Marker(LatLong latLong, IBitmap bitmap, int horizontalOffset, int verticalOffset) : base()
 		{
 			this.latLong = latLong;
 			this.bitmap = bitmap;
@@ -92,8 +92,8 @@ namespace org.mapsforge.map.layer.overlay
 			}
 		}
 
-		/// <returns> the {@code Bitmap} of this marker (may be null). </returns>
-		public virtual Bitmap Bitmap
+		/// <returns> the {@code IBitmap} of this marker (may be null). </returns>
+		public virtual IBitmap Bitmap
 		{
 			get
 			{

@@ -15,10 +15,9 @@
 
 namespace MapsforgeSharp.TileProvider.Graphics
 {
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
 	using System;
 	using SkiaSharp;
-	using MapsforgeSharp.Core.Graphics;
 	using org.mapsforge.core.model;
 
 	public class SkiaPaint : Paint
@@ -44,7 +43,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
             get { return nativePaint; }
         }
 
-        public Bitmap BitmapShader
+        public IBitmap BitmapShader
         {
             set
             {

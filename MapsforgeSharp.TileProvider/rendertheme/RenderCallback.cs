@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -18,11 +19,11 @@ using MapsforgeSharp.Core.Graphics;
 
 namespace org.mapsforge.map.rendertheme
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Display = org.mapsforge.core.graphics.Display;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
-	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
+	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 
 	/// <summary>
 	/// Callback methods for rendering areas, ways and points of interest (POIs).
@@ -60,7 +61,7 @@ namespace org.mapsforge.map.rendertheme
 		/// </summary>
 		/// <param name="renderContext"> </param>
 		/// <param name="symbol"> </param>
-		void RenderAreaSymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, PolylineContainer way);
+		void RenderAreaSymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, PolylineContainer way);
 
 		/// <summary>
 		/// Renders a point of interest caption with the given text.
@@ -98,7 +99,7 @@ namespace org.mapsforge.map.rendertheme
 		/// </summary>
 		/// <param name="renderContext"> </param>
 		/// <param name="symbol"> </param>
-		void RenderPointOfInterestSymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, PointOfInterest poi);
+		void RenderPointOfInterestSymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, PointOfInterest poi);
 
 		/// <summary>
 		/// Renders a way with the given parameters.
@@ -126,7 +127,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="repeatGap">
 		///            distance between repetitions. </param>
 		/// <param name="repeatStart"> </param>
-		void RenderWaySymbol(RenderContext renderContext, Display display, int priority, Bitmap symbol, float dy, bool alignCenter, bool repeat, float repeatGap, float repeatStart, bool rotate, PolylineContainer way);
+		void RenderWaySymbol(RenderContext renderContext, Display display, int priority, IBitmap symbol, float dy, bool alignCenter, bool repeat, float repeatGap, float repeatStart, bool rotate, PolylineContainer way);
 
 		/// <summary>
 		/// Renders a way with the given text along the way path.

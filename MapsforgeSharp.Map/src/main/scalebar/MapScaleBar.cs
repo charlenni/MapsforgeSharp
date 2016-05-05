@@ -21,10 +21,10 @@ namespace org.mapsforge.map.scalebar
 {
     using System;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using GraphicContext = org.mapsforge.core.graphics.GraphicContext;
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using MapPosition = org.mapsforge.core.model.MapPosition;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -59,7 +59,7 @@ namespace org.mapsforge.map.scalebar
 		protected internal readonly DisplayModel displayModel;
 		protected internal DistanceUnitAdapter distanceUnitAdapter;
 		protected internal readonly GraphicFactory graphicFactory;
-		protected internal readonly Bitmap mapScaleBitmap;
+		protected internal readonly IBitmap mapScaleBitmap;
 		protected internal readonly Canvas mapScaleCanvas;
 		private readonly MapViewDimension mapViewDimension;
 		private readonly MapViewPosition mapViewPosition;

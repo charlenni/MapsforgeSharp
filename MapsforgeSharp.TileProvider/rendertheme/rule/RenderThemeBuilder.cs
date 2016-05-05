@@ -17,11 +17,11 @@
 
 namespace org.mapsforge.map.rendertheme.rule
 {
-    using core.graphics;
+    using MapsforgeSharp.Core.Graphics;
     using System;
     using System.Xml;
 
-    using Color = org.mapsforge.core.graphics.Color;
+    using Color = MapsforgeSharp.Core.Graphics.Color;
 
     /// <summary>
     /// A builder for <seealso cref="RenderTheme"/> instances.

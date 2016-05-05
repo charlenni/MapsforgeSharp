@@ -19,8 +19,8 @@ namespace org.mapsforge.map.layer.download
     using System.IO;
     using queue;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using TileCache = org.mapsforge.map.layer.cache.TileCache;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PausableThread = org.mapsforge.map.util.PausableThread;

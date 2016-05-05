@@ -18,24 +18,24 @@
 
 namespace org.mapsforge.core.mapelements
 {
-	using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Display = org.mapsforge.core.graphics.Display;
-	using Matrix = org.mapsforge.core.graphics.Matrix;
+	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
+	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Point = org.mapsforge.core.model.Point;
 	using Rectangle = org.mapsforge.core.model.Rectangle;
 
 	public class SymbolContainer : MapElementContainer
 	{
 		internal readonly bool alignCenter;
-		public Bitmap symbol;
+		public IBitmap symbol;
 		public readonly float theta;
 
-		public SymbolContainer(Point point, Display display, int priority, Bitmap symbol) : this(point, display, priority, symbol, 0, true)
+		public SymbolContainer(Point point, Display display, int priority, IBitmap symbol) : this(point, display, priority, symbol, 0, true)
 		{
 		}
 
-		public SymbolContainer(Point point, Display display, int priority, Bitmap symbol, float theta, bool alignCenter) : base(point, display, priority)
+		public SymbolContainer(Point point, Display display, int priority, IBitmap symbol, float theta, bool alignCenter) : base(point, display, priority)
 		{
 			this.symbol = symbol;
 			this.theta = theta;

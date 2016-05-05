@@ -19,10 +19,10 @@ namespace org.mapsforge.map.layer.renderer
     using System;
     using System.Collections.Generic;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-	using Display = org.mapsforge.core.graphics.Display;
+    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
 	using WayTextContainer = org.mapsforge.core.mapelements.WayTextContainer;
 	using LineSegment = org.mapsforge.core.model.LineSegment;
@@ -37,7 +37,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// </summary>
 		private const int WAYNAME_SAFETY_MARGIN = 10;
 
-		internal static void RenderSymbol(Bitmap symbolBitmap, Display display, int priority, float dy, bool alignCenter, bool repeatSymbol, float repeatGap, float repeatStart, bool rotate, Point[][] coordinates, IList<MapElementContainer> currentItems)
+		internal static void RenderSymbol(IBitmap symbolBitmap, Display display, int priority, float dy, bool alignCenter, bool repeatSymbol, float repeatGap, float repeatStart, bool rotate, Point[][] coordinates, IList<MapElementContainer> currentItems)
 		{
 			int skipPixels = (int)repeatStart;
 

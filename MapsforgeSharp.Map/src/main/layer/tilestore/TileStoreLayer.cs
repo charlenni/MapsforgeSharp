@@ -16,8 +16,8 @@
 
 namespace org.mapsforge.map.layer.tilestore
 {
-	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-	using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using Tile = org.mapsforge.core.model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using Job = org.mapsforge.map.layer.queue.Job;

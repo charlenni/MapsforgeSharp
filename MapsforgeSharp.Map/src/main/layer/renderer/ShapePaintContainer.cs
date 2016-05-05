@@ -16,7 +16,7 @@
 
 namespace org.mapsforge.map.layer.renderer
 {
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 
 	public class ShapePaintContainer
 	{

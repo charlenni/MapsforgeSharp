@@ -21,7 +21,7 @@ namespace org.mapsforge.map.layer.cache
     using core.util;
     using Acrotech.PortableLogAdapter;
 
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
     using Job = org.mapsforge.map.layer.queue.Job;
     using Observable = org.mapsforge.map.model.common.Observable;
     using Observer = org.mapsforge.map.model.common.Observer;

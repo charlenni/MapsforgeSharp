@@ -18,8 +18,8 @@
 
 namespace org.mapsforge.map.layer.overlay
 {
-	using Canvas = org.mapsforge.core.graphics.Canvas;
-	using Paint = org.mapsforge.core.graphics.Paint;
+	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using BoundingBox = org.mapsforge.core.model.BoundingBox;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;

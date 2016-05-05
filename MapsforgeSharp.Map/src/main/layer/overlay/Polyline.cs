@@ -21,10 +21,10 @@ namespace org.mapsforge.map.layer.overlay
     using System.Collections.Generic;
     using core.util;
 
-    using Canvas = org.mapsforge.core.graphics.Canvas;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using Paint = org.mapsforge.core.graphics.Paint;
-    using Path = org.mapsforge.core.graphics.Path;
+    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using Path = MapsforgeSharp.Core.Graphics.Path;
     using BoundingBox = org.mapsforge.core.model.BoundingBox;
     using LatLong = org.mapsforge.core.model.LatLong;
     using Point = org.mapsforge.core.model.Point;

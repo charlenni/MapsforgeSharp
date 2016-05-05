@@ -17,7 +17,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 {
 	using System;
 	using SkiaSharp;
-	using org.mapsforge.core.graphics;
+	using MapsforgeSharp.Core.Graphics;
 	using org.mapsforge.core.model;
 
 	public class SkiaCanvas : Canvas
@@ -37,12 +37,12 @@ namespace MapsforgeSharp.TileProvider.Graphics
             nativeCanvas = canvas;
         }
 
-        public Bitmap Bitmap
+        public IBitmap Bitmap
         {
             set
             {
 				// TODO
-				nativeCanvas.Bitmap = value;
+				//nativeCanvas.IBitmap = value;
 				throw new NotImplementedException();
 			}
 		}
@@ -76,12 +76,12 @@ namespace MapsforgeSharp.TileProvider.Graphics
             throw new NotImplementedException();
         }
 
-        public void DrawBitmap(Bitmap bitmap, Matrix matrix)
+        public void DrawBitmap(IBitmap bitmap, Matrix matrix)
         {
             throw new NotImplementedException();
         }
 
-        public void DrawBitmap(Bitmap bitmap, int left, int top)
+        public void DrawBitmap(IBitmap bitmap, int left, int top)
         {
             throw new NotImplementedException();
         }

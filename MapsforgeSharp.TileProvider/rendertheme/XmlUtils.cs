@@ -24,10 +24,10 @@ namespace org.mapsforge.map.rendertheme
     using System.Reflection;
     using PCLStorage;
     using SkiaSharp;
-    using core.graphics;
+    using MapsforgeSharp.Core.Graphics;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using ResourceBitmap = org.mapsforge.core.graphics.ResourceBitmap;
+    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using ResourceBitmap = MapsforgeSharp.Core.Graphics.ResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     public sealed class XmlUtils
