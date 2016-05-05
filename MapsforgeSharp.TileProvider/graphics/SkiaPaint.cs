@@ -29,12 +29,20 @@ namespace MapsforgeSharp.TileProvider.Graphics
         public SkiaPaint()
         {
             nativePaint = new SKPaint();
+			nativePaint.IsAntialias = true;
         }
 
         public SkiaPaint(Paint paint)
         {
             // TODO
             nativePaint = new SKPaint(); // new SKPaint(((SkiaPaint)paint).NativePaint);
+			nativePaint.IsAntialias = ((SkiaPaint)paint).NativePaint.IsAntialias;
+			nativePaint.IsStroke = ((SkiaPaint)paint).NativePaint.IsStroke;
+			nativePaint.StrokeWidth = ((SkiaPaint)paint).NativePaint.StrokeWidth;
+			nativePaint.StrokeCap = ((SkiaPaint)paint).NativePaint.StrokeCap;
+			nativePaint.StrokeJoin = ((SkiaPaint)paint).NativePaint.StrokeJoin;
+			nativePaint.StrokeWidth = ((SkiaPaint)paint).NativePaint.StrokeWidth;
+			nativePaint.Color = ((SkiaPaint)paint).NativePaint.Color;
         }
 
         private readonly SKPaint nativePaint;

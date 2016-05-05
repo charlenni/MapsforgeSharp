@@ -53,6 +53,13 @@ namespace org.mapsforge.provider.test
             var renderJob = new RendererJob(new core.model.Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 
             var tile = renderer.ExecuteJob(renderJob);
-        }
+
+			var output = FileSystem.Current.LocalStorage.CreateFileAsync("Tile.4305.2831.13.png", CreationCollisionOption.ReplaceExisting).Result;
+			using (var outputStream = output.OpenAsync(FileAccess.ReadAndWrite).Result)
+			{
+				tile.Encode().AsStream().CopyTo(outputStream);
+			}
+			output = null;
+		}
     }
 }

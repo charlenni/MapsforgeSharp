@@ -29,7 +29,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		private const string CLOSED = "closed";
 		private const string E = "e";
 		private const string K = "k";
-		private static readonly string[] SPLIT_PATTERN = new string[] { "\\|" };
+		private static readonly string[] SPLIT_PATTERN = new string[] { "|" };
 		private const string STRING_NEGATION = "~";
 		private const string STRING_WILDCARD = "*";
 		private const string V = "v";

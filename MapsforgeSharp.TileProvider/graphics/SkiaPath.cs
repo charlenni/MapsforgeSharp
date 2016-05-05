@@ -28,6 +28,11 @@ namespace MapsforgeSharp.TileProvider.Graphics
             nativePath = new SKPath();
         }
 
+		public SKPath NativePath
+		{
+			get { return nativePath; }
+		}
+
         public bool Empty
         {
             get
@@ -59,7 +64,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             // TODO
             //nativePath.Rewind();
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Close()

@@ -18,19 +18,19 @@
 
 namespace org.mapsforge.map.rendertheme
 {
-    using System;
-    using System.Text;
-    using System.IO;
-    using System.Reflection;
-    using PCLStorage;
-    using SkiaSharp;
-    using core.graphics;
+	using System;
+	using System.Text;
+	using System.IO;
+	using System.Reflection;
+	using PCLStorage;
+	using SkiaSharp;
+	using core.graphics;
 
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using ResourceBitmap = org.mapsforge.core.graphics.ResourceBitmap;
-    using DisplayModel = org.mapsforge.map.model.DisplayModel;
-
-    public sealed class XmlUtils
+	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+	using ResourceBitmap = org.mapsforge.core.graphics.ResourceBitmap;
+	using DisplayModel = org.mapsforge.map.model.DisplayModel;
+	using System.Globalization;
+	public sealed class XmlUtils
 	{
 		public static bool supportOlderRenderThemes = true;
 		private const string PREFIX_FILE = "file:";
@@ -125,7 +125,7 @@ namespace org.mapsforge.map.rendertheme
 			else if (colorString.Length == 7)
 			{
                 var rgb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
-                argb = 255 >> 24 & rgb;
+                argb = 255 << 24 | rgb;
 			}
 			else if (colorString.Length == 9)
 			{
@@ -148,7 +148,7 @@ namespace org.mapsforge.map.rendertheme
 
 		public static float ParseNonNegativeFloat(string name, string value)
 		{
-			float parsedFloat = float.Parse(value);
+			float parsedFloat = float.Parse(value, CultureInfo.InvariantCulture.NumberFormat);
 			CheckForNegativeValue(name, parsedFloat);
 			return parsedFloat;
 		}

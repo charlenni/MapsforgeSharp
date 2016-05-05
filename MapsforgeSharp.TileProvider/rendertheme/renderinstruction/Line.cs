@@ -59,7 +59,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.relativePathPrefix = relativePathPrefix;
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.BLACK.ToARGB();
+			this.stroke.Color = Color.GREEN.ToARGB();
 			this.stroke.Style = Style.STROKE;
 			this.stroke.StrokeCap = Cap.ROUND;
 			this.stroke.StrokeJoin = Join.ROUND;

@@ -38,9 +38,9 @@ namespace MapsforgeSharp.TileProvider.Graphics
             throw new NotImplementedException();
         }
 
-        public Canvas CreateCanvas()
+        public Canvas CreateCanvas(int width, int height)
         {
-            return new SkiaCanvas();
+            return new SkiaCanvas(width, height);
         }
 
         public int CreateColor(int color)
@@ -65,7 +65,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public Paint CreatePaint(Paint paint)
         {
-            return new SkiaPaint();
+            return new SkiaPaint(paint);
         }
 
         public org.mapsforge.core.graphics.Path CreatePath()

@@ -27,7 +27,7 @@ namespace org.mapsforge.core.graphics
 
 		Bitmap CreateBitmap(int width, int height, bool isTransparent);
 
-		Canvas CreateCanvas();
+		Canvas CreateCanvas(int width, int height);
 
 		int CreateColor(int color);
 
