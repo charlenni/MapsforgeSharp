@@ -152,7 +152,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 					}
 				}
 
-				fillPaint.BitmapShaderShift = way.Tile.Origin;
+				fillPaint.SetBitmapShaderShift = way.Tile.Origin;
 
 				renderCallback.RenderArea(renderContext, fillPaint, getStrokePaint(renderContext.rendererJob.tile.ZoomLevel), this.level, way);
 			}

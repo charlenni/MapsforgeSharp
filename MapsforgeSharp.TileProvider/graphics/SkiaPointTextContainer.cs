@@ -15,18 +15,14 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.map.android.graphics
-{ 
-	using provider.graphics;
-	using Layout = android.text.Layout;
-	using StaticLayout = android.text.StaticLayout;
-	using TextPaint = android.text.TextPaint;
+namespace MapsforgeSharp.TileProvider.Graphics
+{
+	using MapsforgeSharp.Core.Graphics;
 
 	using Canvas = org.mapsforge.core.graphics.Canvas;
 	using Display = org.mapsforge.core.graphics.Display;
 	using Matrix = org.mapsforge.core.graphics.Matrix;
 	using Paint = org.mapsforge.core.graphics.Paint;
-	using Position = org.mapsforge.core.graphics.Position;
 	using PointTextContainer = org.mapsforge.core.mapelements.PointTextContainer;
 	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
 	using Point = org.mapsforge.core.model.Point;
@@ -34,63 +30,61 @@ namespace org.mapsforge.map.android.graphics
 
 	public class SkiaPointTextContainer : PointTextContainer
 	{
-		private StaticLayout frontLayout;
-		private StaticLayout backLayout;
-
 		internal SkiaPointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth) : base(xy, display, priority, text, paintFront, paintBack, symbolContainer, position, maxTextWidth)
 		{
 			float boxWidth, boxHeight;
 
-			if (this.textWidth > this.maxTextWidth)
-			{
-				// if the text is too wide its layout is done by the Android StaticLayout class,
-				// which automatically inserts line breaks. There is not a whole lot of useful
-				// documentation of this class.
-				// For below and above placements the text is center-aligned, for left on the right
-				// and for right on the left.
-				// One disadvantage is that it will always keep the text within the maxWidth,
-				// even if that means breaking text mid-word.
-				// This code currently does not play that well with the LabelPlacement algorithm.
-				// The best way to disable it is to make the maxWidth really wide.
+			// TODO: Multiline TextBox
+			//if (this.textWidth > this.maxTextWidth)
+			//{
+			//	// if the text is too wide its layout is done by the Android StaticLayout class,
+			//	// which automatically inserts line breaks. There is not a whole lot of useful
+			//	// documentation of this class.
+			//	// For below and above placements the text is center-aligned, for left on the right
+			//	// and for right on the left.
+			//	// One disadvantage is that it will always keep the text within the maxWidth,
+			//	// even if that means breaking text mid-word.
+			//	// This code currently does not play that well with the LabelPlacement algorithm.
+			//	// The best way to disable it is to make the maxWidth really wide.
 
-				TextPaint frontTextPaint = new TextPaint(SkiaGraphicFactory.GetPaint(this.paintFront));
-				TextPaint backTextPaint = null;
+			//	TextPaint frontTextPaint = new TextPaint(SkiaGraphicFactory.GetPaint(this.paintFront));
+			//	TextPaint backTextPaint = null;
 
-				if (this.paintBack != null)
-				{
-					backTextPaint = new TextPaint(SkiaGraphicFactory.GetPaint(this.paintBack));
-				}
+			//	if (this.paintBack != null)
+			//	{
+			//		backTextPaint = new TextPaint(SkiaGraphicFactory.GetPaint(this.paintBack));
+			//	}
 
-				Layout.Alignment alignment = Layout.Alignment.ALIGN_CENTER;
-				if (Position.LEFT == this.position || Position.BELOW_LEFT == this.position || Position.ABOVE_LEFT == this.position)
-				{
-					alignment = Layout.Alignment.ALIGN_OPPOSITE;
-				}
-				else if (Position.RIGHT == this.position || Position.BELOW_RIGHT == this.position || Position.ABOVE_RIGHT == this.position)
-				{
-					alignment = Layout.Alignment.ALIGN_NORMAL;
-				}
+			//	Layout.Alignment alignment = Layout.Alignment.ALIGN_CENTER;
+			//	if (Position.LEFT == this.position || Position.BELOW_LEFT == this.position || Position.ABOVE_LEFT == this.position)
+			//	{
+			//		alignment = Layout.Alignment.ALIGN_OPPOSITE;
+			//	}
+			//	else if (Position.RIGHT == this.position || Position.BELOW_RIGHT == this.position || Position.ABOVE_RIGHT == this.position)
+			//	{
+			//		alignment = Layout.Alignment.ALIGN_NORMAL;
+			//	}
 
-				// strange Android behaviour: if alignment is set to center, then
-				// text is rendered with right alignment if using StaticLayout
-				frontTextPaint.TextAlign = android.graphics.Paint.Align.LEFT;
-				if (this.paintBack != null)
-				{
-					backTextPaint.TextAlign = android.graphics.Paint.Align.LEFT;
-				}
+			//	// strange Android behaviour: if alignment is set to center, then
+			//	// text is rendered with right alignment if using StaticLayout
+			//	frontTextPaint.TextAlign = graphics.Paint.Align.LEFT;
+			//	if (this.paintBack != null)
+			//	{
+			//		backTextPaint.TextAlign = android.graphics.Paint.Align.LEFT;
+			//	}
 
-				frontLayout = new StaticLayout(this.text, frontTextPaint, this.maxTextWidth, alignment, 1, 0, false);
-				backLayout = null;
-				if (this.paintBack != null)
-				{
-					backLayout = new StaticLayout(this.text, backTextPaint, this.maxTextWidth, alignment, 1, 0, false);
-				}
+			//	frontLayout = new StaticLayout(this.text, frontTextPaint, this.maxTextWidth, alignment, 1, 0, false);
+			//	backLayout = null;
+			//	if (this.paintBack != null)
+			//	{
+			//		backLayout = new StaticLayout(this.text, backTextPaint, this.maxTextWidth, alignment, 1, 0, false);
+			//	}
 
-				boxWidth = frontLayout.Width;
-				boxHeight = frontLayout.Height;
+			//	boxWidth = frontLayout.Width;
+			//	boxHeight = frontLayout.Height;
 
-			}
-			else
+			//}
+			//else
 			{
 				boxWidth = textWidth;
 				boxHeight = textHeight;
@@ -98,31 +92,31 @@ namespace org.mapsforge.map.android.graphics
 
 			switch (this.position)
 			{
-				case CENTER:
+				case Position.Center:
 					boundary = new Rectangle(-boxWidth / 2f, -boxHeight / 2f, boxWidth / 2f, boxHeight / 2f);
 					break;
-				case BELOW:
+				case Position.Below:
 					boundary = new Rectangle(-boxWidth / 2f, 0, boxWidth / 2f, boxHeight);
 					break;
-				case BELOW_LEFT:
+				case Position.BelowLeft:
 					boundary = new Rectangle(-boxWidth, 0, 0, boxHeight);
 					break;
-				case BELOW_RIGHT:
+				case Position.BelowRight:
 					boundary = new Rectangle(0, 0, boxWidth, boxHeight);
 					break;
-				case ABOVE:
+				case Position.Above:
 					boundary = new Rectangle(-boxWidth / 2f, -boxHeight, boxWidth / 2f, 0);
 					break;
-				case ABOVE_LEFT:
+				case Position.AboveLeft:
 					boundary = new Rectangle(-boxWidth, -boxHeight, 0, 0);
 					break;
-				case ABOVE_RIGHT:
+				case Position.AboveRight:
 					boundary = new Rectangle(0, -boxHeight, boxWidth, 0);
 					break;
-				case LEFT:
+				case Position.Left:
 					boundary = new Rectangle(-boxWidth, -boxHeight / 2f, 0, boxHeight / 2f);
 					break;
-				case RIGHT:
+				case Position.Right:
 					boundary = new Rectangle(0, -boxHeight / 2f, boxWidth, boxHeight / 2f);
 					break;
 				default:
@@ -137,51 +131,50 @@ namespace org.mapsforge.map.android.graphics
 				return;
 			}
 
-			var nativeCanvas = ((SkiaCanvas)canvas).Canvas;
+			// TODO: Multiline TextBox
+			//if (this.textWidth > this.maxTextWidth)
+			//{
+			//	// in this case we draw the precomputed staticLayout onto the canvas by translating
+			//	// the canvas.
+			//	nativeCanvas.save();
+			//	nativeCanvas.translate((float)(this.xy.x - origin.x + boundary.left), (float)(this.xy.y - origin.y + boundary.top));
 
-			if (this.textWidth > this.maxTextWidth)
-			{
-				// in this case we draw the precomputed staticLayout onto the canvas by translating
-				// the canvas.
-				nativeCanvas.save();
-				nativeCanvas.translate((float)(this.xy.x - origin.x + boundary.left), (float)(this.xy.y - origin.y + boundary.top));
-
-				if (this.backLayout != null)
-				{
-					this.backLayout.draw(nativeCanvas);
-				}
-				this.frontLayout.draw(nativeCanvas);
-				nativeCanvas.restore();
-			}
-			else
+			//	if (this.backLayout != null)
+			//	{
+			//		this.backLayout.draw(nativeCanvas);
+			//	}
+			//	this.frontLayout.draw(nativeCanvas);
+			//	nativeCanvas.restore();
+			//}
+			//else
 			{
 				// the origin of the text is the base line, so we need to make adjustments
 				// so that the text will be within its box
 				float textOffset = 0;
 				switch (this.position)
 				{
-					case CENTER:
-					case LEFT:
-					case RIGHT:
+					case Position.Center:
+					case Position.Left:
+					case Position.Right:
 						textOffset = textHeight / 2f;
 						break;
-					case BELOW:
-					case BELOW_LEFT:
-					case BELOW_RIGHT:
+					case Position.Below:
+					case Position.BelowLeft:
+					case Position.BelowRight:
 						textOffset = textHeight;
 						break;
 					default:
 						break;
 				}
 
-				float adjustedX = (float)(this.xy.x - origin.x);
-				float adjustedY = (float)(this.xy.y - origin.y) + textOffset;
+				int adjustedX = (int)(this.xy.X - origin.X);
+				int adjustedY = (int)((this.xy.Y - origin.Y) + textOffset);
 
 				if (this.paintBack != null)
 				{
-					nativeCanvas.drawText(this.text, adjustedX, adjustedY, AndroidGraphicFactory.getPaint(this.paintBack));
+					((SkiaCanvas)canvas).DrawText(this.text, adjustedX, adjustedY, this.paintBack);
 				}
-				nativeCanvas.drawText(this.text, adjustedX, adjustedY, AndroidGraphicFactory.getPaint(this.paintFront));
+				((SkiaCanvas)canvas).DrawText(this.text, adjustedX, adjustedY, this.paintFront);
 			}
 		}
 	}

@@ -101,7 +101,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				if (shaderBitmap != null)
 				{
 					strokePaint.BitmapShader = shaderBitmap;
-					strokePaint.BitmapShaderShift = way.Tile.Origin;
+					strokePaint.SetBitmapShaderShift = way.Tile.Origin;
 				}
         
 				float dyScale = this.dyScaled[renderContext.rendererJob.tile.ZoomLevel] ?? this.dy;

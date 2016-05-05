@@ -17,11 +17,11 @@
 
 namespace org.mapsforge.core.mapelements
 {
-    using System.Text;
+	using MapsforgeSharp.Core.Graphics;
+	using System.Text;
 
-    using Display = org.mapsforge.core.graphics.Display;
+	using Display = org.mapsforge.core.graphics.Display;
 	using Paint = org.mapsforge.core.graphics.Paint;
-	using Position = org.mapsforge.core.graphics.Position;
 	using Point = org.mapsforge.core.model.Point;
 
 	public abstract class PointTextContainer : MapElementContainer

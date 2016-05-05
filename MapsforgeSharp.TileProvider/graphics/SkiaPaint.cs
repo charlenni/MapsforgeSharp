@@ -13,16 +13,19 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using org.mapsforge.core.graphics;
-    using System;
-    using core.model;
-    using SkiaSharp;
-    using MapsforgeSharp.Core.Graphics;
+	using org.mapsforge.core.graphics;
+	using System;
+	using SkiaSharp;
+	using MapsforgeSharp.Core.Graphics;
+	using org.mapsforge.core.model;
 
-    public class SkiaPaint : Paint
+	public class SkiaPaint : Paint
     {
+		private int shaderWidth;
+		private int shaderHeight;
+
         public SkiaPaint()
         {
             nativePaint = new SKPaint();
@@ -45,19 +48,45 @@ namespace org.mapsforge.provider.graphics
         {
             set
             {
-                throw new NotImplementedException();
+				if (value == null)
+				{
+					return;
+				}
+
+				var nativeBitmap = ((SkiaBitmap)value).NativeBitmap;
+
+				if (nativeBitmap == null)
+				{
+					return;
+				}
+
+				this.shaderWidth = value.Width;
+				this.shaderHeight = value.Height;
+
+				nativePaint.Color = SKColors.White;
+				nativePaint.Shader = SKShader.CreateBitmap(nativeBitmap, SKShaderTileMode.Repeat, SKShaderTileMode.Repeat);
             }
         }
 
-        public Point BitmapShaderShift
-        {
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+		public Point BitmapShaderShift
+		{
+			set
+			{
+				SKShader shader = nativePaint.Shader;
+				if (shader != null)
+				{
+					int relativeDx = ((int)-value.X) % this.shaderWidth;
+					int relativeDy = ((int)-value.Y) % this.shaderHeight;
 
-        public int Color
+					var localMatrix = new SKMatrix();
+					localMatrix.TransX = relativeDx;
+					localMatrix.TransY = relativeDy;
+					nativePaint.Shader = SKShader.CreateLocalMatrix(shader, localMatrix);
+				}
+			}
+		}
+
+		public int Color
         {
             get
             {
@@ -161,23 +190,31 @@ namespace org.mapsforge.provider.graphics
         {
             get
             {
-                throw new NotImplementedException();
+				return nativePaint.Shader == null && nativePaint.Color.Alpha == 0;
             }
         }
 
         public int GetTextHeight(string text)
         {
-            throw new NotImplementedException();
+			SKRect bounds = new SKRect();
+
+			nativePaint.MeasureText(text, ref bounds);
+
+			return (int)Math.Ceiling(bounds.Bottom - bounds.Top);
         }
 
         public int GetTextWidth(string text)
         {
-            throw new NotImplementedException();
+			SKRect bounds = new SKRect();
+
+			nativePaint.MeasureText(text, ref bounds);
+
+			return (int)Math.Ceiling(bounds.Right - bounds.Left);
         }
 
         public void SetTypeface(FontFamily fontFamily, FontStyle fontStyle)
         {
             nativePaint.Typeface = SKTypeface.FromFamilyName(fontFamily.ToString(), fontStyle.ToSkia());
         }
-    }
+	}
 }

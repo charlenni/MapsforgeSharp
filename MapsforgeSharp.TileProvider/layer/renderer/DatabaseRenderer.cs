@@ -18,41 +18,41 @@
 
 namespace org.mapsforge.map.layer.renderer
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Acrotech.PortableLogAdapter;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using Acrotech.PortableLogAdapter;
+	using MapsforgeSharp.Core.Graphics;
 
-    using Bitmap = org.mapsforge.core.graphics.Bitmap;
-    using Color = org.mapsforge.core.graphics.Color;
-    using Display = org.mapsforge.core.graphics.Display;
-    using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
-    using Position = org.mapsforge.core.graphics.Position;
-    using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
-    using Paint = org.mapsforge.core.graphics.Paint;
-    using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
-    using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
-    using LatLong = org.mapsforge.core.model.LatLong;
-    using Point = org.mapsforge.core.model.Point;
-    using Rectangle = org.mapsforge.core.model.Rectangle;
-    using Tag = org.mapsforge.core.model.Tag;
-    using Tile = org.mapsforge.core.model.Tile;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
-    using TileCache = org.mapsforge.map.layer.cache.TileCache;
-    using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
-    using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
-    using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
-    using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
-    using Way = org.mapsforge.core.datastore.Way;
-    using RenderCallback = org.mapsforge.map.rendertheme.RenderCallback;
-    using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
-    using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;
-    using LayerUtil = org.mapsforge.map.util.LayerUtil;
+	using Bitmap = org.mapsforge.core.graphics.Bitmap;
+	using Color = org.mapsforge.core.graphics.Color;
+	using Display = org.mapsforge.core.graphics.Display;
+	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
+	using GraphicFactory = org.mapsforge.core.graphics.GraphicFactory;
+	using Paint = org.mapsforge.core.graphics.Paint;
+	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
+	using TileBitmap = org.mapsforge.core.graphics.TileBitmap;
+	using LatLong = org.mapsforge.core.model.LatLong;
+	using Point = org.mapsforge.core.model.Point;
+	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using Tag = org.mapsforge.core.model.Tag;
+	using Tile = org.mapsforge.core.model.Tile;
+	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using TileCache = org.mapsforge.map.layer.cache.TileCache;
+	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
+	using MapDataStore = org.mapsforge.core.datastore.MapDataStore;
+	using MapReadResult = org.mapsforge.core.datastore.MapReadResult;
+	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
+	using Way = org.mapsforge.core.datastore.Way;
+	using RenderCallback = org.mapsforge.map.rendertheme.RenderCallback;
+	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
+	using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;
+	using LayerUtil = org.mapsforge.map.util.LayerUtil;
 
-    /// <summary>
-    /// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
-    /// </summary>
-    public class DatabaseRenderer : RenderCallback
+	/// <summary>
+	/// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
+	/// </summary>
+	public class DatabaseRenderer : RenderCallback
 	{
 		private static readonly sbyte? DEFAULT_START_ZOOM_LEVEL = (sbyte) 12;
         private static readonly ILogger LOGGER = (new Acrotech.PortableLogAdapter.Managers.DelegateLogManager((logger, message) => System.Diagnostics.Debug.WriteLine("[{0}]{1}", logger.Name, message), LogLevel.Info)).GetLogger(nameof(DatabaseRenderer));

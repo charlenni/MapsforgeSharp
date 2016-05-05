@@ -13,14 +13,14 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using System;
-    using SkiaSharp;
-    using core.graphics;
-    using core.model;
+	using System;
+	using SkiaSharp;
+	using org.mapsforge.core.graphics;
+	using org.mapsforge.core.model;
 
-    public class SkiaCanvas : Canvas
+	public class SkiaCanvas : Canvas
     {
         private readonly SKSurface nativeSurface;
         private readonly SKCanvas nativeCanvas;
@@ -37,17 +37,12 @@ namespace org.mapsforge.provider.graphics
             nativeCanvas = canvas;
         }
 
-		public SkiaCanvas Canvas
-		{
-			get { return nativeCanvas; }
-		}
-
         public Bitmap Bitmap
         {
             set
             {
 				// TODO
-				//nativeCanvas.Bitmap = value;
+				nativeCanvas.Bitmap = value;
 				throw new NotImplementedException();
 			}
 		}

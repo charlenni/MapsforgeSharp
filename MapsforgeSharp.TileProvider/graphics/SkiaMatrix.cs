@@ -13,9 +13,9 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.provider.graphics
+namespace MapsforgeSharp.TileProvider.Graphics
 {
-    using org.mapsforge.core.graphics;
+	using org.mapsforge.core.graphics;
     using SkiaSharp;
 
     public class SkiaMatrix : Matrix
