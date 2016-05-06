@@ -17,17 +17,17 @@
 
 namespace org.mapsforge.map.layer.labels
 {
-    using System.Collections.Generic;
-    using core.util;
+	using System.Collections.Generic;
+	using MapsforgeSharp.Core.Util;
 
-    using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-    using Tile = MapsforgeSharp.Core.Model.Tile;
-    using LayerUtil = org.mapsforge.map.util.LayerUtil;
+	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
+	using LayerUtil = org.mapsforge.map.util.LayerUtil;
 
-    /// <summary>
-    /// A LabelStore where the data is stored per tile.
-    /// </summary>
-    public class TileBasedLabelStore : WorkingSetCache<Tile, ICollection<MapElementContainer>>, LabelStore
+	/// <summary>
+	/// A LabelStore where the data is stored per tile.
+	/// </summary>
+	public class TileBasedLabelStore : WorkingSetCache<Tile, ICollection<MapElementContainer>>, LabelStore
 	{
 		private const long serialVersionUID = 1L;
 

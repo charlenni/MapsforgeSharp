@@ -16,17 +16,16 @@
 
 namespace org.mapsforge.map.rendertheme
 {
-    using core.util;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
+	using System.Collections.Generic;
+	using System.Runtime.Serialization;
+	using MapsforgeSharp.Core.Util;
 
-    /*
+	/*
 	 * An individual layer in the rendertheme V4+ menu system.
 	 * A layer can have translations, categories that will always be enabled
 	 * when the layer is selected as well as optional overlays.
 	 */
-    [DataContract]
+	[DataContract]
 	public class XmlRenderThemeStyleLayer
 	{
 		private const long serialVersionUID = 1L;

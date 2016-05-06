@@ -17,17 +17,17 @@
 
 namespace org.mapsforge.map.rendertheme.rule
 {
-    using System.Collections.Generic;
-    using core.util;
+	using System.Collections.Generic;
+	using MapsforgeSharp.Core.Util;
 
-    using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
-    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
-    using RenderInstruction = org.mapsforge.map.rendertheme.renderinstruction.RenderInstruction;
+	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
+	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
+	using RenderInstruction = org.mapsforge.map.rendertheme.renderinstruction.RenderInstruction;
 
-    /// <summary>
-    /// A RenderTheme defines how ways and nodes are drawn.
-    /// </summary>
-    public class RenderTheme
+	/// <summary>
+	/// A RenderTheme defines how ways and nodes are drawn.
+	/// </summary>
+	public class RenderTheme
 	{
 		private const int MATCHING_CACHE_SIZE = 1024;
 

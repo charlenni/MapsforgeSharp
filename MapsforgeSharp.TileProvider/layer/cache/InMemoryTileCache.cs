@@ -17,19 +17,18 @@
 
 namespace org.mapsforge.map.layer.cache
 {
-    using System.Collections.Generic;
-    using core.util;
-    using Acrotech.PortableLogAdapter;
+	using System.Collections.Generic;
+	using Acrotech.PortableLogAdapter;
+	using MapsforgeSharp.Core.Util;
 
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
-    using Job = org.mapsforge.map.layer.queue.Job;
-    using Observable = org.mapsforge.map.model.common.Observable;
-    using Observer = org.mapsforge.map.model.common.Observer;
-
-    /// <summary>
-    /// A thread-safe cache for tile images with a variable size and LRU policy.
-    /// </summary>
-    public class InMemoryTileCache : TileCache
+	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+	using Job = org.mapsforge.map.layer.queue.Job;
+	using Observable = org.mapsforge.map.model.common.Observable;
+	using Observer = org.mapsforge.map.model.common.Observer;
+	/// <summary>
+	/// A thread-safe cache for tile images with a variable size and LRU policy.
+	/// </summary>
+	public class InMemoryTileCache : TileCache
 	{
         private static readonly ILogger LOGGER = (new Acrotech.PortableLogAdapter.Managers.DelegateLogManager((logger, message) => System.Diagnostics.Debug.WriteLine("[{0}]{1}", logger.Name, message), LogLevel.Info)).GetLogger(nameof(FileSystemTileCache));
 

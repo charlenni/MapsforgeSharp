@@ -17,18 +17,17 @@
 
 namespace org.mapsforge.reader
 {
-    using core.util;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
+	using System;
+	using System.IO;
+	using MapsforgeSharp.Core.Util;
 
-    //using LRUCache = MapsforgeSharp.Core.Util.LRUCache;
-    using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
+	//using LRUCache = MapsforgeSharp.Core.Util.LRUCache;
+	using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
 
-    /// <summary>
-    /// A cache for database index blocks with a fixed size and LRU policy.
-    /// </summary>
-    internal class IndexCache
+	/// <summary>
+	/// A cache for database index blocks with a fixed size and LRU policy.
+	/// </summary>
+	internal class IndexCache
 	{
 		/// <summary>
 		/// Number of index entries that one index block consists of.
