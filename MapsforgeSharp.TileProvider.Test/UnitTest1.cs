@@ -1,5 +1,6 @@
-﻿/*
+/*
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -15,19 +16,20 @@
 
 namespace org.mapsforge.provider.test
 {
-	using NUnit.Framework;
-	using PCLStorage;
-	using MapsforgeSharp.TileProvider.Graphics;
-
-	using MapsforgeSharp.Core.Graphics;
-	using org.mapsforge.map.layer.renderer;
-	using org.mapsforge.reader;
-	using org.mapsforge.map.layer.cache;
-	using map.rendertheme.rule;
-	using map.rendertheme;
-	using map.model;
-	using System;
-	public class UnitTest1
+    using NUnit.Framework;
+    using PCLStorage;
+    using MapsforgeSharp.TileProvider.Graphics;
+    using MapsforgeSharp.Core.Graphics;
+    using org.mapsforge.map.layer.renderer;
+    using org.mapsforge.reader;
+    using org.mapsforge.map.layer.cache;
+    using map.rendertheme.rule;
+    using map.rendertheme;
+    using map.model;
+    using System;
+    using MapsforgeSharp.Core.Model;
+    
+    public class UnitTest1
     {
         static void Main(string[] args)
         {
@@ -53,7 +55,7 @@ namespace org.mapsforge.provider.test
             var renderThemeFuture = new RenderThemeFuture(graphicFactory, renderTheme, displayModel);
 
 			System.Diagnostics.Debug.WriteLine(string.Format("Before RenderJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
-			var renderJob = new RendererJob(new core.model.Tile(4306, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			var renderJob = new RendererJob(new Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 			//var renderJob = new RendererJob(new core.model.Tile(17220, 11324, 15, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 			//var renderJob = new RendererJob(new core.model.Tile(34440, 22648, 16, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 			//var renderJob = new RendererJob(new core.model.Tile(68881, 45297, 17, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);

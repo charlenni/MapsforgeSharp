@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -15,15 +16,15 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.util
+namespace MapsforgeSharp.Core.Util
 {
     using NUnit.Framework;
     using System;
     using System.Runtime.InteropServices;
 
-    using BoundingBox = org.mapsforge.core.model.BoundingBox;
-    using Dimension = org.mapsforge.core.model.Dimension;
-    using LatLong = org.mapsforge.core.model.LatLong;
+    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+    using Dimension = MapsforgeSharp.Core.Model.Dimension;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
 
     public class LatLongUtilsTest
 	{

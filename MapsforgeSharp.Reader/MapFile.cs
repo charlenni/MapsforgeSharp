@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2015 lincomatic
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -23,12 +24,12 @@ namespace org.mapsforge.reader
     using PCLStorage;
     using Acrotech.PortableLogAdapter;
 
-    using BoundingBox = org.mapsforge.core.model.BoundingBox;
-    using LatLong = org.mapsforge.core.model.LatLong;
-    using Tag = org.mapsforge.core.model.Tag;
-    using Tile = org.mapsforge.core.model.Tile;
-    using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
+    using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
     using PoiWayBundle = MapsforgeSharp.Core.Datastore.PoiWayBundle;

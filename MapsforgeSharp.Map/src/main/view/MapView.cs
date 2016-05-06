@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -17,9 +18,9 @@
 
 namespace org.mapsforge.map.view
 {
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using LatLong = org.mapsforge.core.model.LatLong;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Layer = org.mapsforge.map.layer.Layer;
 	using LayerManager = org.mapsforge.map.layer.LayerManager;
 	using Model = org.mapsforge.map.model.Model;

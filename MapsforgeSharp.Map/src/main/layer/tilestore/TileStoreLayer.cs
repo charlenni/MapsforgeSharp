@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -18,7 +19,7 @@ namespace org.mapsforge.map.layer.tilestore
 {
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
-	using Tile = org.mapsforge.core.model.Tile;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using Job = org.mapsforge.map.layer.queue.Job;
 	using MapViewPosition = org.mapsforge.map.model.MapViewPosition;

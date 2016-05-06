@@ -2,6 +2,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -28,9 +29,9 @@ namespace org.mapsforge.map.layer.overlay
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Point = org.mapsforge.core.model.Point;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
 	/// <summary>

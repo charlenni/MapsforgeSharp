@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -20,10 +21,10 @@ namespace org.mapsforge.map.util
 {
     using System;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
-	using Point = org.mapsforge.core.model.Point;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using MapView = org.mapsforge.map.view.MapView;
 
 	public class MapViewProjection

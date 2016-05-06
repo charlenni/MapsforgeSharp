@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -27,10 +28,10 @@ namespace org.mapsforge.map.layer.renderer
 	using GraphicUtils = MapsforgeSharp.Core.Graphics.GraphicUtils;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Path = MapsforgeSharp.Core.Graphics.Path;
-	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
-	using Tile = org.mapsforge.core.model.Tile;
+	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 
 	public class CanvasRasterer

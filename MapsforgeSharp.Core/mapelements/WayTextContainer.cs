@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -15,7 +16,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.mapelements
+namespace MapsforgeSharp.Core.Mapelements
 {
     using System;
     using System.Text;
@@ -24,8 +25,8 @@ namespace org.mapsforge.core.mapelements
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 
 	public class WayTextContainer : MapElementContainer
 	{

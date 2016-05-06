@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -28,9 +29,9 @@ namespace org.mapsforge.map.layer.debug
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Point = org.mapsforge.core.model.Point;
-	using Tile = org.mapsforge.core.model.Tile;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using LayerUtil = org.mapsforge.map.util.LayerUtil;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 

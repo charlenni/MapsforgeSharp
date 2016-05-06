@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -19,8 +20,8 @@ namespace org.mapsforge.map.rendertheme.rule
 {
     using System.Collections.Generic;
 
-    using Tag = org.mapsforge.core.model.Tag;
-	using Tile = org.mapsforge.core.model.Tile;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using PointOfInterest = org.mapsforge.core.datastore.PointOfInterest;
 	using RenderInstruction = org.mapsforge.map.rendertheme.renderinstruction.RenderInstruction;
