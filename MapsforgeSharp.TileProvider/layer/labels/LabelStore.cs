@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -18,7 +19,7 @@ namespace org.mapsforge.map.layer.labels
 {
     using System.Collections.Generic;
 
-    using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
+    using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
 	using Tile = org.mapsforge.core.model.Tile;
 
 	/// <summary>

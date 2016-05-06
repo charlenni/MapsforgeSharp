@@ -2,6 +2,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -23,8 +24,8 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using PointTextContainer = org.mapsforge.core.mapelements.PointTextContainer;
-	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
+	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
+	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using Point = org.mapsforge.core.model.Point;
 	using Rectangle = org.mapsforge.core.model.Rectangle;
 

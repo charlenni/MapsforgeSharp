@@ -28,10 +28,10 @@ namespace org.mapsforge.map.layer.renderer
 	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
+	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
+	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
 	using LatLong = org.mapsforge.core.model.LatLong;
 	using Point = org.mapsforge.core.model.Point;
