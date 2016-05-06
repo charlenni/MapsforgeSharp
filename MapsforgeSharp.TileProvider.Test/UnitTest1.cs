@@ -26,7 +26,7 @@ namespace org.mapsforge.provider.test
 	using map.rendertheme.rule;
 	using map.rendertheme;
 	using map.model;
-
+	using System;
 	public class UnitTest1
     {
         static void Main(string[] args)
@@ -38,6 +38,8 @@ namespace org.mapsforge.provider.test
 //        [Test()]
         public void ExecuteDatabaseRenderer()
         {
+			var start = DateTime.Now;
+			System.Diagnostics.Debug.WriteLine(string.Format("Start: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
             var filename = PortablePath.Combine(new string[] { "baden-wuerttemberg.map" });
             var file = FileSystem.Current.LocalStorage.GetFileAsync(PortablePath.Combine(new string[] { "baden-wuerttemberg.map" })).Result;
             var mapFile = new MapFile(FileSystem.Current.LocalStorage.GetFileAsync(PortablePath.Combine(new string[] { "baden-wuerttemberg.map" })).Result);
@@ -50,16 +52,24 @@ namespace org.mapsforge.provider.test
             var displayModel = new DisplayModel();
             var renderThemeFuture = new RenderThemeFuture(graphicFactory, renderTheme, displayModel);
 
-            var renderJob = new RendererJob(new core.model.Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			System.Diagnostics.Debug.WriteLine(string.Format("Before RenderJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
+			var renderJob = new RendererJob(new core.model.Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			System.Diagnostics.Debug.WriteLine(string.Format("After RenderJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
 
-            var tile = renderer.ExecuteJob(renderJob);
+			System.Diagnostics.Debug.WriteLine(string.Format("Before ExecuteJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
+			var tile = renderer.ExecuteJob(renderJob);
+			System.Diagnostics.Debug.WriteLine(string.Format("After ExecuteJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
 
+			System.Diagnostics.Debug.WriteLine(string.Format("Before image write: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
 			var output = FileSystem.Current.LocalStorage.CreateFileAsync("Tile.4305.2831.13.png", CreationCollisionOption.ReplaceExisting).Result;
 			using (var outputStream = output.OpenAsync(FileAccess.ReadAndWrite).Result)
 			{
 				tile.Encode().AsStream().CopyTo(outputStream);
 			}
 			output = null;
+			System.Diagnostics.Debug.WriteLine(string.Format("After image write: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
+			System.Diagnostics.Debug.WriteLine(string.Format("End: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
+			System.Diagnostics.Debug.WriteLine(string.Format("Time to render: {0}", (DateTime.Now - start).ToString()));
 		}
-    }
+	}
 }

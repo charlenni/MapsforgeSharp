@@ -41,6 +41,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 			nativePaint.StrokeCap = ((SkiaPaint)paint).NativePaint.StrokeCap;
 			nativePaint.StrokeJoin = ((SkiaPaint)paint).NativePaint.StrokeJoin;
 			nativePaint.StrokeWidth = ((SkiaPaint)paint).NativePaint.StrokeWidth;
+			nativePaint.StrokeMiter = ((SkiaPaint)paint).NativePaint.StrokeMiter;
 			nativePaint.Color = ((SkiaPaint)paint).NativePaint.Color;
         }
 

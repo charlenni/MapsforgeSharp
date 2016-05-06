@@ -38,11 +38,15 @@ namespace org.mapsforge.map.layer.renderer
 		private Canvas canvas;
 		private readonly Path path;
 		private readonly Matrix symbolMatrix;
+		// TODO: Delete
+		private readonly GraphicFactory graphicFactory;
 
 		internal CanvasRasterer(GraphicFactory graphicFactory)
 		{
 			this.symbolMatrix = graphicFactory.CreateMatrix();
 			this.path = graphicFactory.CreatePath();
+			// TODO: Delete
+			this.graphicFactory = graphicFactory;
 		}
 
 		public virtual void Destroy()
@@ -144,11 +148,7 @@ namespace org.mapsforge.map.layer.renderer
 			this.canvas.ResetClip();
 		}
 
-<<<<<<< HEAD
 		private void DrawCircleContainer(ShapePaintContainer shapePaintContainer)
-=======
-		internal virtual IBitmap CanvasBitmap
->>>>>>> b12ddccd9af9416319a03685e93f2164aabfee70
 		{
 			if (canvas == null)
 			{
@@ -167,7 +167,9 @@ namespace org.mapsforge.map.layer.renderer
 				return;
 			}
 
-			this.path.Clear();
+			// TODO
+			//this.path.Clear();
+			var path = this.graphicFactory.CreatePath();
 
 			foreach (Point[] innerList in coordinates)
 			{
@@ -183,16 +185,16 @@ namespace org.mapsforge.map.layer.renderer
 				if (points.Length >= 2)
 				{
 					Point point = points[0];
-					this.path.MoveTo((float) point.X, (float) point.Y);
+					path.MoveTo((float)point.X, (float)point.Y);
 					for (int i = 1; i < points.Length; ++i)
 					{
 						point = points[i];
-						this.path.LineTo((int) point.X, (int) point.Y);
+						path.LineTo((int)point.X, (int)point.Y);
 					}
 				}
 			}
 
-			this.canvas.DrawPath(this.path, shapePaintContainer.paint);
+			this.canvas.DrawPath(path, shapePaintContainer.paint);
 		}
 
 		private void DrawShapePaintContainer(ShapePaintContainer shapePaintContainer)

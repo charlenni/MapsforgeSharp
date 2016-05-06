@@ -84,7 +84,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
             }
         }
 
-		public Bitmap Bitmap
+		public IBitmap Bitmap
 		{
 			set
 			{
