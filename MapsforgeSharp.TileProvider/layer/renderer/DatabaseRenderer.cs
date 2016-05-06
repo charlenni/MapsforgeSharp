@@ -158,17 +158,17 @@ namespace org.mapsforge.map.layer.renderer
 						renderContext.canvasRasterer.DrawWays(renderContext);
 					}
 
-					//if (renderLabels)
-					//{
-					//	ISet<MapElementContainer> labelsToDraw = ProcessLabels(renderContext);
-					//	// now draw the ways and the labels
-					//	renderContext.canvasRasterer.DrawMapElements(labelsToDraw, renderContext.rendererJob.tile);
-					//}
-					//else
-					//{
-					//	// store elements for this tile in the label cache
-					//	this.labelStore.StoreMapItems(renderContext.rendererJob.tile, renderContext.labels);
-					//}
+					if (renderLabels)
+					{
+						ISet<MapElementContainer> labelsToDraw = ProcessLabels(renderContext);
+						// now draw the ways and the labels
+						renderContext.canvasRasterer.DrawMapElements(labelsToDraw, renderContext.rendererJob.tile);
+					}
+					else
+					{
+						// store elements for this tile in the label cache
+						this.labelStore.StoreMapItems(renderContext.rendererJob.tile, renderContext.labels);
+					}
 
 					//if (!rendererJob.labelsOnly && renderContext.renderTheme.HasMapBackgroundOutside())
 					//{

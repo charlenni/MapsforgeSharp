@@ -111,7 +111,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public void DrawCircle(int x, int y, int radius, Paint paint)
         {
-            throw new NotImplementedException();
+			nativeCanvas.DrawOval(new SKRect(x, y, x + radius, y + radius), ((SkiaPaint)paint).NativePaint);
         }
 
         public void DrawLine(int x1, int y1, int x2, int y2, Paint paint)
@@ -127,12 +127,12 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public void DrawText(string text, int x, int y, Paint paint)
         {
-			nativeCanvas.DrawText(text, new SKPoint[] { new SKPoint(x, y) }, ((SkiaPaint)paint).NativePaint);
+			nativeCanvas.DrawText(text, x, y, ((SkiaPaint)paint).NativePaint);
         }
 
         public void DrawTextRotated(string text, int x1, int y1, int x2, int y2, Paint paint)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void FillColor(int color)

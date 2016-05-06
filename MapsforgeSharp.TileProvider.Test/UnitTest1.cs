@@ -53,7 +53,10 @@ namespace org.mapsforge.provider.test
             var renderThemeFuture = new RenderThemeFuture(graphicFactory, renderTheme, displayModel);
 
 			System.Diagnostics.Debug.WriteLine(string.Format("Before RenderJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
-			var renderJob = new RendererJob(new core.model.Tile(4305, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			var renderJob = new RendererJob(new core.model.Tile(4306, 2831, 13, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			//var renderJob = new RendererJob(new core.model.Tile(17220, 11324, 15, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			//var renderJob = new RendererJob(new core.model.Tile(34440, 22648, 16, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
+			//var renderJob = new RendererJob(new core.model.Tile(68881, 45297, 17, 256), mapFile, renderThemeFuture, displayModel, 1, false, false);
 			System.Diagnostics.Debug.WriteLine(string.Format("After RenderJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));
 
 			System.Diagnostics.Debug.WriteLine(string.Format("Before ExecuteJob: {0}", DateTime.Now.ToString("hh:mm:ss.fff")));

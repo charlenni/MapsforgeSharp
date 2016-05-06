@@ -150,16 +150,31 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		private Paint GetFillPaint(sbyte zoomLevel)
 		{
+			if (fills.Count == 0)
+			{
+				return this.fill;
+			}
+
 			return fills[zoomLevel] ?? this.fill;
 		}
 
 		private Paint GetStrokePaint(sbyte zoomLevel)
 		{
+			if (strokes.Count == 0)
+			{
+				return this.stroke;
+			}
+
 			return strokes[zoomLevel] ?? this.stroke;
 		}
 
 		private float GetRenderRadius(sbyte zoomLevel)
 		{
+			if (renderRadiusScaled.Count == 0)
+			{
+				return this.renderRadius;
+			}
+
 			return renderRadiusScaled[zoomLevel] ?? this.renderRadius;
 		}
 	}
