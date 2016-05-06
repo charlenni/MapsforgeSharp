@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace org.mapsforge.core.util
+namespace MapsforgeSharp.Core.Util
 {
     public class LinkedHashSet<T> : ISet<T>
     {

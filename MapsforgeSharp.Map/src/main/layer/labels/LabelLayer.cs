@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -21,11 +22,11 @@ namespace org.mapsforge.map.layer.labels
 
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
+	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Point = org.mapsforge.core.model.Point;
-	using Tile = org.mapsforge.core.model.Tile;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using LayerUtil = org.mapsforge.map.util.LayerUtil;
 
 	public class LabelLayer : Layer

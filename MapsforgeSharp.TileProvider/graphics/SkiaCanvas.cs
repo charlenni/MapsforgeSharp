@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -18,7 +19,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using System;
 	using SkiaSharp;
 	using MapsforgeSharp.Core.Graphics;
-	using org.mapsforge.core.model;
+	using MapsforgeSharp.Core.Model;
 
 	public class SkiaCanvas : Canvas
     {

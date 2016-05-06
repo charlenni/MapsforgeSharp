@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -17,9 +18,9 @@
 
 namespace org.mapsforge.reader.header
 {
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Tag = org.mapsforge.core.model.Tag;
-	using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Tag = MapsforgeSharp.Core.Model.Tag;
+	using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
 
 	internal sealed class RequiredFields
 	{

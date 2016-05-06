@@ -21,8 +21,8 @@ namespace MapsforgeSharp.Core.Datastore
     using System.Collections.Generic;
     using System.Linq;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-    using Tag = org.mapsforge.core.model.Tag;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
 
     /// <summary>
     /// An immutable container for all data associated with a single way or area (closed way).

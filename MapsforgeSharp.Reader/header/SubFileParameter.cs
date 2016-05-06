@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -16,7 +17,7 @@
 
 namespace org.mapsforge.reader.header
 {
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 
 	/// <summary>
 	/// Holds all parameters of a sub-file.

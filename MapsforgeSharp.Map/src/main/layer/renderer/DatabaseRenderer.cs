@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014, 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -26,18 +27,18 @@ namespace org.mapsforge.map.layer.renderer
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
     using Color = MapsforgeSharp.Core.Graphics.Color;
     using Display = MapsforgeSharp.Core.Graphics.Display;
-    using MapElementContainer = org.mapsforge.core.mapelements.MapElementContainer;
+    using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
     using Position = MapsforgeSharp.Core.Graphics.Position;
     using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
     using Paint = MapsforgeSharp.Core.Graphics.Paint;
-    using SymbolContainer = org.mapsforge.core.mapelements.SymbolContainer;
+    using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
     using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
-    using LatLong = org.mapsforge.core.model.LatLong;
-    using Point = org.mapsforge.core.model.Point;
-    using Rectangle = org.mapsforge.core.model.Rectangle;
-    using Tag = org.mapsforge.core.model.Tag;
-    using Tile = org.mapsforge.core.model.Tile;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+    using Point = MapsforgeSharp.Core.Model.Point;
+    using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using TileCache = org.mapsforge.map.layer.cache.TileCache;
     using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
     using MapDataStore = org.mapsforge.core.datastore.MapDataStore;

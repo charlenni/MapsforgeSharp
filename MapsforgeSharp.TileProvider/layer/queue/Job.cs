@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014 mvglasow <michael -at- vonglasow.com>
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -19,7 +20,7 @@
 namespace org.mapsforge.map.layer.queue
 {
     using PCLStorage;
-    using Tile = org.mapsforge.core.model.Tile;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
 
     public class Job
 	{

@@ -20,7 +20,7 @@ using MapsforgeSharp.Core.Graphics;
 
 namespace MapsforgeSharp.Core.Graphics
 {
-    using Point = org.mapsforge.core.model.Point;
+    using Point = MapsforgeSharp.Core.Model.Point;
 
     public interface Paint
 	{

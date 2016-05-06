@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -22,9 +23,9 @@ namespace org.mapsforge.map.view
 	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
-	using Point = org.mapsforge.core.model.Point;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
+	using Point = MapsforgeSharp.Core.Model.Point;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using FrameBufferModel = org.mapsforge.map.model.FrameBufferModel;
 

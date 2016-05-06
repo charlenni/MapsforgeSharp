@@ -20,7 +20,7 @@ namespace org.mapsforge.map.layer.renderer
 {
     using System;
 
-    using Tile = org.mapsforge.core.model.Tile;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
     using Job = org.mapsforge.map.layer.queue.Job;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;

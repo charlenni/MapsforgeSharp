@@ -3,6 +3,7 @@
  * Copyright 2014-2015 Ludwig M Brinckmann
  * Copyright 2014 Christian Pesch
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -22,7 +23,7 @@ namespace org.mapsforge.map.layer.renderer
 
     using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
-	using Tile = org.mapsforge.core.model.Tile;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using LabelStore = org.mapsforge.map.layer.labels.LabelStore;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
@@ -158,7 +159,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// <summary>
 		/// Whether the tile is stale and should be refreshed.
 		/// <para>
-		/// This method is called from <seealso cref="#draw(org.mapsforge.core.model.BoundingBox, byte, MapsforgeSharp.Core.Graphics.Canvas, org.mapsforge.core.model.Point)"/> to determine whether the tile needs to
+		/// This method is called from <seealso cref="#draw(MapsforgeSharp.Core.Model.BoundingBox, byte, MapsforgeSharp.Core.Graphics.Canvas, MapsforgeSharp.Core.Model.Point)"/> to determine whether the tile needs to
 		/// be refreshed.
 		/// </para>
 		/// <para>

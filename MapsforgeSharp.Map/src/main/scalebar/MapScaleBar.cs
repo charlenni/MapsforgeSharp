@@ -4,6 +4,7 @@
  * Copyright 2014, 2015 devemux86
  * Copyright 2014 Erik Duisters
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -25,8 +26,8 @@ namespace org.mapsforge.map.scalebar
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using MapViewDimension = org.mapsforge.map.model.MapViewDimension;
 	using MapViewPosition = org.mapsforge.map.model.MapViewPosition;

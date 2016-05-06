@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -20,8 +21,8 @@ namespace org.mapsforge.reader.header
 {
     using System;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-	using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
 
 	internal sealed class OptionalFields
 	{
