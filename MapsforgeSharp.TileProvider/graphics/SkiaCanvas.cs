@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright 2016 Dirk Weltz
  *
  * This program is free software: you can redistribute it and/or modify it under the
@@ -25,25 +25,38 @@ namespace MapsforgeSharp.TileProvider.Graphics
         private readonly SKSurface nativeSurface;
         private readonly SKCanvas nativeCanvas;
         private readonly SKPaint nativePaint = new SKPaint() { IsAntialias = true, };
+		private readonly int width;
+		private readonly int height;
 
-        public SkiaCanvas()
+		public SkiaCanvas() : this(256, 256)
         {
-            nativeSurface = SKSurface.Create(256, 256, SKColorType.Bgra_8888, SKAlphaType.Premul);
-            nativeCanvas = nativeSurface.Canvas;
-        }
+		}
 
-        public SkiaCanvas(SKCanvas canvas)
+		public SkiaCanvas(int width, int height)
+		{
+			nativeSurface = SKSurface.Create(width, height, SKColorType.Bgra_8888, SKAlphaType.Premul);
+			nativeCanvas = nativeSurface.Canvas;
+
+			this.width = width;
+			this.height = height;
+		}
+
+		public SkiaCanvas(SKCanvas canvas)
         {
             nativeCanvas = canvas;
         }
 
-        public IBitmap Bitmap
+		public SKCanvas NativeCanvas
+		{
+			get { return nativeCanvas; }
+		}
+
+        public SKImage Image
         {
-            set
+            get
             {
 				// TODO
-				//nativeCanvas.IBitmap = value;
-				throw new NotImplementedException();
+				return nativeSurface.Snapshot();
 			}
 		}
 
@@ -59,7 +72,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             get
             {
-                throw new NotImplementedException();
+				return this.height;
             }
         }
 
@@ -67,13 +80,23 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             get
             {
-                throw new NotImplementedException();
+				return this.width;
             }
         }
 
-        public void Destroy()
+		public IBitmap Bitmap
+		{
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public void Destroy()
         {
-            throw new NotImplementedException();
+			nativePaint.Dispose();
+			nativeCanvas.Dispose();
+			nativeSurface.Dispose();
         }
 
         public void DrawBitmap(IBitmap bitmap, Matrix matrix)
@@ -93,17 +116,18 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public void DrawLine(int x1, int y1, int x2, int y2, Paint paint)
         {
-            throw new NotImplementedException();
+			nativeCanvas.DrawLine(x1, y1, x2, y2, ((SkiaPaint)paint).NativePaint);
         }
 
         public void DrawPath(Path path, Paint paint)
         {
-            throw new NotImplementedException();
+			//((SkiaPaint)paint).NativePaint.StrokeWidth = 1f;
+			nativeCanvas.DrawPath(((SkiaPath)path).NativePath, ((SkiaPaint)paint).NativePaint);
         }
 
         public void DrawText(string text, int x, int y, Paint paint)
         {
-            throw new NotImplementedException();
+			nativeCanvas.DrawText(text, new SKPoint[] { new SKPoint(x, y) }, ((SkiaPaint)paint).NativePaint);
         }
 
         public void DrawTextRotated(string text, int x1, int y1, int x2, int y2, Paint paint)
@@ -113,8 +137,16 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public void FillColor(int color)
         {
-            throw new NotImplementedException();
-        }
+			var white = SKColors.White;
+			var skred = SKColors.Red;
+			var skgreen = SKColors.Green;
+			byte red = (byte)(color >> 16 & 0xff);
+			byte green = (byte)(color >> 8 & 0xff);
+			byte blue = (byte)(color & 0xff);
+			byte alpha = (byte)(color >> 24 & 0xff);
+			nativeCanvas.Clear(new SKColor((byte)(color >> 16 & 0xff), (byte)(color >> 8 & 0xff), (byte)(color & 0xff), (byte)(color >> 24 & 0xff)));
+			//nativeCanvas.DrawColor(new SKColor((byte)(color >> 16 & 0xff), (byte)(color >> 8 & 0xff), (byte)(color & 0xff), (byte)(color >> 24 & 0xff)), SKXferMode.Clear);
+		}
 
         public void FillColor(Color color)
         {
@@ -123,17 +155,17 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
         public void ResetClip()
         {
-            throw new NotImplementedException();
+			nativeCanvas.ClipRect(new SKRect(0, 0, width, height));
         }
 
         public void SetClip(int left, int top, int width, int height)
         {
-            throw new NotImplementedException();
-        }
+			nativeCanvas.ClipRect(new SKRect(left, top, left + width, top + height));
+		}
 
-        public void SetClipDifference(int left, int top, int width, int height)
+		public void SetClipDifference(int left, int top, int width, int height)
         {
-            throw new NotImplementedException();
+			nativeCanvas.ClipRect(new SKRect(left, top, left + width, top + height));
         }
     }
 }

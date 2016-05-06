@@ -49,10 +49,10 @@ namespace org.mapsforge.map.layer.renderer
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 	using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;
 	using LayerUtil = org.mapsforge.map.util.LayerUtil;
-
-	/// <summary>
-	/// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
-	/// </summary>
+	using SkiaSharp;
+	using MapsforgeSharp.TileProvider.Graphics; /// <summary>
+												/// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
+												/// </summary>
 	public class DatabaseRenderer : RenderCallback
 	{
 		private static readonly sbyte? DEFAULT_START_ZOOM_LEVEL = (sbyte) 12;
@@ -115,7 +115,7 @@ namespace org.mapsforge.map.layer.renderer
         /// </summary>
         /// <param name="rendererJob">
         ///            the job that should be executed. </param>
-        public virtual TileBitmap ExecuteJob(RendererJob rendererJob)
+        public virtual SKImage ExecuteJob(RendererJob rendererJob)
 		{
 			RenderTheme renderTheme;
 
@@ -136,10 +136,10 @@ namespace org.mapsforge.map.layer.renderer
 			{
 				renderContext = new RenderContext(renderTheme, rendererJob, new CanvasRasterer(graphicFactory));
 
+				renderContext.canvasRasterer.Canvas = graphicFactory.CreateCanvas(renderContext.rendererJob.tile.TileSize, renderContext.rendererJob.tile.TileSize);
+
 				if (RenderBitmap(renderContext))
 				{
-					TileBitmap bitmap = null;
-
 					if (this.mapDatabase != null)
 					{
 						MapReadResult mapReadResult = this.mapDatabase.ReadMapData(rendererJob.tile);
@@ -148,9 +148,9 @@ namespace org.mapsforge.map.layer.renderer
 
 					if (!rendererJob.labelsOnly)
 					{
-						bitmap = this.graphicFactory.CreateTileBitmap(renderContext.rendererJob.tile.TileSize, renderContext.rendererJob.hasAlpha);
-						bitmap.Timestamp = rendererJob.mapDataStore.GetDataTimestamp(renderContext.rendererJob.tile);
-						renderContext.canvasRasterer.CanvasBitmap = bitmap;
+						//bitmap = this.graphicFactory.CreateTileBitmap(renderContext.rendererJob.tile.TileSize, renderContext.rendererJob.hasAlpha);
+						//bitmap.Timestamp = rendererJob.mapDataStore.GetDataTimestamp(renderContext.rendererJob.tile);
+						//renderContext.canvasRasterer.CanvasBitmap = bitmap;
 						if (!rendererJob.hasAlpha && rendererJob.displayModel.BackgroundColor != renderContext.renderTheme.MapBackground)
 						{
 							renderContext.canvasRasterer.Fill(renderContext.renderTheme.MapBackground);
@@ -158,35 +158,52 @@ namespace org.mapsforge.map.layer.renderer
 						renderContext.canvasRasterer.DrawWays(renderContext);
 					}
 
-					if (renderLabels)
-					{
-						ISet<MapElementContainer> labelsToDraw = ProcessLabels(renderContext);
-						// now draw the ways and the labels
-						renderContext.canvasRasterer.DrawMapElements(labelsToDraw, renderContext.rendererJob.tile);
-					}
-					else
-					{
-						// store elements for this tile in the label cache
-						this.labelStore.StoreMapItems(renderContext.rendererJob.tile, renderContext.labels);
-					}
+					//if (renderLabels)
+					//{
+					//	ISet<MapElementContainer> labelsToDraw = ProcessLabels(renderContext);
+					//	// now draw the ways and the labels
+					//	renderContext.canvasRasterer.DrawMapElements(labelsToDraw, renderContext.rendererJob.tile);
+					//}
+					//else
+					//{
+					//	// store elements for this tile in the label cache
+					//	this.labelStore.StoreMapItems(renderContext.rendererJob.tile, renderContext.labels);
+					//}
 
-					if (!rendererJob.labelsOnly && renderContext.renderTheme.HasMapBackgroundOutside())
-					{
-						// blank out all areas outside of map
-						Rectangle insideArea = this.mapDatabase.BoundingBox.GetPositionRelativeToTile(renderContext.rendererJob.tile);
-						if (!rendererJob.hasAlpha)
-						{
-							renderContext.canvasRasterer.FillOutsideAreas(renderContext.renderTheme.MapBackgroundOutside, insideArea);
-						}
-						else
-						{
-							renderContext.canvasRasterer.FillOutsideAreas(Color.TRANSPARENT, insideArea);
-						}
-					}
-					return bitmap;
+					//if (!rendererJob.labelsOnly && renderContext.renderTheme.HasMapBackgroundOutside())
+					//{
+					//	// blank out all areas outside of map
+					//	Rectangle insideArea = this.mapDatabase.BoundingBox.GetPositionRelativeToTile(renderContext.rendererJob.tile);
+					//	if (!rendererJob.hasAlpha)
+					//	{
+					//		//renderContext.canvasRasterer.FillOutsideAreas(renderContext.renderTheme.MapBackgroundOutside, insideArea);
+					//	}
+					//	else
+					//	{
+					//		//renderContext.canvasRasterer.FillOutsideAreas(Color.TRANSPARENT, insideArea);
+					//	}
+					//}
+
+					//renderContext.canvasRasterer.Fill(0x7f808080);
+					//var path = new SKPath();
+					//path.MoveTo(45, 30);
+					//path.LineTo(230, 180);
+					//var paint = new SKPaint();
+					//paint.IsAntialias = true;
+					//paint.IsStroke = true;
+					//paint.Color = SKColors.GreenYellow;
+					//((SkiaCanvas)renderContext.canvasRasterer.Canvas).NativeCanvas.DrawPath(path, paint);
+
+					return ((SkiaCanvas)renderContext.canvasRasterer.Canvas).Image;
 				}
-				// outside of map area with background defined:
-				return CreateBackgroundBitmap(renderContext);
+
+				// Draws a bitmap just with outside colour, used for bitmaps outside of map area.
+				if (!renderContext.rendererJob.hasAlpha)
+				{
+					//renderContext.canvasRasterer.Fill(renderContext.renderTheme.MapBackgroundOutside);
+				}
+
+				return ((SkiaCanvas)renderContext.canvasRasterer.Canvas).Image;
 			}
 			finally
 			{
@@ -305,23 +322,6 @@ namespace org.mapsforge.map.layer.renderer
 		internal virtual bool RenderBitmap(RenderContext renderContext)
 		{
 			return !renderContext.renderTheme.HasMapBackgroundOutside() || this.mapDatabase.SupportsTile(renderContext.rendererJob.tile);
-		}
-
-		/// <summary>
-		/// Draws a bitmap just with outside colour, used for bitmaps outside of map area. </summary>
-		/// <param name="renderContext"> the RenderContext </param>
-		/// <returns> bitmap drawn in single colour. </returns>
-		private TileBitmap CreateBackgroundBitmap(RenderContext renderContext)
-		{
-			TileBitmap bitmap = this.graphicFactory.CreateTileBitmap(renderContext.rendererJob.tile.TileSize, renderContext.rendererJob.hasAlpha);
-
-			renderContext.canvasRasterer.CanvasBitmap = bitmap;
-			if (!renderContext.rendererJob.hasAlpha)
-			{
-				renderContext.canvasRasterer.Fill(renderContext.renderTheme.MapBackgroundOutside);
-			}
-
-			return bitmap;
 		}
 
 		private ISet<MapElementContainer> ProcessLabels(RenderContext renderContext)

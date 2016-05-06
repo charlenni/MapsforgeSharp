@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014 devemux86
@@ -25,13 +25,14 @@ namespace org.mapsforge.map.rendertheme
     using PCLStorage;
     using SkiaSharp;
     using MapsforgeSharp.Core.Graphics;
+  	using System.Globalization;
 
     using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
     using ResourceBitmap = MapsforgeSharp.Core.Graphics.ResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     public sealed class XmlUtils
-	{
+	 {
 		public static bool supportOlderRenderThemes = true;
 		private const string PREFIX_FILE = "file:";
 		private const string PREFIX_JAR = "jar:";
@@ -125,7 +126,7 @@ namespace org.mapsforge.map.rendertheme
 			else if (colorString.Length == 7)
 			{
                 var rgb = int.Parse(colorString.Substring(1), System.Globalization.NumberStyles.HexNumber);
-                argb = 255 >> 24 & rgb;
+                argb = 255 << 24 | rgb;
 			}
 			else if (colorString.Length == 9)
 			{
@@ -148,7 +149,7 @@ namespace org.mapsforge.map.rendertheme
 
 		public static float ParseNonNegativeFloat(string name, string value)
 		{
-			float parsedFloat = float.Parse(value);
+			float parsedFloat = float.Parse(value, CultureInfo.InvariantCulture.NumberFormat);
 			CheckForNegativeValue(name, parsedFloat);
 			return parsedFloat;
 		}

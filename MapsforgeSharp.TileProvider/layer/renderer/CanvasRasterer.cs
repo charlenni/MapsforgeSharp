@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
@@ -17,10 +17,10 @@
 
 namespace org.mapsforge.map.layer.renderer
 {
-    using System.Collections.Generic;
-    using System.Linq;
+	using System.Collections.Generic;
+	using System.Linq;
 
-    using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
+  using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
@@ -35,20 +35,29 @@ namespace org.mapsforge.map.layer.renderer
 
 	public class CanvasRasterer
 	{
-		private readonly Canvas canvas;
+		private Canvas canvas;
 		private readonly Path path;
 		private readonly Matrix symbolMatrix;
+		// TODO: Delete
+		private readonly GraphicFactory graphicFactory;
 
 		internal CanvasRasterer(GraphicFactory graphicFactory)
 		{
-			this.canvas = graphicFactory.CreateCanvas();
 			this.symbolMatrix = graphicFactory.CreateMatrix();
 			this.path = graphicFactory.CreatePath();
+			// TODO: Delete
+			this.graphicFactory = graphicFactory;
 		}
 
 		public virtual void Destroy()
 		{
-			this.canvas.Destroy();
+			this.canvas?.Destroy();
+		}
+
+		public Canvas Canvas
+		{
+			get { return this.canvas; }
+			set { this.canvas = value; }
 		}
 
 		internal virtual void DrawWays(RenderContext renderContext)
@@ -73,6 +82,11 @@ namespace org.mapsforge.map.layer.renderer
 
 		internal virtual void DrawMapElements(ISet<MapElementContainer> elements, Tile tile)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
             // we have a set of all map elements (needed so we do not draw elements twice),
             // but we need to draw in priority order as we now allow overlaps. So we
             // convert into list, then sort, then draw.
@@ -88,6 +102,11 @@ namespace org.mapsforge.map.layer.renderer
 
 		internal virtual void Fill(int color)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
 			if (GraphicUtils.GetAlpha(color) > 0)
 			{
 				this.canvas.FillColor(color);
@@ -102,6 +121,11 @@ namespace org.mapsforge.map.layer.renderer
 		/// <param name="insideArea"> the inside area on which not to draw </param>
 		internal virtual void FillOutsideAreas(Color color, Rectangle insideArea)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
 			this.canvas.SetClipDifference((int) insideArea.Left, (int) insideArea.Top, (int) insideArea.Width, (int) insideArea.Height);
 			this.canvas.FillColor(color);
 			this.canvas.ResetClip();
@@ -114,21 +138,23 @@ namespace org.mapsforge.map.layer.renderer
 		/// <param name="insideArea"> the inside area on which not to draw </param>
 		internal virtual void FillOutsideAreas(int color, Rectangle insideArea)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
 			this.canvas.SetClipDifference((int) insideArea.Left, (int) insideArea.Top, (int) insideArea.Width, (int) insideArea.Height);
 			this.canvas.FillColor(color);
 			this.canvas.ResetClip();
 		}
 
-		internal virtual IBitmap CanvasBitmap
-		{
-			set
-			{
-				this.canvas.Bitmap = value;
-			}
-		}
-
 		private void DrawCircleContainer(ShapePaintContainer shapePaintContainer)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
 			CircleContainer circleContainer = (CircleContainer) shapePaintContainer.shapeContainer;
 			Point point = circleContainer.point;
 			this.canvas.DrawCircle((int) point.X, (int) point.Y, (int) circleContainer.radius, shapePaintContainer.paint);
@@ -136,7 +162,14 @@ namespace org.mapsforge.map.layer.renderer
 
 		private void DrawPath(ShapePaintContainer shapePaintContainer, Point[][] coordinates, float dy)
 		{
-			this.path.Clear();
+			if (canvas == null)
+			{
+				return;
+			}
+
+			// TODO
+			//this.path.Clear();
+			var path = this.graphicFactory.CreatePath();
 
 			foreach (Point[] innerList in coordinates)
 			{
@@ -152,20 +185,25 @@ namespace org.mapsforge.map.layer.renderer
 				if (points.Length >= 2)
 				{
 					Point point = points[0];
-					this.path.MoveTo((float) point.X, (float) point.Y);
+					path.MoveTo((float)point.X, (float)point.Y);
 					for (int i = 1; i < points.Length; ++i)
 					{
 						point = points[i];
-						this.path.LineTo((int) point.X, (int) point.Y);
+						path.LineTo((int)point.X, (int)point.Y);
 					}
 				}
 			}
 
-			this.canvas.DrawPath(this.path, shapePaintContainer.paint);
+			this.canvas.DrawPath(path, shapePaintContainer.paint);
 		}
 
 		private void DrawShapePaintContainer(ShapePaintContainer shapePaintContainer)
 		{
+			if (canvas == null)
+			{
+				return;
+			}
+
 			ShapeType shapeType = shapePaintContainer.shapeContainer.ShapeType;
 			switch (shapeType)
 			{
