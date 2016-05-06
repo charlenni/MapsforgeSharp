@@ -23,7 +23,7 @@ namespace MapsforgeSharp.Core.Mapelements
 
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using Point = org.mapsforge.core.model.Point;
+	using Point = MapsforgeSharp.Core.Model.Point;
 
 	public abstract class PointTextContainer : MapElementContainer
 	{

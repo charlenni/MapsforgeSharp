@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -16,8 +17,8 @@
 
 namespace org.mapsforge.map.model
 {
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
 	using Observable = org.mapsforge.map.model.common.Observable;
 
 	public class FrameBufferModel : Observable

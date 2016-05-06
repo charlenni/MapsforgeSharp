@@ -26,8 +26,8 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 
 	public class SkiaPointTextContainer : PointTextContainer
 	{

@@ -20,7 +20,7 @@ namespace org.mapsforge.reader
     using NUnit.Framework;
     using PCLStorage;
 
-    using Tile = org.mapsforge.core.model.Tile;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
     using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
 

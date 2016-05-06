@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	using Dimension = org.mapsforge.core.model.Dimension;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
 
 	public interface Canvas : GraphicContext
 	{

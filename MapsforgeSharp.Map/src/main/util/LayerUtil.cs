@@ -22,9 +22,9 @@ namespace org.mapsforge.map.util
     using System.Linq;
 
     using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Point = org.mapsforge.core.model.Point;
-	using Tile = org.mapsforge.core.model.Tile;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using TilePosition = org.mapsforge.map.layer.TilePosition;
 

@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -36,7 +37,7 @@ namespace org.mapsforge.map.layer.download.tilesource
 		public abstract bool HasAlpha();
 		public abstract sbyte ZoomLevelMin {get;}
 		public abstract sbyte ZoomLevelMax {get;}
-		public abstract Uri GetTileUrl(org.mapsforge.core.model.Tile tile);
+		public abstract Uri GetTileUrl(MapsforgeSharp.Core.Model.Tile tile);
 		public abstract int ParallelRequestsLimit {get;}
 
 		/// <summary>

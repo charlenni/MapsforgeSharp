@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -23,10 +24,10 @@ namespace org.mapsforge.map.layer
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
-	using Point = org.mapsforge.core.model.Point;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
+	using Point = MapsforgeSharp.Core.Model.Point;
 	using MapViewPosition = org.mapsforge.map.model.MapViewPosition;
 	using MapPositionUtil = org.mapsforge.map.util.MapPositionUtil;
 	using PausableThread = org.mapsforge.map.util.PausableThread;

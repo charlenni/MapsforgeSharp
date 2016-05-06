@@ -20,8 +20,8 @@ namespace org.mapsforge.map.rendertheme.rule
 {
     using System.Collections.Generic;
 
-    using Tag = org.mapsforge.core.model.Tag;
-	using Tile = org.mapsforge.core.model.Tile;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 	using RenderInstruction = org.mapsforge.map.rendertheme.renderinstruction.RenderInstruction;

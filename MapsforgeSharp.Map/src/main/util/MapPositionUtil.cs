@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -19,11 +20,11 @@ namespace org.mapsforge.map.util
 {
     using System;
 
-    using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using LatLong = org.mapsforge.core.model.LatLong;
-	using MapPosition = org.mapsforge.core.model.MapPosition;
-	using Point = org.mapsforge.core.model.Point;
+    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
+	using Point = MapsforgeSharp.Core.Model.Point;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 
 	public sealed class MapPositionUtil

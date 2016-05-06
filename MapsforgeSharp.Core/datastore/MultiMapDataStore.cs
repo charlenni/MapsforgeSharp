@@ -21,9 +21,9 @@ namespace MapsforgeSharp.Core.Datastore
     using System;
     using System.Collections.Generic;
 
-    using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using LatLong = org.mapsforge.core.model.LatLong;
-	using Tile = org.mapsforge.core.model.Tile;
+    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 
 	/// <summary>
 	/// A MapDatabase that reads and combines data from multiple map files.

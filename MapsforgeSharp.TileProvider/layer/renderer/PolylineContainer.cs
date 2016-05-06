@@ -21,10 +21,10 @@ namespace org.mapsforge.map.layer.renderer
     using System;
     using System.Collections.Generic;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-	using Point = org.mapsforge.core.model.Point;
-	using Tag = org.mapsforge.core.model.Tag;
-	using Tile = org.mapsforge.core.model.Tile;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Tag = MapsforgeSharp.Core.Model.Tag;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using Way = MapsforgeSharp.Core.Datastore.Way;
 

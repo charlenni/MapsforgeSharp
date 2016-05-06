@@ -29,9 +29,9 @@ namespace org.mapsforge.map.layer.renderer
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Path = MapsforgeSharp.Core.Graphics.Path;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
-	using Tile = org.mapsforge.core.model.Tile;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 
 	public class CanvasRasterer

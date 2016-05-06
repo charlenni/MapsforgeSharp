@@ -20,7 +20,7 @@
     using System.Collections.Generic;
 
     using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using Tile = org.mapsforge.core.model.Tile;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 
 	/// <summary>
 	/// The TileDependecies class tracks the dependencies between tiles for labels.

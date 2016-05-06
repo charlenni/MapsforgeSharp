@@ -18,7 +18,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 {
 	using System;
 	using MapsforgeSharp.Core.Mapelements;
-	using org.mapsforge.core.model;
+	using MapsforgeSharp.Core.Model;
 	using System.IO;
 	using MapsforgeSharp.Core.Graphics;
 	using System.Reflection;

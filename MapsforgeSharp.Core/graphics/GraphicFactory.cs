@@ -20,7 +20,7 @@ namespace MapsforgeSharp.Core.Graphics
 {
 	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using Point = org.mapsforge.core.model.Point;
+	using Point = MapsforgeSharp.Core.Model.Point;
 	using MapsforgeSharp.Core.Graphics;
 	public interface GraphicFactory
 	{

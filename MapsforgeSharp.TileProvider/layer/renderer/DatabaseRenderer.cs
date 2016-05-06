@@ -33,11 +33,11 @@ namespace org.mapsforge.map.layer.renderer
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
-	using LatLong = org.mapsforge.core.model.LatLong;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
-	using Tag = org.mapsforge.core.model.Tag;
-	using Tile = org.mapsforge.core.model.Tile;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using Tag = MapsforgeSharp.Core.Model.Tag;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;

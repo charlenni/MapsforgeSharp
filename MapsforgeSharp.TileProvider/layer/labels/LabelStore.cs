@@ -20,7 +20,7 @@ namespace org.mapsforge.map.layer.labels
     using System.Collections.Generic;
 
     using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using Tile = org.mapsforge.core.model.Tile;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 
 	/// <summary>
 	/// The LabelStore is an abstract store for labels from which it is possible to retrieve a priority-ordered

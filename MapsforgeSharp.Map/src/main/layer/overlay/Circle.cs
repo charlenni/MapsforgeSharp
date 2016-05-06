@@ -3,6 +3,7 @@
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -20,10 +21,10 @@ namespace org.mapsforge.map.layer.overlay
 {
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using LatLong = org.mapsforge.core.model.LatLong;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
 
 	/// <summary>

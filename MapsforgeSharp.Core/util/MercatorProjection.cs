@@ -3,6 +3,7 @@
  * Copyright 2013 Stephan Brandt <stephan@contagt.com>
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz 
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -20,9 +21,9 @@ namespace org.mapsforge.core.util
 {
     using System;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-	using Point = org.mapsforge.core.model.Point;
-	using Tile = org.mapsforge.core.model.Tile;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 
 	/// <summary>
 	/// An implementation of the spherical Mercator projection.

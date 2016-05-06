@@ -23,8 +23,8 @@ namespace MapsforgeSharp.Core.Mapelements
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 
 	/// <summary>
 	/// The MapElementContainer is the abstract base class for annotations that can be placed on the

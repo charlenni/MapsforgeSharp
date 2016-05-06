@@ -21,7 +21,7 @@ namespace org.mapsforge.map.layer.labels
     using core.util;
 
     using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-    using Tile = org.mapsforge.core.model.Tile;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
     using LayerUtil = org.mapsforge.map.util.LayerUtil;
 
     /// <summary>

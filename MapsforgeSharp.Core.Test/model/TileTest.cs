@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -14,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.model
+namespace MapsforgeSharp.Core.Model
 {
     using NUnit.Framework;
     using util;

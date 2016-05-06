@@ -25,8 +25,8 @@ namespace MapsforgeSharp.Core.Mapelements
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 
 	public class WayTextContainer : MapElementContainer
 	{

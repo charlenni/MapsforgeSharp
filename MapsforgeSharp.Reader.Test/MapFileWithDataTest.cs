@@ -20,9 +20,9 @@ namespace org.mapsforge.reader
     using NUnit.Framework;
     using PCLStorage;
 
-    using LatLong = org.mapsforge.core.model.LatLong;
-    using Tag = org.mapsforge.core.model.Tag;
-    using Tile = org.mapsforge.core.model.Tile;
+    using LatLong = MapsforgeSharp.Core.Model.LatLong;
+    using Tag = MapsforgeSharp.Core.Model.Tag;
+    using Tile = MapsforgeSharp.Core.Model.Tile;
     using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
     using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;

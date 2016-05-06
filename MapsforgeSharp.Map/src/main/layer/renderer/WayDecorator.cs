@@ -26,10 +26,10 @@ namespace org.mapsforge.map.layer.renderer
 	using Paint = MapsforgeSharp.Core.Graphics.Paint;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using WayTextContainer = MapsforgeSharp.Core.Mapelements.WayTextContainer;
-	using LineSegment = org.mapsforge.core.model.LineSegment;
-	using Point = org.mapsforge.core.model.Point;
-	using Rectangle = org.mapsforge.core.model.Rectangle;
-	using Tile = org.mapsforge.core.model.Tile;
+	using LineSegment = MapsforgeSharp.Core.Model.LineSegment;
+	using Point = MapsforgeSharp.Core.Model.Point;
+	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using Tile = MapsforgeSharp.Core.Model.Tile;
 
 	internal sealed class WayDecorator
 	{

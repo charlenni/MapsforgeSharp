@@ -3,6 +3,7 @@
  * Copyright 2014 Christian Pesch
  * Copyright 2015 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -16,7 +17,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.model
+namespace MapsforgeSharp.Core.Model
 {
     using System;
     using System.Collections.Generic;

@@ -5,6 +5,7 @@
  * Copyright 2014 devemux86
  * Copyright 2015 Andreas Schildbach
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -23,9 +24,9 @@ namespace org.mapsforge.core.util
     using System;
     using System.Collections.Generic;
 
-    using BoundingBox = org.mapsforge.core.model.BoundingBox;
-	using Dimension = org.mapsforge.core.model.Dimension;
-	using LatLong = org.mapsforge.core.model.LatLong;
+    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 
 	/// <summary>
 	/// A utility class to convert, parse and validate geographical latitude/longitude coordinates.
