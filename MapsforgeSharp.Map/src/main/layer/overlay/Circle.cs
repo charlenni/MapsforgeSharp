@@ -25,7 +25,7 @@ namespace org.mapsforge.map.layer.overlay
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 
 	/// <summary>
 	/// A {@code Circle} consists of a center <seealso cref="LatLong"/> and a non-negative radius in meters.

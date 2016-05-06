@@ -25,7 +25,7 @@ namespace org.mapsforge.map.util
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using TilePosition = org.mapsforge.map.layer.TilePosition;
 
 	public sealed class LayerUtil

@@ -38,7 +38,7 @@ namespace org.mapsforge.map.layer.renderer
 	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
 	using Tag = MapsforgeSharp.Core.Model.Tag;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
 	using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;

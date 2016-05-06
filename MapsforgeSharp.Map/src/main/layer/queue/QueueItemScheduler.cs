@@ -23,7 +23,7 @@ namespace org.mapsforge.map.layer.queue
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 
 	internal sealed class QueueItemScheduler
 	{

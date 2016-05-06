@@ -21,7 +21,7 @@ namespace org.mapsforge.reader
     using PCLStorage;
 
     using Tile = MapsforgeSharp.Core.Model.Tile;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
 
     public class MapFileEmptyTest

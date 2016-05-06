@@ -27,7 +27,7 @@ namespace org.mapsforge.map.scalebar
 	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
 	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using MapViewDimension = org.mapsforge.map.model.MapViewDimension;
 	using MapViewPosition = org.mapsforge.map.model.MapViewPosition;

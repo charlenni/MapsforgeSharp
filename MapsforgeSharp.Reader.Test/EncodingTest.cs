@@ -21,7 +21,7 @@ namespace org.mapsforge.reader
 
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using Tile = MapsforgeSharp.Core.Model.Tile;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
     using Way = MapsforgeSharp.Core.Datastore.Way;
 

@@ -29,7 +29,7 @@ namespace org.mapsforge.map.layer.overlay
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using Point = MapsforgeSharp.Core.Model.Point;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 
     /// <summary>
     /// A {@code Polyline} draws a connected series of line segments specified by a list of <seealso cref="LatLong LatLongs"/>.

@@ -25,7 +25,7 @@ namespace org.mapsforge.map.controller
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
 	using Point = MapsforgeSharp.Core.Model.Point;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using Model = org.mapsforge.map.model.Model;
 	using Observer = org.mapsforge.map.model.common.Observer;
 	using FrameBuffer = org.mapsforge.map.view.FrameBuffer;

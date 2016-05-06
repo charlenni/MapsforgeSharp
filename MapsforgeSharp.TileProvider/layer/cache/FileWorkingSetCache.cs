@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 devemux86
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -18,7 +19,7 @@
 namespace org.mapsforge.map.layer.cache
 {
     using Acrotech.PortableLogAdapter;
-    using org.mapsforge.core.util;
+    using MapsforgeSharp.Core.Util;
     using PCLStorage;
     using System.Collections.Generic;
 

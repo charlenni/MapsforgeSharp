@@ -22,7 +22,7 @@ namespace org.mapsforge.reader.header
     using System;
 
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
-	using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
+	using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
 
 	internal sealed class OptionalFields
 	{

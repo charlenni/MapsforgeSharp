@@ -25,7 +25,7 @@ namespace org.mapsforge.map.layer.renderer
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Tag = MapsforgeSharp.Core.Model.Tag;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using Way = MapsforgeSharp.Core.Datastore.Way;
 
 	/// <summary>

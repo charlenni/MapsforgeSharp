@@ -20,7 +20,7 @@ namespace org.mapsforge.reader.header
 {
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Tag = MapsforgeSharp.Core.Model.Tag;
-	using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
+	using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
 
 	internal sealed class RequiredFields
 	{

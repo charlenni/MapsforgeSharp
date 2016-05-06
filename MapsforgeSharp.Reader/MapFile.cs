@@ -28,8 +28,8 @@ namespace org.mapsforge.reader
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using Tag = MapsforgeSharp.Core.Model.Tag;
     using Tile = MapsforgeSharp.Core.Model.Tile;
-    using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
     using PoiWayBundle = MapsforgeSharp.Core.Datastore.PoiWayBundle;

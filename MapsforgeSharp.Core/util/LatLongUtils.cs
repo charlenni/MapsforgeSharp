@@ -19,7 +19,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.core.util
+namespace MapsforgeSharp.Core.Util
 {
     using System;
     using System.Collections.Generic;

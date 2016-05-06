@@ -24,8 +24,8 @@ namespace MapsforgeSharp.Core.Model
     using System.Text;
     using System.Runtime.Serialization;
 
-    using LatLongUtils = org.mapsforge.core.util.LatLongUtils;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 
     /// <summary>
     /// A BoundingBox represents an immutable set of two latitude and two longitude coordinates.

@@ -26,7 +26,7 @@ namespace org.mapsforge.map.layer.debug
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
-	using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
 	public class TileGridLayer : Layer

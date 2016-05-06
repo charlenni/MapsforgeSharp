@@ -28,7 +28,7 @@ namespace org.mapsforge.map.model
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
     using Point = MapsforgeSharp.Core.Model.Point;
-    using MercatorProjection = org.mapsforge.core.util.MercatorProjection;
+    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
     using Observable = org.mapsforge.map.model.common.Observable;
     using Persistable = org.mapsforge.map.model.common.Persistable;
     using PreferencesFacade = org.mapsforge.map.model.common.PreferencesFacade;
