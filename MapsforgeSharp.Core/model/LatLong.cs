@@ -142,5 +142,4 @@ namespace MapsforgeSharp.Core.Model
 			return stringBuilder.ToString();
 		}
 	}
-
 }

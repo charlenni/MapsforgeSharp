@@ -115,8 +115,6 @@ namespace MapsforgeSharp.Core.Model
 			this.TileY = tileY;
 			this.ZoomLevel = zoomLevel;
 			this.MapSize = MercatorProjection.GetMapSize(zoomLevel, tileSize);
-
-
 		}
 
 		public override bool Equals(object obj)

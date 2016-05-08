@@ -27,7 +27,6 @@ namespace MapsforgeSharp.Core.Model
     [DataContract]
     public sealed class LineSegment
 	{
-
 		private static int INSIDE = 0; // 0000
 		private static int LEFT = 1; // 0001
 		private static int RIGHT = 2; // 0010
