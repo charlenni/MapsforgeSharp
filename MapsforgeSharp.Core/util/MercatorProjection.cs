@@ -169,7 +169,6 @@ namespace MapsforgeSharp.Core.Util
 			return new Point(pixelX, pixelY);
 		}
 
-
 		/// <summary>
 		/// Calculates the absolute pixel position for a zoom level and tile size relative to origin
 		/// </summary>
@@ -242,7 +241,6 @@ namespace MapsforgeSharp.Core.Util
 			return Math.Min(Math.Max(0, pixelY), mapSize);
 		}
 
-
 		/// <summary>
 		/// Converts a latitude coordinate (in degrees) to a tile Y number at a certain zoom level.
 		/// </summary>
@@ -295,7 +293,6 @@ namespace MapsforgeSharp.Core.Util
 		{
 			return (longitude + 180) / 360 * mapSize;
 		}
-
 
 		/// <summary>
 		/// Converts a longitude coordinate (in degrees) to the tile X number at a certain scale factor.
@@ -372,6 +369,7 @@ namespace MapsforgeSharp.Core.Util
 			}
 			return 360 * ((pixelX / mapSize) - 0.5);
 		}
+
 		/// <summary>
 		/// Converts a pixel X coordinate at a certain zoom level to a longitude coordinate.
 		/// </summary>
@@ -382,7 +380,6 @@ namespace MapsforgeSharp.Core.Util
 		/// <returns> the longitude value of the pixel X coordinate. </returns>
 		/// <exception cref="IllegalArgumentException">
 		///             if the given pixelX coordinate is invalid. </exception>
-
 		public static double PixelXToLongitude(double pixelX, long mapSize)
 		{
 			if (pixelX < 0 || pixelX > mapSize)
