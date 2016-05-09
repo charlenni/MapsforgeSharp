@@ -18,8 +18,7 @@
 namespace MapsforgeSharp.Core.Model
 {
     using NUnit.Framework;
-    using util;
-
+    using Util;
     public class TileTest
 	{
 		private const string TILE_TO_STRING = "x=1, y=2, z=3";
