@@ -140,7 +140,7 @@ namespace org.mapsforge.map.layer.renderer
 		{
 			get
 			{
-				return ShapeType.POLYLINE;
+				return ShapeType.Polyline;
 			}
 		}
 

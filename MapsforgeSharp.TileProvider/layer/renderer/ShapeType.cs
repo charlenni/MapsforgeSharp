@@ -18,7 +18,7 @@ namespace org.mapsforge.map.layer.renderer
 {
 	public enum ShapeType
 	{
-		CIRCLE,
-		POLYLINE
+		Circle,
+		Polyline
 	}
 }

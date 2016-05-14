@@ -19,7 +19,7 @@ namespace MapsforgeSharp.Core.Graphics
 {
 	public enum Style
 	{
-		FILL,
-		STROKE
+		Fill,
+		Stroke
 	}
 }

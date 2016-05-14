@@ -121,15 +121,15 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             set
             {
-                if (value == Cap.BUTT)
+                if (value == Cap.Butt)
                 {
                     nativePaint.StrokeCap = SKStrokeCap.Butt;
                 }
-                if (value == Cap.ROUND)
+                if (value == Cap.Round)
                 {
                     nativePaint.StrokeCap = SKStrokeCap.Round;
                 }
-                if (value == Cap.SQUARE)
+                if (value == Cap.Square)
                 {
                     nativePaint.StrokeCap = SKStrokeCap.Square;
                 }
@@ -140,11 +140,11 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             set
             {
-                if (value == Join.BEVEL)
+                if (value == Join.Bevel)
                 {
                     nativePaint.StrokeJoin = SKStrokeJoin.Bevel;
                 }
-                if (value == Join.MITER)
+                if (value == Join.Mitter)
                 {
                     nativePaint.StrokeJoin = SKStrokeJoin.Mitter;
                 }
@@ -169,10 +169,10 @@ namespace MapsforgeSharp.TileProvider.Graphics
             {
                 switch (value)
                 {
-                    case Style.FILL:
+                    case Style.Fill:
                         nativePaint.IsStroke = false;
                         break;
-                    case Style.STROKE:
+                    case Style.Stroke:
                         nativePaint.IsStroke = true;
                         break;
                 }

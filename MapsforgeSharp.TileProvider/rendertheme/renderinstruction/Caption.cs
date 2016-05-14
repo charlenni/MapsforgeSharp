@@ -69,18 +69,18 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		public Caption(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, IDictionary<string, Symbol> symbols) : base(graphicFactory, displayModel)
 		{
 			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.BLACK.ToARGB();
-			this.fill.Style = Style.FILL;
+			this.fill.Color = Color.Black.ToARGB();
+			this.fill.Style = Style.Fill;
 			this.fills = new Dictionary<sbyte?, Paint>();
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.BLACK.ToARGB();
-			this.stroke.Style = Style.STROKE;
+			this.stroke.Color = Color.Black.ToARGB();
+			this.stroke.Style = Style.Stroke;
 			this.strokes = new Dictionary<sbyte?, Paint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 
 
-			this.display = Display.IFSPACE;
+			this.display = Display.Ifspace;
 
 			this.gap = DEFAULT_GAP * displayModel.ScaleFactor;
 
@@ -137,7 +137,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		public override void RenderNode(RenderCallback renderCallback, RenderContext renderContext, PointOfInterest poi)
 		{
 
-			if (Display.NEVER == this.display)
+			if (Display.Never == this.display)
 			{
 				return;
 			}
@@ -164,7 +164,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		public override void RenderWay(RenderCallback renderCallback, RenderContext renderContext, PolylineContainer way)
 		{
 
-			if (Display.NEVER == this.display)
+			if (Display.Never == this.display)
 			{
 				return;
 			}
@@ -238,8 +238,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
         private void ExtractValues(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
 		{
-			FontFamily fontFamily = FontFamily.DEFAULT;
-			FontStyle fontStyle = FontStyle.NORMAL;
+			FontFamily fontFamily = FontFamily.Default;
+			FontStyle fontStyle = FontStyle.Normal;
 
 			for (int i = 0; i < reader.AttributeCount; ++i)
 			{
@@ -262,7 +262,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (DISPLAY.Equals(name))
 				{
-					this.display = Display.FromString(value);
+					this.display = value.ToDisplay();
 				}
 				else if (DY.Equals(name))
 				{
@@ -270,11 +270,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (FONT_FAMILY.Equals(name))
 				{
-					fontFamily = FontFamily.FromString(value);
+					fontFamily = value.ToFontFamily();
 				}
 				else if (FONT_STYLE.Equals(name))
 				{
-					fontStyle = FontStyle.FromString(value);
+					fontStyle = value.ToFontStyle();
 				}
 				else if (FONT_SIZE.Equals(name))
 				{

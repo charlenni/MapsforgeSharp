@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -14,91 +15,27 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
+
 namespace org.mapsforge.map.rendertheme.rule
 {
-    using System.Collections.Generic;
+    public enum Element
+    {
+        Any,
+        Node,
+        Way
+    }
 
-    internal sealed class Element
-	{
-		public static readonly Element ANY = new Element("ANY", InnerEnum.ANY);
-		public static readonly Element NODE = new Element("NODE", InnerEnum.NODE);
-		public static readonly Element WAY = new Element("WAY", InnerEnum.WAY);
-
-		private static readonly IList<Element> valueList = new List<Element>();
-
-		static Element()
-		{
-			valueList.Add(ANY);
-			valueList.Add(NODE);
-			valueList.Add(WAY);
-		}
-
-		public enum InnerEnum
-		{
-			ANY,
-			NODE,
-			WAY
-		}
-
-		private readonly string nameValue;
-		private readonly int ordinalValue;
-		private readonly InnerEnum innerEnumValue;
-		private static int nextOrdinal = 0;
-
-		private Element(string name, InnerEnum innerEnum)
-		{
-			nameValue = name;
-			ordinalValue = nextOrdinal++;
-			innerEnumValue = innerEnum;
-		}
-
-		internal static Element FromString(string value)
-		{
-			if ("any".Equals(value))
-			{
-				return ANY;
-			}
-			if ("node".Equals(value))
-			{
-				return NODE;
-			}
-			if ("way".Equals(value))
-			{
-				return WAY;
-			}
-			throw new System.ArgumentException("Invalid value for Element: " + value);
-		}
-
-		public static IList<Element> Values()
-		{
-			return valueList;
-		}
-
-		public InnerEnum InnerEnumValue()
-		{
-			return innerEnumValue;
-		}
-
-		public int Ordinal()
-		{
-			return ordinalValue;
-		}
-
-		public override string ToString()
-		{
-			return nameValue;
-		}
-
-		public static Element ValueOf(string name)
-		{
-			foreach (Element enumInstance in Element.Values())
-			{
-				if (enumInstance.nameValue == name)
-				{
-					return enumInstance;
-				}
-			}
-			throw new System.ArgumentException(name);
-		}
-	}
+    public static class ElementHelper
+    {
+        public static Element ToElement(this string value)
+        {
+            Element ret;
+            if (!Enum.TryParse<Element>(value, true, out ret))
+            {
+                throw new ArgumentException("Invalid value for Element: " + value);
+            }
+            return ret;
+        }
+    }
 }

@@ -208,11 +208,11 @@ namespace org.mapsforge.map.layer.renderer
 			ShapeType shapeType = shapePaintContainer.shapeContainer.ShapeType;
 			switch (shapeType)
 			{
-				case org.mapsforge.map.layer.renderer.ShapeType.CIRCLE:
+				case org.mapsforge.map.layer.renderer.ShapeType.Circle:
 					DrawCircleContainer(shapePaintContainer);
 					return;
 
-				case org.mapsforge.map.layer.renderer.ShapeType.POLYLINE:
+				case org.mapsforge.map.layer.renderer.ShapeType.Polyline:
 					PolylineContainer polylineContainer = (PolylineContainer) shapePaintContainer.shapeContainer;
 					DrawPath(shapePaintContainer, polylineContainer.CoordinatesRelativeToTile, shapePaintContainer.dy);
 					return;

@@ -120,17 +120,17 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             switch (color)
             {
-                case Color.BLACK:
+                case Color.Black:
                     return SKColors.Black;
-                case Color.BLUE:
+                case Color.Blue:
                     return SKColors.Blue;
-                case Color.GREEN:
+                case Color.Green:
                     return SKColors.Green;
-                case Color.RED:
+                case Color.Red:
                     return SKColors.Red;
-                case Color.TRANSPARENT:
+                case Color.Transparent:
                     return SKColors.Transparent;
-                case Color.WHITE:
+                case Color.White:
                     return SKColors.White;
             }
 

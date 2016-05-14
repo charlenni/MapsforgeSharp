@@ -114,7 +114,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		/// <param name="way"> </param>
 		public virtual void MatchClosedWay(RenderCallback renderCallback, RenderContext renderContext, PolylineContainer way)
 		{
-			MatchWay(renderCallback, renderContext, Closed.YES, way);
+			MatchWay(renderCallback, renderContext, Closed.Yes, way);
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		/// <param name="way"> </param>
 		public virtual void MatchLinearWay(RenderCallback renderCallback, RenderContext renderContext, PolylineContainer way)
 		{
-			MatchWay(renderCallback, renderContext, Closed.NO, way);
+			MatchWay(renderCallback, renderContext, Closed.No, way);
 		}
 
 		/// <summary>
@@ -139,7 +139,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		{
 			lock (this)
 			{
-				MatchingCacheKey matchingCacheKey = new MatchingCacheKey(poi.Tags, renderContext.rendererJob.tile.ZoomLevel, Closed.NO);
+				MatchingCacheKey matchingCacheKey = new MatchingCacheKey(poi.Tags, renderContext.rendererJob.tile.ZoomLevel, Closed.No);
         
 				IList<RenderInstruction> matchingList = this.poiMatchingCache.Get(matchingCacheKey);
 				if (matchingList != null)

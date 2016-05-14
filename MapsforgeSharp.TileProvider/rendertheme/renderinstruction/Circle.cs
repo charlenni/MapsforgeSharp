@@ -52,13 +52,13 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.level = level;
 
 			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.TRANSPARENT.ToARGB();
-			this.fill.Style = Style.FILL;
+			this.fill.Color = Color.Transparent.ToARGB();
+			this.fill.Style = Style.Fill;
 			this.fills = new Dictionary<sbyte?, Paint>();
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.TRANSPARENT.ToARGB();
-			this.stroke.Style = Style.STROKE;
+			this.stroke.Color = Color.Transparent.ToARGB();
+			this.stroke.Style = Style.Stroke;
 			this.strokes = new Dictionary<sbyte?, Paint>();
 			this.renderRadiusScaled = new Dictionary<sbyte?, float?>();
 

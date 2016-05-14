@@ -55,14 +55,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.relativePathPrefix = relativePathPrefix;
 
 			this.fill = graphicFactory.CreatePaint();
-			this.fill.Color = Color.TRANSPARENT.ToARGB();
-			this.fill.Style = Style.FILL;
-			this.fill.StrokeCap = Cap.ROUND;
+			this.fill.Color = Color.Transparent.ToARGB();
+			this.fill.Style = Style.Fill;
+			this.fill.StrokeCap = Cap.Round;
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.TRANSPARENT.ToARGB();
-			this.stroke.Style = Style.STROKE;
-			this.stroke.StrokeCap = Cap.ROUND;
+			this.stroke.Color = Color.Transparent.ToARGB();
+			this.stroke.Style = Style.Stroke;
+			this.stroke.StrokeCap = Cap.Round;
 
 			this.strokes = new Dictionary<sbyte?, Paint>();
 

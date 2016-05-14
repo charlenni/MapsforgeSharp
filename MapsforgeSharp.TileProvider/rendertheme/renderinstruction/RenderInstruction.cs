@@ -63,8 +63,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public enum ResourceScaling
 		{
-			DEFAULT,
-			SIZE
+			Default,
+			Size
 		}
 
 		protected internal string category;
@@ -132,10 +132,10 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			if (value.Equals(SIZE))
 			{
-				return ResourceScaling.SIZE;
+				return ResourceScaling.Size;
 			}
 
-			return ResourceScaling.DEFAULT;
+			return ResourceScaling.Default;
 		}
 	}
 }

@@ -27,7 +27,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
-
+    using MapsforgeSharp.Core.Graphics;
     /// <summary>
     /// Represents an icon on the map.
     /// </summary>
@@ -44,7 +44,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		public Symbol(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, string relativePathPrefix) : base(graphicFactory, displayModel)
 		{
 			this.relativePathPrefix = relativePathPrefix;
-			this.display = Display.IFSPACE;
+			this.display = Display.Ifspace;
 			ExtractValues(elementName, reader);
 		}
 
@@ -85,7 +85,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public override void RenderNode(RenderCallback renderCallback, RenderContext renderContext, PointOfInterest poi)
 		{
-			if (Display.NEVER == this.display)
+			if (Display.Never == this.display)
 			{
 				return;
 			}
@@ -98,7 +98,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public override void RenderWay(RenderCallback renderCallback, RenderContext renderContext, PolylineContainer way)
 		{
-			if (Display.NEVER == this.display)
+			if (Display.Never == this.display)
 			{
 				return;
 			}
@@ -138,7 +138,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (DISPLAY.Equals(name))
 				{
-					this.display = Display.FromString(value);
+					this.display = value.ToDisplay();
 				}
 				else if (ID.Equals(name))
 				{
