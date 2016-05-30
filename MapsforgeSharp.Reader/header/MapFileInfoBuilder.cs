@@ -18,8 +18,7 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
-	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
-	using Tag = MapsforgeSharp.Core.Model.Tag;
+	using MapsforgeSharp.Core.Model;
 
 	internal class MapFileInfoBuilder
 	{

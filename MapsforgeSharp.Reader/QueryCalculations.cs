@@ -18,7 +18,7 @@
 
 namespace MapsforgeSharp.Reader
 {
-	using Tile = MapsforgeSharp.Core.Model.Tile;
+	using MapsforgeSharp.Core.Model;
 
 	internal sealed class QueryCalculations
 	{

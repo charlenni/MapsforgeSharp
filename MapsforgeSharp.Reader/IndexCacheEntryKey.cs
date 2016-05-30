@@ -16,7 +16,7 @@
 
 namespace MapsforgeSharp.Reader
 {
-	using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
+	using MapsforgeSharp.Reader.Header;
 
 	/// <summary>
 	/// An immutable container class which is the key for the index cache.

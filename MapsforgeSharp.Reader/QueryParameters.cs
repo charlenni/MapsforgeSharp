@@ -19,9 +19,8 @@
 namespace MapsforgeSharp.Reader
 {
     using System;
-
-    using Tile = MapsforgeSharp.Core.Model.Tile;
-	using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
+	using MapsforgeSharp.Core.Model;
+	using MapsforgeSharp.Reader.Header;
 
 	internal class QueryParameters
 	{

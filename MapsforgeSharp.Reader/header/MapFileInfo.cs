@@ -18,9 +18,7 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
-	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
-	using LatLong = MapsforgeSharp.Core.Model.LatLong;
-	using Tag = MapsforgeSharp.Core.Model.Tag;
+	using MapsforgeSharp.Core.Model;
 
 	/// <summary>
 	/// Contains the immutable metadata of a map file.

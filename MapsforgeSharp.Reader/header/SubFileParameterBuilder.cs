@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
-	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
+	using MapsforgeSharp.Core.Model;
 
 	internal class SubFileParameterBuilder
 	{

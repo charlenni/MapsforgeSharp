@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
-	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
+	using MapsforgeSharp.Core.Util;
 
 	/// <summary>
 	/// Holds all parameters of a sub-file.

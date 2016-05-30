@@ -23,22 +23,10 @@ namespace MapsforgeSharp.Reader
     using System.IO;
     using PCLStorage;
     using Acrotech.PortableLogAdapter;
-
-    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
-    using LatLong = MapsforgeSharp.Core.Model.LatLong;
-    using Tag = MapsforgeSharp.Core.Model.Tag;
-    using Tile = MapsforgeSharp.Core.Model.Tile;
-    using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
-    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
-    using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
-    using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
-    using PoiWayBundle = MapsforgeSharp.Core.Datastore.PoiWayBundle;
-    using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
-    using Way = MapsforgeSharp.Core.Datastore.Way;
-    using MapFileException = MapsforgeSharp.Reader.Header.MapFileException;
-    using MapFileHeader = MapsforgeSharp.Reader.Header.MapFileHeader;
-    using MapFileInfo = MapsforgeSharp.Reader.Header.MapFileInfo;
-    using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
+    using MapsforgeSharp.Core.Model;
+    using MapsforgeSharp.Core.Util;
+    using MapsforgeSharp.Core.Datastore;
+    using MapsforgeSharp.Reader.Header;
 
     /// <summary>
     /// A class for reading binary map files.
