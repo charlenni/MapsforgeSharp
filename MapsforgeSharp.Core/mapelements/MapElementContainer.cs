@@ -98,7 +98,7 @@ namespace MapsforgeSharp.Core.Mapelements
 		/// <param name="canvas"> </param>
 		/// <param name="origin"> </param>
 		/// <param name="matrix"> </param>
-		public abstract void Draw(Canvas canvas, Point origin, IMatrix matrix);
+		public abstract void Draw(ICanvas canvas, Point origin, IMatrix matrix);
 
 		/// <summary>
 		/// Gets the pixel absolute boundary for this element.

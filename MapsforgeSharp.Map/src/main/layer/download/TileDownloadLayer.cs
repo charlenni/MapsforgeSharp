@@ -20,7 +20,7 @@ namespace org.mapsforge.map.layer.download
 {
     using System;
 
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
@@ -52,7 +52,7 @@ namespace org.mapsforge.map.layer.download
 			this.graphicFactory = graphicFactory;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			if (zoomLevel < this.tileSource.ZoomLevelMin || zoomLevel > this.tileSource.ZoomLevelMax)
 			{

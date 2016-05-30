@@ -76,7 +76,7 @@ namespace MapsforgeSharp.Core.Mapelements
 			return result;
 		}
 
-		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
+		public override void Draw(ICanvas canvas, Point origin, IMatrix matrix)
 		{
 			matrix.Reset();
 			// We cast to int for pixel perfect positioning

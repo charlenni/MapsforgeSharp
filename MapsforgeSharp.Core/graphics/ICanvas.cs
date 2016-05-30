@@ -19,7 +19,7 @@ namespace MapsforgeSharp.Core.Graphics
 {
 	using MapsforgeSharp.Core.Model;
 
-	public interface Canvas : IGraphicContext
+	public interface ICanvas : IGraphicContext
 	{
 		void Destroy();
 

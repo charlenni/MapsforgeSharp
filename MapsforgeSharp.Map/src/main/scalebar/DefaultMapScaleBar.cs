@@ -22,7 +22,7 @@ namespace org.mapsforge.map.scalebar
 {
     using System;
 
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using Cap = MapsforgeSharp.Core.Graphics.Cap;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
@@ -123,7 +123,7 @@ namespace org.mapsforge.map.scalebar
 			return paint;
 		}
 
-		protected internal override void Redraw(Canvas canvas)
+		protected internal override void Redraw(ICanvas canvas)
 		{
 			canvas.FillColor(Color.TRANSPARENT);
 
@@ -150,7 +150,7 @@ namespace org.mapsforge.map.scalebar
 			DrawScaleText(canvas, scaleText1, scaleText2, this.paintScaleText, scale);
 		}
 
-		private void DrawScaleBar(Canvas canvas, int scaleBarLength1, int scaleBarLength2, IPaint paint, float scale)
+		private void DrawScaleBar(ICanvas canvas, int scaleBarLength1, int scaleBarLength2, IPaint paint, float scale)
 		{
 			int maxScaleBarLength = Math.Max(scaleBarLength1, scaleBarLength2);
 
@@ -249,7 +249,7 @@ namespace org.mapsforge.map.scalebar
 			}
 		}
 
-		private void DrawScaleText(Canvas canvas, string scaleText1, string scaleText2, IPaint paint, float scale)
+		private void DrawScaleText(ICanvas canvas, string scaleText1, string scaleText2, IPaint paint, float scale)
 		{
 			switch (scaleBarPosition)
 			{

@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer.overlay
     using System.Collections.Generic;
     using System.Text;
 
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
@@ -140,7 +140,7 @@ namespace org.mapsforge.map.layer.overlay
 			this.textFront = textFront;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			if (spacingConfig.ContainsKey(zoomLevel))
 			{

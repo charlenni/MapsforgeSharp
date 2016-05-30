@@ -20,7 +20,7 @@ namespace org.mapsforge.map.layer.labels
     using System.Collections.Generic;
     using System.Linq;
 
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
 	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
@@ -43,7 +43,7 @@ namespace org.mapsforge.map.layer.labels
 			this.matrix = graphicFactory.CreateMatrix();
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			ISet<Tile> currentTileSet = LayerUtil.GetTiles(boundingBox, zoomLevel, displayModel.TileSize);
 			if (!currentTileSet.Equals(lastTileSet) || lastLabelStoreVersion != labelStore.Version)

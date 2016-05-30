@@ -19,7 +19,7 @@
 
 namespace org.mapsforge.map.layer
 {
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -42,7 +42,7 @@ namespace org.mapsforge.map.layer
 		///            the canvas on which this {@code Layer} should draw itself. </param>
 		/// <param name="topLeftPoint">
 		///            the top-left pixel position of the canvas relative to the top-left map position. </param>
-		public abstract void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint);
+		public abstract void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint);
 
 		/// <summary>
 		/// Gets the geographic position of this layer element, if it exists.

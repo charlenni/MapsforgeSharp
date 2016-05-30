@@ -118,7 +118,7 @@ namespace MapsforgeSharp.Graphics
 			}
 		}
 
-		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
+		public override void Draw(ICanvas canvas, Point origin, IMatrix matrix)
 		{
 			if (!this.isVisible)
 			{

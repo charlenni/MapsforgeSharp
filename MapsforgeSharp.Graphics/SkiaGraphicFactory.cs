@@ -38,7 +38,7 @@ namespace MapsforgeSharp.Graphics
             throw new NotImplementedException();
         }
 
-        public Canvas CreateCanvas(int width, int height)
+        public ICanvas CreateCanvas(int width, int height)
         {
             return new SkiaCanvas(width, height);
         }

@@ -63,7 +63,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.stroke.Color = Color.Green.ToARGB();
 			this.stroke.Style = Style.Stroke;
 			this.stroke.StrokeCap = Cap.Round;
-			this.stroke.StrokeJoin = Join.ROUND;
+			this.stroke.StrokeJoin = Join.Round;
 			this.strokes = new Dictionary<sbyte?, IPaint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 

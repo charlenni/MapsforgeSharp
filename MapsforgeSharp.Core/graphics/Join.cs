@@ -23,7 +23,7 @@ namespace MapsforgeSharp.Core.Graphics
     {
         Bevel,
         Mitter,
-        ROUND
+        Round
     }
 
     public static class JoinHelper

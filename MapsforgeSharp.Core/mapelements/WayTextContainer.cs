@@ -45,7 +45,7 @@ namespace MapsforgeSharp.Core.Mapelements
 			this.boundaryAbsolute = (new Rectangle(Math.Min(point.X, end.X), Math.Min(point.Y, end.Y), Math.Max(point.X, end.X), Math.Max(point.Y, end.Y))).Envelope(textHeight / 2d);
 		}
 
-		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
+		public override void Draw(ICanvas canvas, Point origin, IMatrix matrix)
 		{
 			Point adjustedStart = xy.Offset(-origin.X, -origin.Y);
 			Point adjustedEnd = end.Offset(-origin.X, -origin.Y);

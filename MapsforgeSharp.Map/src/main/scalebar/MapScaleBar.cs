@@ -23,7 +23,7 @@ namespace org.mapsforge.map.scalebar
     using System;
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using IGraphicContext = MapsforgeSharp.Core.Graphics.IGraphicContext;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
@@ -61,7 +61,7 @@ namespace org.mapsforge.map.scalebar
 		protected internal DistanceUnitAdapter distanceUnitAdapter;
 		protected internal readonly IGraphicFactory graphicFactory;
 		protected internal readonly IBitmap mapScaleBitmap;
-		protected internal readonly Canvas mapScaleCanvas;
+		protected internal readonly ICanvas mapScaleCanvas;
 		private readonly MapViewDimension mapViewDimension;
 		private readonly MapViewPosition mapViewPosition;
 		private int marginHorizontal;
@@ -335,6 +335,6 @@ namespace org.mapsforge.map.scalebar
 		/// </summary>
 		/// <param name="canvas">
 		///            The canvas to draw on </param>
-		protected internal abstract void Redraw(Canvas canvas);
+		protected internal abstract void Redraw(ICanvas canvas);
 	}
 }

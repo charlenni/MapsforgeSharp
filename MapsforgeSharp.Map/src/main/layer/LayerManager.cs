@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer
     using System.Threading;
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Dimension = MapsforgeSharp.Core.Model.Dimension;
@@ -38,7 +38,7 @@ namespace org.mapsforge.map.layer
 	{
 		private const int MILLISECONDS_PER_FRAME = 30;
 
-		private readonly Canvas drawingCanvas;
+		private readonly ICanvas drawingCanvas;
 		private readonly Layers layers;
 		private readonly MapView mapView;
 		private readonly MapViewPosition mapViewPosition;

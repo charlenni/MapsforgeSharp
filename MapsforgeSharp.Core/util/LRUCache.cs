@@ -18,7 +18,6 @@
 namespace MapsforgeSharp.Core.Util
 {
     using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// An LRUCache with a fixed size and an access-order policy. Old mappings are automatically removed from the cache when

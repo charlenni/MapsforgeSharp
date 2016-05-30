@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer.renderer
 	using System.Linq;
 
   using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using GraphicUtils = MapsforgeSharp.Core.Graphics.GraphicUtils;
@@ -36,7 +36,7 @@ namespace org.mapsforge.map.layer.renderer
 
 	public class CanvasRasterer
 	{
-		private Canvas canvas;
+		private ICanvas canvas;
 		private readonly IPath path;
 		private readonly IMatrix symbolMatrix;
 		// TODO: Delete
@@ -55,7 +55,7 @@ namespace org.mapsforge.map.layer.renderer
 			this.canvas?.Destroy();
 		}
 
-		public Canvas Canvas
+		public ICanvas Canvas
 		{
 			get { return this.canvas; }
 			set { this.canvas = value; }

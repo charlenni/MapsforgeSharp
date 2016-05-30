@@ -26,7 +26,7 @@ namespace MapsforgeSharp.Core.Model
     [DataContract]
 	public class Tag
 	{
-		private const char KEY_VALUE_SEPARATOR = '=';
+		private const char KeyValueSeparator = '=';
 		private const long serialVersionUID = 1L;
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace MapsforgeSharp.Core.Model
 
 		/// <param name="tag">
 		///            the textual representation of the tag. </param>
-		public Tag(string tag) : this(tag, tag.IndexOf(KEY_VALUE_SEPARATOR))
+		public Tag(string tag) : this(tag, tag.IndexOf(KeyValueSeparator))
 		{
 		}
 

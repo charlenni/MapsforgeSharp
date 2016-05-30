@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer.debug
     using System.Collections.Generic;
     using System.Text;
 
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
@@ -77,7 +77,7 @@ namespace org.mapsforge.map.layer.debug
 			this.paintFront = paintFront;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			IList<TilePosition> tilePositions = LayerUtil.GetTilePositions(boundingBox, zoomLevel, topLeftPoint, this.displayModel.TileSize);
 			for (int i = tilePositions.Count - 1; i >= 0; --i)
@@ -86,7 +86,7 @@ namespace org.mapsforge.map.layer.debug
 			}
 		}
 
-		private void DrawTileCoordinates(TilePosition tilePosition, Canvas canvas)
+		private void DrawTileCoordinates(TilePosition tilePosition, ICanvas canvas)
 		{
 			int x = (int)(tilePosition.Point.X + 8 * displayModel.ScaleFactor);
 			int y = (int)(tilePosition.Point.Y + 24 * displayModel.ScaleFactor);

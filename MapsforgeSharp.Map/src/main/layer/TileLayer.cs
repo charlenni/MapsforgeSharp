@@ -23,7 +23,7 @@ namespace org.mapsforge.map.layer
     using System.Collections.Generic;
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+    using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
     using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
     using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
@@ -68,7 +68,7 @@ namespace org.mapsforge.map.layer
 			this.isTransparent = isTransparent;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			IList<TilePosition> tilePositions = LayerUtil.GetTilePositions(boundingBox, zoomLevel, topLeftPoint, this.displayModel.TileSize);
 
@@ -178,7 +178,7 @@ namespace org.mapsforge.map.layer
 		{
 		}
 
-		private void DrawParentTileBitmap(Canvas canvas, Point point, Tile tile)
+		private void DrawParentTileBitmap(ICanvas canvas, Point point, Tile tile)
 		{
 			Tile cachedParentTile = GetCachedParentTile(tile, 4);
 			if (cachedParentTile != null)

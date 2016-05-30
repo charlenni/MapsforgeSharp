@@ -148,7 +148,7 @@ namespace MapsforgeSharp.Graphics
                 {
                     nativePaint.StrokeJoin = SKStrokeJoin.Mitter;
                 }
-                if (value == Join.ROUND)
+                if (value == Join.Round)
                 {
                     nativePaint.StrokeJoin = SKStrokeJoin.Round;
                 }

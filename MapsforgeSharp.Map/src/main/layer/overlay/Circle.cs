@@ -19,7 +19,7 @@
 
 namespace org.mapsforge.map.layer.overlay
 {
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
@@ -79,7 +79,7 @@ namespace org.mapsforge.map.layer.overlay
 			this.paintStroke = paintStroke;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			lock (this)
 			{

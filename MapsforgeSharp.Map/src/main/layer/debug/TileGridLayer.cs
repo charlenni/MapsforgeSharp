@@ -19,7 +19,7 @@
 
 namespace org.mapsforge.map.layer.debug
 {
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
+	using ICanvas = MapsforgeSharp.Core.Graphics.ICanvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
@@ -67,7 +67,7 @@ namespace org.mapsforge.map.layer.debug
 			this.paintFront = paintFront;
 		}
 
-		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, Canvas canvas, Point topLeftPoint)
+		public override void Draw(BoundingBox boundingBox, sbyte zoomLevel, ICanvas canvas, Point topLeftPoint)
 		{
 			long tileLeft = MercatorProjection.LongitudeToTileX(boundingBox.MinLongitude, zoomLevel);
 			long tileTop = MercatorProjection.LatitudeToTileY(boundingBox.MaxLatitude, zoomLevel);

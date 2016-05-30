@@ -21,7 +21,7 @@ namespace MapsforgeSharp.Graphics
 	using MapsforgeSharp.Core.Graphics;
 	using MapsforgeSharp.Core.Model;
 
-	public class SkiaCanvas : Canvas
+	public class SkiaCanvas : ICanvas
     {
         private readonly SKSurface nativeSurface;
         private readonly SKCanvas nativeCanvas;
