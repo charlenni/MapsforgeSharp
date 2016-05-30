@@ -18,7 +18,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MapsforgeSharp.Core.Test.datastore
+namespace MapsforgeSharp.Core.Test.Datastore
 {
     public class WayTest
     {
