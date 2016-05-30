@@ -21,7 +21,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using SkiaSharp;
 	using MapsforgeSharp.Core.Model;
 
-	public class SkiaPaint : Paint
+	public class SkiaPaint : IPaint
     {
 		private int shaderWidth;
 		private int shaderHeight;
@@ -32,7 +32,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 			nativePaint.IsAntialias = true;
         }
 
-        public SkiaPaint(Paint paint)
+        public SkiaPaint(IPaint paint)
         {
             // TODO
             nativePaint = new SKPaint(); // new SKPaint(((SkiaPaint)paint).NativePaint);

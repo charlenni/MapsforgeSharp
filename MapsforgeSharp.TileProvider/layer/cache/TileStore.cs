@@ -24,8 +24,8 @@ namespace org.mapsforge.map.layer.cache
     using Acrotech.PortableLogAdapter;
 
     using CorruptedInputStreamException = MapsforgeSharp.Core.Graphics.CorruptedInputStreamException;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using Job = org.mapsforge.map.layer.queue.Job;
     using Observer = org.mapsforge.map.model.common.Observer;
 
@@ -38,7 +38,7 @@ namespace org.mapsforge.map.layer.cache
 	{
 
 		private readonly IFolder rootDirectory;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private readonly string suffix;
 
         private static readonly ILogger LOGGER = (new Acrotech.PortableLogAdapter.Managers.DelegateLogManager((logger, message) => System.Diagnostics.Debug.WriteLine("[{0}]{1}", logger.Name, message), LogLevel.Info)).GetLogger(nameof(TileStore));
@@ -51,7 +51,7 @@ namespace org.mapsforge.map.layer.cache
         ///            the mapsforge graphic factory to create tile data instances. </param>
         /// <exception cref="IllegalArgumentException">
         ///             if the root directory cannot be a tile store </exception>
-        public TileStore(IFolder rootDirectory, string suffix, GraphicFactory graphicFactory)
+        public TileStore(IFolder rootDirectory, string suffix, IGraphicFactory graphicFactory)
 		{
 			if (!CheckFolder(rootDirectory))
 			{
@@ -97,7 +97,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap Get(Job key)
+		public virtual ITileBitmap Get(Job key)
 		{
 			lock (this)
 			{
@@ -151,7 +151,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap GetImmediately(Job key)
+		public virtual ITileBitmap GetImmediately(Job key)
 		{
 			return Get(key);
 		}
@@ -164,7 +164,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual void Put(Job key, TileBitmap bitmap)
+		public virtual void Put(Job key, ITileBitmap bitmap)
 		{
 			lock (this)
 			{

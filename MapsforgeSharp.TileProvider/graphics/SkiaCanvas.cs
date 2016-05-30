@@ -100,7 +100,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 			nativeSurface.Dispose();
         }
 
-        public void DrawBitmap(IBitmap bitmap, Matrix matrix)
+        public void DrawBitmap(IBitmap bitmap, IMatrix matrix)
         {
             throw new NotImplementedException();
         }
@@ -110,28 +110,28 @@ namespace MapsforgeSharp.TileProvider.Graphics
             throw new NotImplementedException();
         }
 
-        public void DrawCircle(int x, int y, int radius, Paint paint)
+        public void DrawCircle(int x, int y, int radius, IPaint paint)
         {
 			nativeCanvas.DrawOval(new SKRect(x, y, x + radius, y + radius), ((SkiaPaint)paint).NativePaint);
         }
 
-        public void DrawLine(int x1, int y1, int x2, int y2, Paint paint)
+        public void DrawLine(int x1, int y1, int x2, int y2, IPaint paint)
         {
 			nativeCanvas.DrawLine(x1, y1, x2, y2, ((SkiaPaint)paint).NativePaint);
         }
 
-        public void DrawPath(Path path, Paint paint)
+        public void DrawPath(IPath path, IPaint paint)
         {
 			//((SkiaPaint)paint).NativePaint.StrokeWidth = 1f;
 			nativeCanvas.DrawPath(((SkiaPath)path).NativePath, ((SkiaPaint)paint).NativePaint);
         }
 
-        public void DrawText(string text, int x, int y, Paint paint)
+        public void DrawText(string text, int x, int y, IPaint paint)
         {
 			nativeCanvas.DrawText(text, x, y, ((SkiaPaint)paint).NativePaint);
         }
 
-        public void DrawTextRotated(string text, int x1, int y1, int x2, int y2, Paint paint)
+        public void DrawTextRotated(string text, int x1, int y1, int x2, int y2, IPaint paint)
         {
             //throw new NotImplementedException();
         }

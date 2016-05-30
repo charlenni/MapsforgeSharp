@@ -19,8 +19,9 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
-    using System;
-    using MapsforgeSharp.Core.Model;
+	using System;
+	using MapsforgeSharp.Core.Model;
+	using MapsforgeSharp.Core.Util;
 
 	internal sealed class OptionalFields
 	{

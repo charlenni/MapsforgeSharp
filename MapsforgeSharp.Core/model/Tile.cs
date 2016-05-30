@@ -22,8 +22,7 @@ namespace MapsforgeSharp.Core.Model
     using System.Collections.Generic;
     using System.Text;
     using System.Runtime.Serialization;
-
-    using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
+    using MapsforgeSharp.Core.Util;
 
     /// <summary>
     /// A tile represents a rectangular part of the world map. All tiles can be identified by their X and Y number together

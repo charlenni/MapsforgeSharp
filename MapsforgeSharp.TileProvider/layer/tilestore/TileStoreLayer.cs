@@ -17,8 +17,8 @@
 
 namespace org.mapsforge.map.layer.tilestore
 {
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using Job = org.mapsforge.map.layer.queue.Job;
@@ -26,7 +26,7 @@ namespace org.mapsforge.map.layer.tilestore
 
 	public class TileStoreLayer : TileLayer<Job>
 	{
-		public TileStoreLayer(TileCache tileCache, MapViewPosition mapViewPosition, GraphicFactory graphicFactory, bool isTransparent) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), isTransparent, false)
+		public TileStoreLayer(TileCache tileCache, MapViewPosition mapViewPosition, IGraphicFactory graphicFactory, bool isTransparent) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), isTransparent, false)
 		{
 		}
 
@@ -46,7 +46,7 @@ namespace org.mapsforge.map.layer.tilestore
 		///            A tile. </param>
 		/// <param name="bitmap">
 		///            The bitmap for {@code tile} currently held in the layer's cache. </param>
-		protected internal override bool IsTileStale(Tile tile, TileBitmap bitmap)
+		protected internal override bool IsTileStale(Tile tile, ITileBitmap bitmap)
 		{
 			return false;
 		}

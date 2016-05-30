@@ -15,11 +15,11 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-
 namespace MapsforgeSharp.Core.Graphics
 {
-    public enum Align
+	using System;
+
+	public enum Align
     {
         Center,
         Left,

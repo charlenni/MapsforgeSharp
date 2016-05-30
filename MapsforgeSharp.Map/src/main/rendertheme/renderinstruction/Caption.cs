@@ -27,8 +27,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using Display = MapsforgeSharp.Core.Graphics.Display;
     using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
     using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
     using Position = MapsforgeSharp.Core.Graphics.Position;
     using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
@@ -51,32 +51,32 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private float dy;
 		private readonly IDictionary<sbyte?, float?> dyScaled;
 
-		private readonly Paint fill;
-		private readonly IDictionary<sbyte?, Paint> fills;
+		private readonly IPaint fill;
+		private readonly IDictionary<sbyte?, IPaint> fills;
 
 		private float fontSize;
 		private readonly float gap;
 		private readonly int maxTextWidth;
 		private int priority;
-		private readonly Paint stroke;
-		private readonly IDictionary<sbyte?, Paint> strokes;
+		private readonly IPaint stroke;
+		private readonly IDictionary<sbyte?, IPaint> strokes;
 
 		private TextKey textKey;
 		public const float DEFAULT_GAP = 5f;
 
 		internal string symbolId;
 
-		public Caption(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, IDictionary<string, Symbol> symbols) : base(graphicFactory, displayModel)
+		public Caption(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, IDictionary<string, Symbol> symbols) : base(graphicFactory, displayModel)
 		{
 			this.fill = graphicFactory.CreatePaint();
 			this.fill.Color = Color.BLACK;
 			this.fill.Style = Style.FILL;
-			this.fills = new Dictionary<sbyte?, Paint>();
+			this.fills = new Dictionary<sbyte?, IPaint>();
 
 			this.stroke = graphicFactory.CreatePaint();
 			this.stroke.Color = Color.BLACK;
 			this.stroke.Style = Style.STROKE;
-			this.strokes = new Dictionary<sbyte?, Paint>();
+			this.strokes = new Dictionary<sbyte?, IPaint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 
 
@@ -194,11 +194,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		public override void ScaleTextSize(float scaleFactor, sbyte zoomLevel)
 		{
-			Paint f = graphicFactory.CreatePaint(this.fill);
+			IPaint f = graphicFactory.CreatePaint(this.fill);
 			f.TextSize = this.fontSize * scaleFactor;
 			this.fills[zoomLevel] = f;
 
-			Paint s = graphicFactory.CreatePaint(this.stroke);
+			IPaint s = graphicFactory.CreatePaint(this.stroke);
 			s.TextSize = this.fontSize * scaleFactor;
 			this.strokes[zoomLevel] = s;
 
@@ -236,7 +236,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			return verticalOffset;
 		}
 
-        private void ExtractValues(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
+        private void ExtractValues(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
 		{
 			FontFamily fontFamily = FontFamily.DEFAULT;
 			FontStyle fontStyle = FontStyle.NORMAL;
@@ -312,9 +312,9 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			XmlUtils.CheckMandatoryAttribute(elementName, K, this.textKey);
 		}
 
-		private Paint getFillPaint(sbyte zoomLevel)
+		private IPaint getFillPaint(sbyte zoomLevel)
 		{
-			Paint paint = fills[zoomLevel];
+			IPaint paint = fills[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.fill;
@@ -322,9 +322,9 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			return paint;
 		}
 
-		private Paint getStrokePaint(sbyte zoomLevel)
+		private IPaint getStrokePaint(sbyte zoomLevel)
 		{
-			Paint paint = strokes[zoomLevel];
+			IPaint paint = strokes[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.stroke;

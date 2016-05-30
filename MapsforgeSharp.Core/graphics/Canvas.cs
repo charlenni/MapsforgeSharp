@@ -17,9 +17,9 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	using Dimension = MapsforgeSharp.Core.Model.Dimension;
+	using MapsforgeSharp.Core.Model;
 
-	public interface Canvas : GraphicContext
+	public interface Canvas : IGraphicContext
 	{
 		void Destroy();
 

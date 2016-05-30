@@ -20,8 +20,7 @@ namespace MapsforgeSharp.Core.Model
     using System;
     using System.Text;
     using System.Runtime.Serialization;
-
-    using LatLongUtils = MapsforgeSharp.Core.Util.LatLongUtils;
+    using MapsforgeSharp.Core.Util;
 
     /// <summary>
     /// A LatLong represents an immutable pair of latitude and longitude coordinates.

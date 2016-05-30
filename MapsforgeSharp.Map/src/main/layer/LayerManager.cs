@@ -23,7 +23,7 @@ namespace org.mapsforge.map.layer
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Dimension = MapsforgeSharp.Core.Model.Dimension;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
@@ -44,7 +44,7 @@ namespace org.mapsforge.map.layer
 		private readonly MapViewPosition mapViewPosition;
 		private bool redrawNeeded;
 
-		public LayerManager(MapView mapView, MapViewPosition mapViewPosition, GraphicFactory graphicFactory) : base()
+		public LayerManager(MapView mapView, MapViewPosition mapViewPosition, IGraphicFactory graphicFactory) : base()
 		{
 
 			this.mapView = mapView;

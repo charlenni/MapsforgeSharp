@@ -27,8 +27,8 @@ namespace org.mapsforge.map.scalebar
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using MapViewDimension = org.mapsforge.map.model.MapViewDimension;
@@ -54,12 +54,12 @@ namespace org.mapsforge.map.scalebar
 		private ScaleBarMode scaleBarMode;
 		private DistanceUnitAdapter secondaryDistanceUnitAdapter;
 
-		private readonly Paint paintScaleBar;
-		private readonly Paint paintScaleBarStroke;
-		private readonly Paint paintScaleText;
-		private readonly Paint paintScaleTextStroke;
+		private readonly IPaint paintScaleBar;
+		private readonly IPaint paintScaleBarStroke;
+		private readonly IPaint paintScaleText;
+		private readonly IPaint paintScaleTextStroke;
 
-		public DefaultMapScaleBar(MapViewPosition mapViewPosition, MapViewDimension mapViewDimension, GraphicFactory graphicFactory, DisplayModel displayModel) : base(mapViewPosition, mapViewDimension, displayModel, graphicFactory, BITMAP_WIDTH, BITMAP_HEIGHT)
+		public DefaultMapScaleBar(MapViewPosition mapViewPosition, MapViewDimension mapViewDimension, IGraphicFactory graphicFactory, DisplayModel displayModel) : base(mapViewPosition, mapViewDimension, displayModel, graphicFactory, BITMAP_WIDTH, BITMAP_HEIGHT)
 		{
 
 			this.scaleBarMode = ScaleBarMode.BOTH;
@@ -101,9 +101,9 @@ namespace org.mapsforge.map.scalebar
 			this.redrawNeeded = true;
 		}
 
-		private Paint CreateScaleBarPaint(Color color, float strokeWidth, Style style)
+		private IPaint CreateScaleBarPaint(Color color, float strokeWidth, Style style)
 		{
-			Paint paint = this.graphicFactory.CreatePaint();
+			IPaint paint = this.graphicFactory.CreatePaint();
 			paint.Color = color;
 			paint.StrokeWidth = strokeWidth * this.displayModel.ScaleFactor;
 			paint.Style = style;
@@ -111,9 +111,9 @@ namespace org.mapsforge.map.scalebar
 			return paint;
 		}
 
-		private Paint CreateTextPaint(Color color, float strokeWidth, Style style)
+		private IPaint CreateTextPaint(Color color, float strokeWidth, Style style)
 		{
-			Paint paint = this.graphicFactory.CreatePaint();
+			IPaint paint = this.graphicFactory.CreatePaint();
 			paint.Color = color;
 			paint.StrokeWidth = strokeWidth * this.displayModel.ScaleFactor;
 			paint.Style = style;
@@ -150,7 +150,7 @@ namespace org.mapsforge.map.scalebar
 			DrawScaleText(canvas, scaleText1, scaleText2, this.paintScaleText, scale);
 		}
 
-		private void DrawScaleBar(Canvas canvas, int scaleBarLength1, int scaleBarLength2, Paint paint, float scale)
+		private void DrawScaleBar(Canvas canvas, int scaleBarLength1, int scaleBarLength2, IPaint paint, float scale)
 		{
 			int maxScaleBarLength = Math.Max(scaleBarLength1, scaleBarLength2);
 
@@ -249,7 +249,7 @@ namespace org.mapsforge.map.scalebar
 			}
 		}
 
-		private void DrawScaleText(Canvas canvas, string scaleText1, string scaleText2, Paint paint, float scale)
+		private void DrawScaleText(Canvas canvas, string scaleText1, string scaleText2, IPaint paint, float scale)
 		{
 			switch (scaleBarPosition)
 			{

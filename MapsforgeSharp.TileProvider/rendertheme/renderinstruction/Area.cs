@@ -27,8 +27,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
     using Cap = MapsforgeSharp.Core.Graphics.Cap;
     using Color = MapsforgeSharp.Core.Graphics.Color;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
     using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -40,16 +40,16 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     public class Area : RenderInstruction
 	{
 		private bool bitmapInvalid;
-		private readonly Paint fill;
+		private readonly IPaint fill;
 		private readonly int level;
 		private readonly string relativePathPrefix;
 		private IBitmap shaderBitmap;
 		private string src;
-		private readonly Paint stroke;
-		private readonly IDictionary<sbyte?, Paint> strokes;
+		private readonly IPaint stroke;
+		private readonly IDictionary<sbyte?, IPaint> strokes;
 		private float strokeWidth;
 
-		public Area(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level, string relativePathPrefix) : base(graphicFactory, displayModel)
+		public Area(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level, string relativePathPrefix) : base(graphicFactory, displayModel)
 		{
 			this.level = level;
 			this.relativePathPrefix = relativePathPrefix;
@@ -64,7 +64,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.stroke.Style = Style.Stroke;
 			this.stroke.StrokeCap = Cap.Round;
 
-			this.strokes = new Dictionary<sbyte?, Paint>();
+			this.strokes = new Dictionary<sbyte?, IPaint>();
 
 			ExtractValues(elementName, reader);
 		}
@@ -137,7 +137,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			{
 				// this needs to be synchronized as we potentially set a shift in the shader and
 				// the shift is particular to the tile when rendered in multi-thread mode
-				Paint fillPaint = getFillPaint(renderContext.rendererJob.tile.ZoomLevel);
+				IPaint fillPaint = getFillPaint(renderContext.rendererJob.tile.ZoomLevel);
 				if (shaderBitmap == null && !bitmapInvalid)
 				{
 					try
@@ -165,7 +165,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			if (this.stroke != null)
 			{
-				Paint zlPaint = graphicFactory.CreatePaint(this.stroke);
+				IPaint zlPaint = graphicFactory.CreatePaint(this.stroke);
 				zlPaint.StrokeWidth = this.strokeWidth * scaleFactor;
 				this.strokes[zoomLevel] = zlPaint;
 			}
@@ -176,14 +176,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			// do nothing
 		}
 
-		private Paint getFillPaint(sbyte zoomLevel)
+		private IPaint getFillPaint(sbyte zoomLevel)
 		{
 			return this.fill;
 		}
 
-		private Paint getStrokePaint(sbyte zoomLevel)
+		private IPaint getStrokePaint(sbyte zoomLevel)
 		{
-			Paint paint = strokes[zoomLevel];
+			IPaint paint = strokes[zoomLevel];
 			if (paint == null)
 			{
 				paint = this.stroke;

@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	public interface ResourceBitmap : IBitmap
+	public interface IResourceBitmap : IBitmap
 	{
 		// only different behaviour
 	}

@@ -19,12 +19,8 @@
 
 namespace MapsforgeSharp.Core.Mapelements
 {
-	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using MapsforgeSharp.Core.Graphics;
+	using MapsforgeSharp.Core.Model;
 
 	public class SymbolContainer : MapElementContainer
 	{
@@ -80,7 +76,7 @@ namespace MapsforgeSharp.Core.Mapelements
 			return result;
 		}
 
-		public override void Draw(Canvas canvas, Point origin, Matrix matrix)
+		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
 		{
 			matrix.Reset();
 			// We cast to int for pixel perfect positioning

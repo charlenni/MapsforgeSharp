@@ -20,22 +20,17 @@ namespace MapsforgeSharp.Core.Mapelements
 {
     using System;
     using System.Text;
-
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+    using MapsforgeSharp.Core.Graphics;
+	using MapsforgeSharp.Core.Model;
 
 	public class WayTextContainer : MapElementContainer
 	{
-		private readonly Paint paintFront;
-		private readonly Paint paintBack;
+		private readonly IPaint paintFront;
+		private readonly IPaint paintBack;
 		private readonly string text;
 		private readonly Point end;
 
-		public WayTextContainer(Point point, Point end, Display display, int priority, string text, Paint paintFront, Paint paintBack, double textHeight) : base(point, display, priority)
+		public WayTextContainer(Point point, Point end, Display display, int priority, string text, IPaint paintFront, IPaint paintBack, double textHeight) : base(point, display, priority)
 		{
 			this.text = text;
 			this.paintFront = paintFront;
@@ -50,7 +45,7 @@ namespace MapsforgeSharp.Core.Mapelements
 			this.boundaryAbsolute = (new Rectangle(Math.Min(point.X, end.X), Math.Min(point.Y, end.Y), Math.Max(point.X, end.X), Math.Max(point.Y, end.Y))).Envelope(textHeight / 2d);
 		}
 
-		public override void Draw(Canvas canvas, Point origin, Matrix matrix)
+		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
 		{
 			Point adjustedStart = xy.Offset(-origin.X, -origin.Y);
 			Point adjustedEnd = end.Offset(-origin.X, -origin.Y);

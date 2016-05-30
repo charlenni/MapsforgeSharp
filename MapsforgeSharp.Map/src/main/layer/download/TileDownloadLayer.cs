@@ -21,8 +21,8 @@ namespace org.mapsforge.map.layer.download
     using System;
 
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
@@ -37,13 +37,13 @@ namespace org.mapsforge.map.layer.download
 		private const int DOWNLOAD_THREADS_MAX = 8;
 
 		private long cacheTimeToLive = 0;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private bool started;
 		private readonly TileCache tileCache;
 		private TileDownloadThread[] tileDownloadThreads;
 		private readonly TileSource tileSource;
 
-		public TileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition, TileSource tileSource, GraphicFactory graphicFactory) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), tileSource.HasAlpha())
+		public TileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition, TileSource tileSource, IGraphicFactory graphicFactory) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), tileSource.HasAlpha())
 		{
 
 			this.tileCache = tileCache;
@@ -164,9 +164,9 @@ namespace org.mapsforge.map.layer.download
 		/// <para>
 		/// A tile is considered stale if one or more of the following two conditions apply:
 		/// <ul>
-		/// <li>The {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#isExpired()"/> method returns {@code True}.</li>
+		/// <li>The {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.ITileBitmap#isExpired()"/> method returns {@code True}.</li>
 		/// <li>The layer has a time-to-live (TTL) set (<seealso cref="#getCacheTimeToLive()"/> returns a nonzero value) and the sum of
-		/// the {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#getTimestamp()"/> and TTL is less than current
+		/// the {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.ITileBitmap#getTimestamp()"/> and TTL is less than current
 		/// time (as returned by <seealso cref="java.lang.System#currentTimeMillis()"/>).</li>
 		/// </ul>
 		/// </para>
@@ -183,7 +183,7 @@ namespace org.mapsforge.map.layer.download
 		///            A tile. This parameter is not used for a {@code TileDownloadLayer} and can be null. </param>
 		/// <param name="bitmap">
 		///            The bitmap for {@code tile} currently held in the layer's cache. </param>
-		protected internal override bool IsTileStale(Tile tile, TileBitmap bitmap)
+		protected internal override bool IsTileStale(Tile tile, ITileBitmap bitmap)
 		{
 			if (bitmap.Expired)
 			{

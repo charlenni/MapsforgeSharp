@@ -18,7 +18,7 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	public interface Path
+	public interface IPath
 	{
 		void Clear();
 

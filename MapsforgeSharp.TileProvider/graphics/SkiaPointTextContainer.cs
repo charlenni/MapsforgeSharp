@@ -22,8 +22,8 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -31,7 +31,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 
 	public class SkiaPointTextContainer : PointTextContainer
 	{
-		internal SkiaPointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth) : base(xy, display, priority, text, paintFront, paintBack, symbolContainer, position, maxTextWidth)
+		internal SkiaPointTextContainer(Point xy, Display display, int priority, string text, IPaint paintFront, IPaint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth) : base(xy, display, priority, text, paintFront, paintBack, symbolContainer, position, maxTextWidth)
 		{
 			float boxWidth, boxHeight;
 
@@ -125,7 +125,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 			}
 		}
 
-		public override void Draw(Canvas canvas, Point origin, Matrix matrix)
+		public override void Draw(Canvas canvas, Point origin, IMatrix matrix)
 		{
 			if (!this.isVisible)
 			{

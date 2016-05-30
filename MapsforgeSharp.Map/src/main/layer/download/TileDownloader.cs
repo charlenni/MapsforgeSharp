@@ -18,8 +18,8 @@
 namespace org.mapsforge.map.layer.download
 {
     using CorruptedInputStreamException = MapsforgeSharp.Core.Graphics.CorruptedInputStreamException;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using System;
     using System.Net.Http;
     using System.IO.Compression;
@@ -27,9 +27,9 @@ namespace org.mapsforge.map.layer.download
     internal class TileDownloader : HttpClientHandler
 	{
 		private readonly DownloadJob downloadJob;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 
-		internal TileDownloader(DownloadJob downloadJob, GraphicFactory graphicFactory)
+		internal TileDownloader(DownloadJob downloadJob, IGraphicFactory graphicFactory)
 		{
 			if (downloadJob == null)
 			{
@@ -44,7 +44,7 @@ namespace org.mapsforge.map.layer.download
 			this.graphicFactory = graphicFactory;
 		}
 
-		internal virtual TileBitmap DownloadImage()
+		internal virtual ITileBitmap DownloadImage()
 		{
 			Uri url = this.downloadJob.tileSource.GetTileUrl(this.downloadJob.tile);
 
@@ -69,7 +69,7 @@ namespace org.mapsforge.map.layer.download
                         }
 
                         try {
-                            TileBitmap result = this.graphicFactory.CreateTileBitmap(stream, this.downloadJob.tile.TileSize, this.downloadJob.hasAlpha);
+                            ITileBitmap result = this.graphicFactory.CreateTileBitmap(stream, this.downloadJob.tile.TileSize, this.downloadJob.hasAlpha);
                             result.Expiration = response.Headers..Content..httpClient.Expiration;
                             return result;
                         }

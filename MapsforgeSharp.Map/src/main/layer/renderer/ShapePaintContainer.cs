@@ -16,19 +16,19 @@
 
 namespace org.mapsforge.map.layer.renderer
 {
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 
 	public class ShapePaintContainer
 	{
 		internal readonly float dy;
-		internal readonly Paint paint;
+		internal readonly IPaint paint;
 		internal readonly ShapeContainer shapeContainer;
 
-		public ShapePaintContainer(ShapeContainer shapeContainer, Paint paint) : this(shapeContainer, paint, 0f)
+		public ShapePaintContainer(ShapeContainer shapeContainer, IPaint paint) : this(shapeContainer, paint, 0f)
 		{
 		}
 
-		public ShapePaintContainer(ShapeContainer shapeContainer, Paint paint, float dy)
+		public ShapePaintContainer(ShapeContainer shapeContainer, IPaint paint, float dy)
 		{
 			this.shapeContainer = shapeContainer;
 			this.paint = paint;

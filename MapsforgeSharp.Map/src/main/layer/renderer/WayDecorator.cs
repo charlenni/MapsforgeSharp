@@ -23,7 +23,7 @@ namespace org.mapsforge.map.layer.renderer
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
 	using WayTextContainer = MapsforgeSharp.Core.Mapelements.WayTextContainer;
 	using LineSegment = MapsforgeSharp.Core.Model.LineSegment;
@@ -132,7 +132,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// <param name="stroke"> stroke paint for text </param>
 		/// <param name="coordinates"> the list of way coordinates </param>
 		/// <param name="currentLabels"> the list of labels to which a new WayTextContainer will be added </param>
-		internal static void RenderText(Tile tile, string text, Display display, int priority, float dy, Paint fill, Paint stroke, Point[][] coordinates, IList<MapElementContainer> currentLabels)
+		internal static void RenderText(Tile tile, string text, Display display, int priority, float dy, IPaint fill, IPaint stroke, Point[][] coordinates, IList<MapElementContainer> currentLabels)
 		{
 			// Calculate the way name length plus some margin of safety
 			int wayNameWidth = (stroke == null) ? fill.GetTextWidth(text) + WAYNAME_SAFETY_MARGIN * 2 : stroke.GetTextWidth(text) + WAYNAME_SAFETY_MARGIN * 2;

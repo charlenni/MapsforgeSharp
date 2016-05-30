@@ -21,8 +21,8 @@ namespace org.mapsforge.map.layer.renderer
 {
     using System.Threading;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using LabelStore = org.mapsforge.map.layer.labels.LabelStore;
@@ -37,7 +37,7 @@ namespace org.mapsforge.map.layer.renderer
 	public class TileRendererLayer : TileLayer<RendererJob>, Observer
 	{
 		private readonly DatabaseRenderer databaseRenderer;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private readonly MapDataStore mapDataStore;
 		private MapWorkerPool mapWorkerPool;
 		private RenderThemeFuture renderThemeFuture;
@@ -53,7 +53,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// <param name="isTransparent"> true if the tile should have an alpha/transparency </param>
 		/// <param name="renderLabels"> true if labels should be rendered onto tiles </param>
 		/// <param name="graphicFactory"> the graphicFactory to carry out platform specific operations </param>
-		public TileRendererLayer(TileCache tileCache, MapDataStore mapDataStore, MapViewPosition mapViewPosition, bool isTransparent, bool renderLabels, GraphicFactory graphicFactory) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), isTransparent)
+		public TileRendererLayer(TileCache tileCache, MapDataStore mapDataStore, MapViewPosition mapViewPosition, bool isTransparent, bool renderLabels, IGraphicFactory graphicFactory) : base(tileCache, mapViewPosition, graphicFactory.CreateMatrix(), isTransparent)
 		{
 			this.graphicFactory = graphicFactory;
 			this.mapDataStore = mapDataStore;
@@ -164,7 +164,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// </para>
 		/// <para>
 		/// A tile is considered stale if the timestamp of the layer's <seealso cref="#mapDataStore"/> is more recent than the
-		/// {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.TileBitmap#getTimestamp()"/>.
+		/// {@code bitmap}'s <seealso cref="MapsforgeSharp.Core.Graphics.ITileBitmap#getTimestamp()"/>.
 		/// </para>
 		/// <para>
 		/// When a tile has become stale, the layer will first display the tile referenced by {@code bitmap} and attempt to
@@ -178,7 +178,7 @@ namespace org.mapsforge.map.layer.renderer
 		///            A tile. </param>
 		/// <param name="bitmap">
 		///            The bitmap for {@code tile} currently held in the layer's cache. </param>
-		protected internal override bool IsTileStale(Tile tile, TileBitmap bitmap)
+		protected internal override bool IsTileStale(Tile tile, ITileBitmap bitmap)
 		{
 			return this.mapDataStore.GetDataTimestamp(tile) > bitmap.Timestamp;
 		}

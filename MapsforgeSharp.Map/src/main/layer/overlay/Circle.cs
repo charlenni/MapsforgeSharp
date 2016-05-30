@@ -20,7 +20,7 @@
 namespace org.mapsforge.map.layer.overlay
 {
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -30,7 +30,7 @@ namespace org.mapsforge.map.layer.overlay
 	/// <summary>
 	/// A {@code Circle} consists of a center <seealso cref="LatLong"/> and a non-negative radius in meters.
 	/// <para>
-	/// A {@code Circle} holds two <seealso cref="Paint"/> objects to allow for different outline and filling. These paints define
+	/// A {@code Circle} holds two <seealso cref="IPaint"/> objects to allow for different outline and filling. These paints define
 	/// drawing parameters such as color, stroke width, pattern and transparency.
 	/// </para>
 	/// </summary>
@@ -38,8 +38,8 @@ namespace org.mapsforge.map.layer.overlay
 	{
 		private readonly bool keepAligned;
 		private LatLong latLong;
-		private Paint paintFill;
-		private Paint paintStroke;
+		private IPaint paintFill;
+		private IPaint paintStroke;
 		private float radius;
 
 		/// <param name="latLong">
@@ -52,7 +52,7 @@ namespace org.mapsforge.map.layer.overlay
 		///            the initial {@code Paint} used to stroke this circle (may be null). </param>
 		/// <exception cref="IllegalArgumentException">
 		///             if the given {@code radius} is negative or <seealso cref="Float#NaN"/>. </exception>
-		public Circle(LatLong latLong, float radius, Paint paintFill, Paint paintStroke) : this(latLong, radius, paintFill, paintStroke, false)
+		public Circle(LatLong latLong, float radius, IPaint paintFill, IPaint paintStroke) : this(latLong, radius, paintFill, paintStroke, false)
 		{
 		}
 
@@ -70,7 +70,7 @@ namespace org.mapsforge.map.layer.overlay
 		/// <exception cref="IllegalArgumentException">
 		///             if the given {@code radius} is negative or <seealso cref="Float#NaN"/>.
 		///  </exception>
-		public Circle(LatLong latLong, float radius, Paint paintFill, Paint paintStroke, bool keepAligned) : base()
+		public Circle(LatLong latLong, float radius, IPaint paintFill, IPaint paintStroke, bool keepAligned) : base()
 		{
 			this.keepAligned = keepAligned;
 			this.latLong = latLong;
@@ -121,7 +121,7 @@ namespace org.mapsforge.map.layer.overlay
 		}
 
 		/// <returns> the {@code Paint} used to fill this circle (may be null). </returns>
-		public virtual Paint PaintFill
+		public virtual IPaint PaintFill
 		{
 			get
 			{
@@ -140,7 +140,7 @@ namespace org.mapsforge.map.layer.overlay
 		}
 
 		/// <returns> the {@code Paint} used to stroke this circle (may be null). </returns>
-		public virtual Paint PaintStroke
+		public virtual IPaint PaintStroke
 		{
 			get
 			{

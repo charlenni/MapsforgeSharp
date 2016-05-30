@@ -22,9 +22,9 @@ namespace org.mapsforge.map.view
     using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
-	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicContext = MapsforgeSharp.Core.Graphics.IGraphicContext;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
@@ -35,18 +35,18 @@ namespace org.mapsforge.map.view
 	{
         private static readonly long ONE_SECOND = TimeSpan.TicksPerSecond;
 
-		private static Paint CreatePaintFront(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreatePaintFront(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.RED;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 25 * displayModel.ScaleFactor;
 			return paint;
 		}
 
-		private static Paint CreatePaintBack(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreatePaintBack(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.WHITE;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 25 * displayModel.ScaleFactor;
@@ -59,10 +59,10 @@ namespace org.mapsforge.map.view
 		private string fps;
 		private int frameCounter;
 		private long lastTime;
-		private readonly Paint paintBack, paintFront;
+		private readonly IPaint paintBack, paintFront;
 		private bool visible;
 
-		public FpsCounter(GraphicFactory graphicFactory, DisplayModel displayModel)
+		public FpsCounter(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
 			this.displayModel = displayModel;
 
@@ -70,14 +70,14 @@ namespace org.mapsforge.map.view
 			this.paintFront = CreatePaintFront(graphicFactory, displayModel);
 		}
 
-		public FpsCounter(DisplayModel displayModel, Paint paintBack, Paint paintFront)
+		public FpsCounter(DisplayModel displayModel, IPaint paintBack, IPaint paintFront)
 		{
 			this.displayModel = displayModel;
 			this.paintBack = paintBack;
 			this.paintFront = paintFront;
 		}
 
-		public virtual void Draw(GraphicContext graphicContext)
+		public virtual void Draw(IGraphicContext graphicContext)
 		{
 			if (!this.visible)
 			{

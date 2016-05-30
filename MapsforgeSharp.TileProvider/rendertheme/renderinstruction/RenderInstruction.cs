@@ -19,7 +19,7 @@
 namespace org.mapsforge.map.rendertheme.renderinstruction
 {
 	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
 	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
@@ -69,14 +69,14 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
 		protected internal string category;
 		public readonly DisplayModel displayModel;
-		public readonly GraphicFactory graphicFactory;
+		public readonly IGraphicFactory graphicFactory;
 
 		protected internal float height;
 		protected internal int percent = 100;
 		protected internal float width;
 		internal ResourceScaling scaling;
 
-		protected internal RenderInstruction(GraphicFactory graphicFactory, DisplayModel displayModel)
+		protected internal RenderInstruction(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
 			this.displayModel = displayModel;
 			this.graphicFactory = graphicFactory;

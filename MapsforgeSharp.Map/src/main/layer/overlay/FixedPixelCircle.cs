@@ -19,7 +19,7 @@
 
 namespace org.mapsforge.map.layer.overlay
 {
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Point = MapsforgeSharp.Core.Model.Point;
 
@@ -38,7 +38,7 @@ namespace org.mapsforge.map.layer.overlay
 		///            the initial {@code Paint} used to stroke this circle (may be null). </param>
 		/// <exception cref="IllegalArgumentException">
 		///             if the given {@code radius} is negative or <seealso cref="Float#NaN"/>. </exception>
-		public FixedPixelCircle(LatLong latLong, float radius, Paint paintFill, Paint paintStroke) : this(latLong, radius, paintFill, paintStroke, false)
+		public FixedPixelCircle(LatLong latLong, float radius, IPaint paintFill, IPaint paintStroke) : this(latLong, radius, paintFill, paintStroke, false)
 		{
 		}
 
@@ -54,7 +54,7 @@ namespace org.mapsforge.map.layer.overlay
 		///                    a moving effect of a bitmap shader. </param>
 		/// <exception cref="IllegalArgumentException">
 		///             if the given {@code radius} is negative or <seealso cref="Float#NaN"/>. </exception>
-		public FixedPixelCircle(LatLong latLong, float radius, Paint paintFill, Paint paintStroke, bool keepAligned) : base(latLong, radius, paintFill, paintStroke, keepAligned)
+		public FixedPixelCircle(LatLong latLong, float radius, IPaint paintFill, IPaint paintStroke, bool keepAligned) : base(latLong, radius, paintFill, paintStroke, keepAligned)
 		{
 		}
 

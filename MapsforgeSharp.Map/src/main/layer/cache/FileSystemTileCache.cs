@@ -28,8 +28,8 @@ namespace org.mapsforge.map.layer.cache
     using System.Threading.Tasks;
 
     using CorruptedInputStreamException = MapsforgeSharp.Core.Graphics.CorruptedInputStreamException;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using Job = org.mapsforge.map.layer.queue.Job;
     using Observable = org.mapsforge.map.model.common.Observable;
     using Observer = org.mapsforge.map.model.common.Observer;
@@ -194,7 +194,7 @@ namespace org.mapsforge.map.layer.cache
 		}
 
 		private readonly IFolder cacheDirectory;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private FileWorkingSetCache<string> lruCache;
 		private readonly ReentrantReadWriteLock @lock;
 		private readonly Observable observable;
@@ -211,7 +211,7 @@ namespace org.mapsforge.map.layer.cache
 		///            the graphicFactory implementation to use. </param>
 		/// <exception cref="IllegalArgumentException">
 		///             if the capacity is negative. </exception>
-		public FileSystemTileCache(int capacity, IFolder cacheDirectory, GraphicFactory graphicFactory) : this(capacity, cacheDirectory, graphicFactory, false)
+		public FileSystemTileCache(int capacity, IFolder cacheDirectory, IGraphicFactory graphicFactory) : this(capacity, cacheDirectory, graphicFactory, false)
 		{
 		}
 
@@ -238,7 +238,7 @@ namespace org.mapsforge.map.layer.cache
 		///             if the capacity is negative. </exception>
 		/// <exception cref="IllegalArgumentException">
 		///             if the capacity is negative. </exception>
-		public FileSystemTileCache(int capacity, IFolder cacheDirectory, GraphicFactory graphicFactory, bool persistent)
+		public FileSystemTileCache(int capacity, IFolder cacheDirectory, IGraphicFactory graphicFactory, bool persistent)
 		{
 			this.observable = new Observable();
 			this.persistent = persistent;
@@ -301,7 +301,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap Get(Job key)
+		public virtual ITileBitmap Get(Job key)
 		{
 			IFile file;
 			try
@@ -322,7 +322,7 @@ namespace org.mapsforge.map.layer.cache
             {
                 using (System.IO.Stream inputStream = file.OpenAsync(FileAccess.Read).Result)
                 {
-                    TileBitmap result = this.graphicFactory.CreateTileBitmap(inputStream, key.tile.TileSize, key.hasAlpha);
+                    ITileBitmap result = this.graphicFactory.CreateTileBitmap(inputStream, key.tile.TileSize, key.hasAlpha);
                     result.Timestamp = file.lastModified();
                     return result;
                 }
@@ -368,7 +368,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap GetImmediately(Job key)
+		public virtual ITileBitmap GetImmediately(Job key)
 		{
 			return Get(key);
 		}
@@ -413,7 +413,7 @@ namespace org.mapsforge.map.layer.cache
 			DeleteDirectory(this.cacheDirectory);
 		}
 
-		public virtual void Put(Job key, TileBitmap bitmap)
+		public virtual void Put(Job key, ITileBitmap bitmap)
 		{
 			if (key == null)
 			{
@@ -487,7 +487,7 @@ namespace org.mapsforge.map.layer.cache
 		///            filename </param>
 		/// <param name="bitmap">
 		///            tile image </param>
-		private void StoreData(Job key, TileBitmap bitmap)
+		private void StoreData(Job key, ITileBitmap bitmap)
 		{
 			try
 			{

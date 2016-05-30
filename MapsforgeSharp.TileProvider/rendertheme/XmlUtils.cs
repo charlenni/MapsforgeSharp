@@ -27,8 +27,8 @@ namespace org.mapsforge.map.rendertheme
     using MapsforgeSharp.Core.Graphics;
   	using System.Globalization;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using ResourceBitmap = MapsforgeSharp.Core.Graphics.ResourceBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IResourceBitmap = MapsforgeSharp.Core.Graphics.IResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     public sealed class XmlUtils
@@ -49,7 +49,7 @@ namespace org.mapsforge.map.rendertheme
 			}
 		}
 
-		public static ResourceBitmap CreateBitmap(GraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, string src, int width, int height, int percent)
+		public static IResourceBitmap CreateBitmap(IGraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, string src, int width, int height, int percent)
 		{
 			if (string.ReferenceEquals(src, null) || src.Length == 0)
 			{

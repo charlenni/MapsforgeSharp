@@ -21,8 +21,8 @@ namespace org.mapsforge.map.layer.debug
 {
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -31,18 +31,18 @@ namespace org.mapsforge.map.layer.debug
 
 	public class TileGridLayer : Layer
 	{
-		private static Paint createPaintFront(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint createPaintFront(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.RED;
 			paint.StrokeWidth = 2 * displayModel.ScaleFactor;
 			paint.Style = Style.STROKE;
 			return paint;
 		}
 
-		private static Paint createPaintBack(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint createPaintBack(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.WHITE;
 			paint.StrokeWidth = 4 * displayModel.ScaleFactor;
 			paint.Style = Style.STROKE;
@@ -50,9 +50,9 @@ namespace org.mapsforge.map.layer.debug
 		}
 
 		private readonly DisplayModel displayModel;
-		private readonly Paint paintBack, paintFront;
+		private readonly IPaint paintBack, paintFront;
 
-		public TileGridLayer(GraphicFactory graphicFactory, DisplayModel displayModel) : base()
+		public TileGridLayer(IGraphicFactory graphicFactory, DisplayModel displayModel) : base()
 		{
 			this.displayModel = displayModel;
 
@@ -60,7 +60,7 @@ namespace org.mapsforge.map.layer.debug
 			this.paintFront = createPaintFront(graphicFactory, displayModel);
 		}
 
-		public TileGridLayer(DisplayModel displayModel, Paint paintBack, Paint paintFront) : base()
+		public TileGridLayer(DisplayModel displayModel, IPaint paintBack, IPaint paintFront) : base()
 		{
 			this.displayModel = displayModel;
 			this.paintBack = paintBack;

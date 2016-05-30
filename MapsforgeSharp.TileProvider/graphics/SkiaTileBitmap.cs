@@ -21,7 +21,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
     using System;
     using System.IO;
 
-    public class SkiaTileBitmap : TileBitmap
+    public class SkiaTileBitmap : ITileBitmap
     {
         public SKBitmap nativeBitmap;
 

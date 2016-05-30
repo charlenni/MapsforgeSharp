@@ -26,8 +26,8 @@ namespace org.mapsforge.map.layer.debug
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -37,18 +37,18 @@ namespace org.mapsforge.map.layer.debug
 
 	public class TileCoordinatesLayer : Layer
 	{
-		private static Paint createPaintFront(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint createPaintFront(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.RED;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 16 * displayModel.ScaleFactor;
 			return paint;
 		}
 
-		private static Paint createPaintBack(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint createPaintBack(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.WHITE;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 16 * displayModel.ScaleFactor;
@@ -58,9 +58,9 @@ namespace org.mapsforge.map.layer.debug
 		}
 
 		private readonly DisplayModel displayModel;
-		private readonly Paint paintBack, paintFront;
+		private readonly IPaint paintBack, paintFront;
 
-		public TileCoordinatesLayer(GraphicFactory graphicFactory, DisplayModel displayModel) : base()
+		public TileCoordinatesLayer(IGraphicFactory graphicFactory, DisplayModel displayModel) : base()
 		{
 
 			this.displayModel = displayModel;
@@ -69,7 +69,7 @@ namespace org.mapsforge.map.layer.debug
 			this.paintFront = createPaintFront(graphicFactory, displayModel);
 		}
 
-		public TileCoordinatesLayer(DisplayModel displayModel, Paint paintBack, Paint paintFront) : base()
+		public TileCoordinatesLayer(DisplayModel displayModel, IPaint paintBack, IPaint paintFront) : base()
 		{
 
 			this.displayModel = displayModel;

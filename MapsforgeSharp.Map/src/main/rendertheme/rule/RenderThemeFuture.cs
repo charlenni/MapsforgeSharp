@@ -21,7 +21,7 @@ namespace org.mapsforge.map.rendertheme.rule
     using System.Threading;
     using System.IO;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     /// <summary>
@@ -43,11 +43,11 @@ namespace org.mapsforge.map.rendertheme.rule
         /// </summary>
         private class RenderThemeCallable
 		{
-			internal readonly GraphicFactory graphicFactory;
+			internal readonly IGraphicFactory graphicFactory;
 			internal readonly IXmlRenderTheme xmlRenderTheme;
 			internal readonly DisplayModel displayModel;
 
-			public RenderThemeCallable(GraphicFactory graphicFactory, IXmlRenderTheme xmlRenderTheme, DisplayModel displayModel)
+			public RenderThemeCallable(IGraphicFactory graphicFactory, IXmlRenderTheme xmlRenderTheme, DisplayModel displayModel)
 			{
 				this.graphicFactory = graphicFactory;
 				this.xmlRenderTheme = xmlRenderTheme;
@@ -71,7 +71,7 @@ namespace org.mapsforge.map.rendertheme.rule
 			}
 		}
 
-		public RenderThemeFuture(GraphicFactory graphicFactory, IXmlRenderTheme xmlRenderTheme, DisplayModel displayModel)
+		public RenderThemeFuture(IGraphicFactory graphicFactory, IXmlRenderTheme xmlRenderTheme, DisplayModel displayModel)
 		{
             RenderThemeCallable callable = new RenderThemeCallable(graphicFactory, xmlRenderTheme, displayModel);
 

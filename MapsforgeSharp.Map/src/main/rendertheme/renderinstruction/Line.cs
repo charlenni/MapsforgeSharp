@@ -25,9 +25,9 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
     using Cap = MapsforgeSharp.Core.Graphics.Cap;
     using Color = MapsforgeSharp.Core.Graphics.Color;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
     using Join = MapsforgeSharp.Core.Graphics.Join;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
     using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -48,11 +48,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private readonly string relativePathPrefix;
 		private IBitmap shaderBitmap;
 		private string src;
-		private readonly Paint stroke;
-		private readonly IDictionary<sbyte?, Paint> strokes;
+		private readonly IPaint stroke;
+		private readonly IDictionary<sbyte?, IPaint> strokes;
 		private float strokeWidth;
 
-		public Line(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level, string relativePathPrefix) : base(graphicFactory, displayModel)
+		public Line(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level, string relativePathPrefix) : base(graphicFactory, displayModel)
 		{
 			this.level = level;
 			this.relativePathPrefix = relativePathPrefix;
@@ -62,7 +62,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.stroke.Style = Style.STROKE;
 			this.stroke.StrokeCap = Cap.ROUND;
 			this.stroke.StrokeJoin = Join.ROUND;
-			this.strokes = new Dictionary<sbyte?, Paint>();
+			this.strokes = new Dictionary<sbyte?, IPaint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
 
 			ExtractValues(graphicFactory, displayModel, elementName, reader, relativePathPrefix);
@@ -96,7 +96,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 					bitmapCreated = true;
 				}
         
-				Paint strokePaint = getStrokePaint(renderContext.rendererJob.tile.ZoomLevel);
+				IPaint strokePaint = getStrokePaint(renderContext.rendererJob.tile.ZoomLevel);
         
 				if (shaderBitmap != null)
 				{
@@ -114,7 +114,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		{
 			if (this.stroke != null)
 			{
-				Paint s = graphicFactory.CreatePaint(stroke);
+				IPaint s = graphicFactory.CreatePaint(stroke);
 				s.StrokeWidth = this.strokeWidth * scaleFactor;
 				strokes[zoomLevel] = s;
 			}
@@ -127,7 +127,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			// do nothing
 		}
 
-        private void ExtractValues(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, string relativePathPrefix)
+        private void ExtractValues(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, string relativePathPrefix)
 		{
 			for (int i = 0; i < reader.AttributeCount; ++i)
 			{
@@ -207,7 +207,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			return dashIntervals;
 		}
 
-		private Paint getStrokePaint(sbyte zoomLevel)
+		private IPaint getStrokePaint(sbyte zoomLevel)
 		{
 			return strokes[zoomLevel] ?? this.stroke;
 		}

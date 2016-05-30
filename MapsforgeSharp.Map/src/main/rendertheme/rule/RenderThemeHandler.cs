@@ -24,7 +24,7 @@ namespace org.mapsforge.map.rendertheme.rule
     using System.IO;
     using Acrotech.PortableLogAdapter;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using Area = org.mapsforge.map.rendertheme.renderinstruction.Area;
     using Caption = org.mapsforge.map.rendertheme.renderinstruction.Caption;
@@ -52,7 +52,7 @@ namespace org.mapsforge.map.rendertheme.rule
         private const string ELEMENT_NAME_RULE = "rule";
 		private const string UNEXPECTED_ELEMENT = "unexpected element: ";
 
-		public static RenderTheme GetRenderTheme(GraphicFactory graphicFactory, DisplayModel displayModel, IXmlRenderTheme xmlRenderTheme)
+		public static RenderTheme GetRenderTheme(IGraphicFactory graphicFactory, DisplayModel displayModel, IXmlRenderTheme xmlRenderTheme)
 		{
             XmlReader reader = null;
 
@@ -69,7 +69,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		private Rule currentRule;
 		private readonly DisplayModel displayModel;
 		private readonly Stack<Element> elementStack = new Stack<Element>();
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private int level;
 		private readonly XmlReader reader;
 		private string qName;
@@ -81,7 +81,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		private XmlRenderThemeStyleMenu renderThemeStyleMenu;
 		private XmlRenderThemeStyleLayer currentLayer;
 
-		private RenderThemeHandler(GraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, IXmlRenderTheme xmlRenderTheme, XmlReader reader) : base()
+		private RenderThemeHandler(IGraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, IXmlRenderTheme xmlRenderTheme, XmlReader reader) : base()
 		{
 			this.reader = reader;
 			this.graphicFactory = graphicFactory;

@@ -18,25 +18,25 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	public interface GraphicContext
+	public interface IGraphicContext
 	{
 		void DrawBitmap(IBitmap bitmap, int left, int top);
 
-		void DrawBitmap(IBitmap bitmap, Matrix matrix);
+		void DrawBitmap(IBitmap bitmap, IMatrix matrix);
 
 		/// <param name="x">
 		///            the horizontal center coordinate of the circle. </param>
 		/// <param name="y">
 		///            the vertical center coordinate of the circle. </param>
-		void DrawCircle(int x, int y, int radius, Paint paint);
+		void DrawCircle(int x, int y, int radius, IPaint paint);
 
-		void DrawLine(int x1, int y1, int x2, int y2, Paint paint);
+		void DrawLine(int x1, int y1, int x2, int y2, IPaint paint);
 
-		void DrawPath(Path path, Paint paint);
+		void DrawPath(IPath path, IPaint paint);
 
-		void DrawText(string text, int x, int y, Paint paint);
+		void DrawText(string text, int x, int y, IPaint paint);
 
-		void DrawTextRotated(string text, int x1, int y1, int x2, int y2, Paint paint);
+		void DrawTextRotated(string text, int x1, int y1, int x2, int y2, IPaint paint);
 
 		void FillColor(Color color);
 

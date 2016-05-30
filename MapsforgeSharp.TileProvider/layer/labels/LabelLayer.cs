@@ -21,9 +21,9 @@ namespace org.mapsforge.map.layer.labels
     using System.Linq;
 
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
+	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Tile = MapsforgeSharp.Core.Model.Tile;
@@ -32,12 +32,12 @@ namespace org.mapsforge.map.layer.labels
 	public class LabelLayer : Layer
 	{
 		private readonly LabelStore labelStore;
-		private readonly Matrix matrix;
+		private readonly IMatrix matrix;
 		private IOrderedEnumerable<MapElementContainer> elementsToDraw;
 		private ISet<Tile> lastTileSet;
 		private int lastLabelStoreVersion;
 
-		public LabelLayer(GraphicFactory graphicFactory, LabelStore labelStore)
+		public LabelLayer(IGraphicFactory graphicFactory, LabelStore labelStore)
 		{
 			this.labelStore = labelStore;
 			this.matrix = graphicFactory.CreateMatrix();

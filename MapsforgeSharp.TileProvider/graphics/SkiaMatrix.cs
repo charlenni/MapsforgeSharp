@@ -18,7 +18,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using MapsforgeSharp.Core.Graphics;
     using SkiaSharp;
 
-    public class SkiaMatrix : Matrix
+    public class SkiaMatrix : IMatrix
     {
         private SKMatrix nativeMatrix;
 

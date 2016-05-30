@@ -19,7 +19,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using SkiaSharp;
 	using System;
 
-	public class SkiaPath : Path
+	public class SkiaPath : IPath
     {
         private SKPath nativePath;
 

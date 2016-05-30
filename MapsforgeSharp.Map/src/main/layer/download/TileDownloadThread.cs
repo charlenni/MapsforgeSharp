@@ -19,8 +19,8 @@ namespace org.mapsforge.map.layer.download
     using System.IO;
     using queue;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using TileCache = org.mapsforge.map.layer.cache.TileCache;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PausableThread = org.mapsforge.map.util.PausableThread;
@@ -30,12 +30,12 @@ namespace org.mapsforge.map.layer.download
         private static readonly ILogger LOGGER = (new Acrotech.PortableLogAdapter.Managers.DelegateLogManager((logger, message) => System.Diagnostics.Debug.WriteLine("[{0}]{1}", logger.Name, message), LogLevel.Info)).GetLogger(nameof(TileDownloadThread));
 
         private readonly DisplayModel displayModel;
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private JobQueue<DownloadJob> jobQueue;
 		private readonly Layer layer;
 		private readonly TileCache tileCache;
 
-		internal TileDownloadThread(TileCache tileCache, JobQueue<DownloadJob> jobQueue, Layer layer, GraphicFactory graphicFactory, DisplayModel displayModel) : base()
+		internal TileDownloadThread(TileCache tileCache, JobQueue<DownloadJob> jobQueue, Layer layer, IGraphicFactory graphicFactory, DisplayModel displayModel) : base()
 		{
 
 			this.tileCache = tileCache;
@@ -94,7 +94,7 @@ namespace org.mapsforge.map.layer.download
 		private void downloadTile(DownloadJob downloadJob)
 		{
 			TileDownloader tileDownloader = new TileDownloader(downloadJob, this.graphicFactory);
-			TileBitmap bitmap = tileDownloader.DownloadImage();
+			ITileBitmap bitmap = tileDownloader.DownloadImage();
 
 			if (!Interrupted && bitmap != null)
 			{

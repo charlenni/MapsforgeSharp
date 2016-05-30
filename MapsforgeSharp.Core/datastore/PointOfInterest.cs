@@ -20,9 +20,7 @@ namespace MapsforgeSharp.Core.Datastore
 {
     using System.Collections.Generic;
     using System.Linq;
-
-    using LatLong = MapsforgeSharp.Core.Model.LatLong;
-    using Tag = MapsforgeSharp.Core.Model.Tag;
+    using MapsforgeSharp.Core.Model;
 
     /// <summary>
     /// An immutable container for all data associated with a single point of interest node (POI).

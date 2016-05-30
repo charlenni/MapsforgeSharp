@@ -19,12 +19,8 @@ namespace MapsforgeSharp.Core.Mapelements
 {
     using System;
     using System.Text;
-
-    using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+    using MapsforgeSharp.Core.Graphics;
+	using MapsforgeSharp.Core.Model;
 
 	/// <summary>
 	/// The MapElementContainer is the abstract base class for annotations that can be placed on the
@@ -41,7 +37,6 @@ namespace MapsforgeSharp.Core.Mapelements
 	/// </summary>
 	public abstract class MapElementContainer : IComparable<MapElementContainer>
 	{
-
 		protected internal Rectangle boundary;
 		protected internal Rectangle boundaryAbsolute;
 		protected internal Display display;
@@ -103,7 +98,7 @@ namespace MapsforgeSharp.Core.Mapelements
 		/// <param name="canvas"> </param>
 		/// <param name="origin"> </param>
 		/// <param name="matrix"> </param>
-		public abstract void Draw(Canvas canvas, Point origin, Matrix matrix);
+		public abstract void Draw(Canvas canvas, Point origin, IMatrix matrix);
 
 		/// <summary>
 		/// Gets the pixel absolute boundary for this element.

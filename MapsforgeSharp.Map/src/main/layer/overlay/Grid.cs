@@ -26,8 +26,8 @@ namespace org.mapsforge.map.layer.overlay
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using FontFamily = MapsforgeSharp.Core.Graphics.FontFamily;
 	using FontStyle = MapsforgeSharp.Core.Graphics.FontStyle;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using Style = MapsforgeSharp.Core.Graphics.Style;
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -65,36 +65,36 @@ namespace org.mapsforge.map.layer.overlay
 			return sb.ToString();
 		}
 
-		private static Paint CreateLineFront(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreateLineFront(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.BLUE;
 			paint.StrokeWidth = 2 * displayModel.ScaleFactor;
 			paint.Style = Style.STROKE;
 			return paint;
 		}
 
-		private static Paint CreateLineBack(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreateLineBack(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.WHITE;
 			paint.StrokeWidth = 4 * displayModel.ScaleFactor;
 			paint.Style = Style.STROKE;
 			return paint;
 		}
 
-		private static Paint CreateTextFront(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreateTextFront(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.BLUE;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 12 * displayModel.ScaleFactor;
 			return paint;
 		}
 
-		private static Paint CreateTextBack(GraphicFactory graphicFactory, DisplayModel displayModel)
+		private static IPaint CreateTextBack(IGraphicFactory graphicFactory, DisplayModel displayModel)
 		{
-			Paint paint = graphicFactory.CreatePaint();
+			IPaint paint = graphicFactory.CreatePaint();
 			paint.Color = Color.WHITE;
 			paint.SetTypeface(FontFamily.DEFAULT, FontStyle.BOLD);
 			paint.TextSize = 12 * displayModel.ScaleFactor;
@@ -103,7 +103,7 @@ namespace org.mapsforge.map.layer.overlay
 			return paint;
 		}
 
-		private readonly Paint lineBack, lineFront, textBack, textFront;
+		private readonly IPaint lineBack, lineFront, textBack, textFront;
 		private readonly IDictionary<sbyte?, double?> spacingConfig;
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace org.mapsforge.map.layer.overlay
 		/// <param name="graphicFactory"> the graphic factory. </param>
 		/// <param name="displayModel"> the display model of the map view. </param>
 		/// <param name="spacingConfig"> a map containing the spacing for every zoom level. </param>
-		public Grid(GraphicFactory graphicFactory, DisplayModel displayModel, IDictionary<sbyte?, double?> spacingConfig) : base()
+		public Grid(IGraphicFactory graphicFactory, DisplayModel displayModel, IDictionary<sbyte?, double?> spacingConfig) : base()
 		{
 			this.displayModel = displayModel;
 			this.spacingConfig = spacingConfig;
@@ -130,7 +130,7 @@ namespace org.mapsforge.map.layer.overlay
 		/// <param name="lineFront"> the top line paint. </param>
 		/// <param name="textBack"> the back text paint. </param>
 		/// <param name="textFront"> the top text paint. </param>
-		public Grid(DisplayModel displayModel, IDictionary<sbyte?, double?> spacingConfig, Paint lineBack, Paint lineFront, Paint textBack, Paint textFront) : base()
+		public Grid(DisplayModel displayModel, IDictionary<sbyte?, double?> spacingConfig, IPaint lineBack, IPaint lineFront, IPaint textBack, IPaint textFront) : base()
 		{
 			this.displayModel = displayModel;
 			this.spacingConfig = spacingConfig;

@@ -22,7 +22,7 @@ namespace org.mapsforge.map.rendertheme.rule
     using System.Xml;
 
     using Color = MapsforgeSharp.Core.Graphics.Color;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 
     /// <summary>
     /// A builder for <seealso cref="RenderTheme"/> instances.
@@ -47,7 +47,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		internal int mapBackgroundOutside;
 		private int? version;
 
-		public RenderThemeBuilder(GraphicFactory graphicFactory, string elementName, XmlReader reader)
+		public RenderThemeBuilder(IGraphicFactory graphicFactory, string elementName, XmlReader reader)
 		{
 			this.baseStrokeWidth = 1f;
 			this.baseTextSize = 1f;
@@ -62,7 +62,7 @@ namespace org.mapsforge.map.rendertheme.rule
 			return new RenderTheme(this);
 		}
 
-		private void ExtractValues(GraphicFactory graphicFactory, string elementName, XmlReader reader)
+		private void ExtractValues(IGraphicFactory graphicFactory, string elementName, XmlReader reader)
 		{
 			for (int i = 0; i < reader.AttributeCount; ++i)
 			{

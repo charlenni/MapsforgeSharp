@@ -24,10 +24,10 @@ namespace org.mapsforge.map.layer.renderer
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
 	using Color = MapsforgeSharp.Core.Graphics.Color;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using GraphicUtils = MapsforgeSharp.Core.Graphics.GraphicUtils;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-	using Path = MapsforgeSharp.Core.Graphics.Path;
+	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
+	using IPath = MapsforgeSharp.Core.Graphics.IPath;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
@@ -37,10 +37,10 @@ namespace org.mapsforge.map.layer.renderer
 	public class CanvasRasterer
 	{
 		private readonly Canvas canvas;
-		private readonly Path path;
-		private readonly Matrix symbolMatrix;
+		private readonly IPath path;
+		private readonly IMatrix symbolMatrix;
 
-		internal CanvasRasterer(GraphicFactory graphicFactory)
+		internal CanvasRasterer(IGraphicFactory graphicFactory)
 		{
 			this.canvas = graphicFactory.CreateCanvas();
 			this.symbolMatrix = graphicFactory.CreateMatrix();

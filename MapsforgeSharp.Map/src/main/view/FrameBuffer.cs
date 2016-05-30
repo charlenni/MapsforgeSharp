@@ -20,9 +20,9 @@
 namespace org.mapsforge.map.view
 {
 	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
+	using IGraphicContext = MapsforgeSharp.Core.Graphics.IGraphicContext;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
 	using Dimension = MapsforgeSharp.Core.Model.Dimension;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
 	using Point = MapsforgeSharp.Core.Model.Point;
@@ -37,10 +37,10 @@ namespace org.mapsforge.map.view
 		private Dimension dimension;
 		private readonly DisplayModel displayModel;
 		private readonly FrameBufferModel frameBufferModel;
-		private readonly GraphicFactory graphicFactory;
-		private readonly Matrix matrix;
+		private readonly IGraphicFactory graphicFactory;
+		private readonly IMatrix matrix;
 
-		public FrameBuffer(FrameBufferModel frameBufferModel, DisplayModel displayModel, GraphicFactory graphicFactory)
+		public FrameBuffer(FrameBufferModel frameBufferModel, DisplayModel displayModel, IGraphicFactory graphicFactory)
 		{
 			this.frameBufferModel = frameBufferModel;
 			this.displayModel = displayModel;
@@ -77,7 +77,7 @@ namespace org.mapsforge.map.view
 			}
 		}
 
-		public virtual void Draw(GraphicContext graphicContext)
+		public virtual void Draw(IGraphicContext graphicContext)
 		{
 			lock (this)
 			{

@@ -22,8 +22,8 @@ namespace org.mapsforge.map.rendertheme
     using System.Text;
     using System.IO;
 
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using ResourceBitmap = MapsforgeSharp.Core.Graphics.ResourceBitmap;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IResourceBitmap = MapsforgeSharp.Core.Graphics.IResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using System.Reflection;
     using PCLStorage;
@@ -45,7 +45,7 @@ namespace org.mapsforge.map.rendertheme
 			}
 		}
 
-		public static ResourceBitmap CreateBitmap(GraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, string src, int width, int height, int percent)
+		public static IResourceBitmap CreateBitmap(IGraphicFactory graphicFactory, DisplayModel displayModel, string relativePathPrefix, string src, int width, int height, int percent)
 		{
 			if (string.ReferenceEquals(src, null) || src.Length == 0)
 			{
@@ -111,7 +111,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <summary>
 		/// Supported formats are {@code #RRGGBB} and {@code #AARRGGBB}.
 		/// </summary>
-		public static int GetColor(GraphicFactory graphicFactory, string colorString)
+		public static int GetColor(IGraphicFactory graphicFactory, string colorString)
 		{
 			if (colorString.Length == 0 || colorString[0] != '#')
 			{
@@ -211,7 +211,7 @@ namespace org.mapsforge.map.rendertheme
 			return relativePathPrefix + name;
 		}
 
-		private static int GetColor(GraphicFactory graphicFactory, string colorString, int alpha, int rgbStartIndex)
+		private static int GetColor(IGraphicFactory graphicFactory, string colorString, int alpha, int rgbStartIndex)
 		{
 			int red = Convert.ToInt16(colorString.Substring(rgbStartIndex, 2), 16);
 			int green = Convert.ToInt16(colorString.Substring(rgbStartIndex + 2, (rgbStartIndex + 4) - (rgbStartIndex + 2)), 16);

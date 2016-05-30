@@ -24,8 +24,8 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     using MapsforgeSharp.Core.Graphics;
 
     using Color = MapsforgeSharp.Core.Graphics.Color;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
     using Style = MapsforgeSharp.Core.Graphics.Style;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -36,30 +36,30 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
     /// </summary>
     public class Circle : RenderInstruction
 	{
-		private readonly Paint fill;
-		private readonly IDictionary<sbyte?, Paint> fills;
+		private readonly IPaint fill;
+		private readonly IDictionary<sbyte?, IPaint> fills;
 		private readonly int level;
 		private float radius;
 		private float renderRadius;
 		private readonly IDictionary<sbyte?, float?> renderRadiusScaled;
 		private bool scaleRadius;
-		private readonly Paint stroke;
-		private readonly IDictionary<sbyte?, Paint> strokes;
+		private readonly IPaint stroke;
+		private readonly IDictionary<sbyte?, IPaint> strokes;
 		private float strokeWidth;
 
-		public Circle(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level) : base(graphicFactory, displayModel)
+		public Circle(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, int level) : base(graphicFactory, displayModel)
 		{
 			this.level = level;
 
 			this.fill = graphicFactory.CreatePaint();
 			this.fill.Color = Color.Transparent.ToARGB();
 			this.fill.Style = Style.Fill;
-			this.fills = new Dictionary<sbyte?, Paint>();
+			this.fills = new Dictionary<sbyte?, IPaint>();
 
 			this.stroke = graphicFactory.CreatePaint();
 			this.stroke.Color = Color.Transparent.ToARGB();
 			this.stroke.Style = Style.Stroke;
-			this.strokes = new Dictionary<sbyte?, Paint>();
+			this.strokes = new Dictionary<sbyte?, IPaint>();
 			this.renderRadiusScaled = new Dictionary<sbyte?, float?>();
 
 			ExtractValues(graphicFactory, displayModel, elementName, reader);
@@ -94,7 +94,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				this.renderRadiusScaled[zoomLevel] = this.radius * scaleFactor;
 				if (this.stroke != null)
 				{
-					Paint s = graphicFactory.CreatePaint(stroke);
+					IPaint s = graphicFactory.CreatePaint(stroke);
 					s.StrokeWidth = this.strokeWidth * scaleFactor;
 					strokes[zoomLevel] = s;
 				}
@@ -106,7 +106,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			// do nothing
 		}
 
-		private void ExtractValues(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
+		private void ExtractValues(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader)
 		{
 			for (int i = 0; i < reader.AttributeCount; ++i)
 			{
@@ -148,7 +148,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			XmlUtils.CheckMandatoryAttribute(elementName, RADIUS, this.radius);
 		}
 
-		private Paint GetFillPaint(sbyte zoomLevel)
+		private IPaint GetFillPaint(sbyte zoomLevel)
 		{
 			if (fills.Count == 0)
 			{
@@ -158,7 +158,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			return fills[zoomLevel] ?? this.fill;
 		}
 
-		private Paint GetStrokePaint(sbyte zoomLevel)
+		private IPaint GetStrokePaint(sbyte zoomLevel)
 		{
 			if (strokes.Count == 0)
 			{

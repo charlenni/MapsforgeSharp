@@ -18,11 +18,10 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
-	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using MapsforgeSharp.Core.Graphics;
-	public interface GraphicFactory
+	using MapsforgeSharp.Core.Mapelements;
+	using MapsforgeSharp.Core.Model;
+
+	public interface IGraphicFactory
 	{
 		IBitmap CreateBitmap(int width, int height);
 
@@ -34,24 +33,24 @@ namespace MapsforgeSharp.Core.Graphics
 
 		int CreateColor(int alpha, int red, int green, int blue);
 
-		Matrix CreateMatrix();
+		IMatrix CreateMatrix();
 
-		Paint CreatePaint();
+		IPaint CreatePaint();
 
-		Paint CreatePaint(Paint paint);
+		IPaint CreatePaint(IPaint paint);
 
-		Path CreatePath();
+		IPath CreatePath();
 
-		PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth);
+		PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, IPaint paintFront, IPaint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth);
 
-		ResourceBitmap CreateResourceBitmap(System.IO.Stream inputStream, int hash);
+		IResourceBitmap CreateResourceBitmap(System.IO.Stream inputStream, int hash);
 
-		TileBitmap CreateTileBitmap(System.IO.Stream inputStream, int tileSize, bool isTransparent);
+		ITileBitmap CreateTileBitmap(System.IO.Stream inputStream, int tileSize, bool isTransparent);
 
-		TileBitmap CreateTileBitmap(int tileSize, bool isTransparent);
+		ITileBitmap CreateTileBitmap(int tileSize, bool isTransparent);
 
 		System.IO.Stream PlatformSpecificSources(string relativePathPrefix, string src);
 
-		ResourceBitmap RenderSvg(System.IO.Stream inputStream, float scaleFactor, int width, int height, int percent, int hash);
+		IResourceBitmap RenderSvg(System.IO.Stream inputStream, float scaleFactor, int width, int height, int percent, int hash);
 	}
 }

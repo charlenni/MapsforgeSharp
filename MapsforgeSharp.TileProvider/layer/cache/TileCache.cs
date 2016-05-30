@@ -18,7 +18,7 @@ namespace org.mapsforge.map.layer.cache
 {
     using System.Collections.Generic;
 
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using Job = org.mapsforge.map.layer.queue.Job;
 	using ObservableInterface = org.mapsforge.map.model.common.ObservableInterface;
 
@@ -47,7 +47,7 @@ namespace org.mapsforge.map.layer.cache
 
 		/// <returns> the image for the given key or null, if this cache contains no image for the key. </returns>
 		/// <seealso cref= Map#get </seealso>
-		TileBitmap Get(Job key);
+		ITileBitmap Get(Job key);
 
 		/// <returns> the capacity of this cache. </returns>
 		int Capacity {get;}
@@ -59,7 +59,7 @@ namespace org.mapsforge.map.layer.cache
 		/// Returns tileBitmap only if available at fastest cache in case of multi-layered cache, null otherwise.
 		/// </summary>
 		/// <returns> tileBitmap if available without getting from lower storage levels </returns>
-		TileBitmap GetImmediately(Job key);
+		ITileBitmap GetImmediately(Job key);
 
 		/// <summary>
 		/// Purges this cache.
@@ -79,7 +79,7 @@ namespace org.mapsforge.map.layer.cache
 		/// <exception cref="IllegalArgumentException">
 		///             if any of the parameters is {@code null}. </exception>
 		/// <seealso cref= Map#put </seealso>
-		void Put(Job key, TileBitmap bitmap);
+		void Put(Job key, ITileBitmap bitmap);
 
 		/// <summary>
 		/// Reserves a working set in this cache, for multi-level caches this means bringing the elements in workingSet into

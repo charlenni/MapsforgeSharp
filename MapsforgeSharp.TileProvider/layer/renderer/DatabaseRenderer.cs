@@ -29,10 +29,10 @@ namespace org.mapsforge.map.layer.renderer
 	using Color = MapsforgeSharp.Core.Graphics.Color;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
 	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+	using TileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
 	using Point = MapsforgeSharp.Core.Model.Point;
 	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
@@ -71,7 +71,7 @@ namespace org.mapsforge.map.layer.renderer
 			return result;
 		}
 
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private readonly TileBasedLabelStore labelStore;
 		private readonly MapDataStore mapDatabase;
 		private readonly bool renderLabels;
@@ -84,7 +84,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// </summary>
 		/// <param name="mapDatabase">
 		///            the MapDatabase from which the map data will be read. </param>
-		public DatabaseRenderer(MapDataStore mapDatabase, GraphicFactory graphicFactory, TileBasedLabelStore labelStore)
+		public DatabaseRenderer(MapDataStore mapDatabase, IGraphicFactory graphicFactory, TileBasedLabelStore labelStore)
 		{
 			this.mapDatabase = mapDatabase;
 			this.graphicFactory = graphicFactory;
@@ -99,7 +99,7 @@ namespace org.mapsforge.map.layer.renderer
 		/// </summary>
 		/// <param name="mapFile">
 		///            the MapDatabase from which the map data will be read. </param>
-		public DatabaseRenderer(MapDataStore mapFile, GraphicFactory graphicFactory, TileCache tileCache)
+		public DatabaseRenderer(MapDataStore mapFile, IGraphicFactory graphicFactory, TileCache tileCache)
 		{
 			this.mapDatabase = mapFile;
 			this.graphicFactory = graphicFactory;
@@ -265,13 +265,13 @@ namespace org.mapsforge.map.layer.renderer
 			}
 		}
 
-		public void RenderArea(RenderContext renderContext, Paint fill, Paint stroke, int level, PolylineContainer way)
+		public void RenderArea(RenderContext renderContext, IPaint fill, IPaint stroke, int level, PolylineContainer way)
 		{
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(way, stroke));
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(way, fill));
 		}
 
-		public void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PolylineContainer way)
+		public void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, IPaint fill, IPaint stroke, Position position, int maxTextWidth, PolylineContainer way)
 		{
 			Point centerPoint = way.CenterAbsolute.Offset(horizontalOffset, verticalOffset);
 			renderContext.labels.Add(this.graphicFactory.CreatePointTextContainer(centerPoint, display, priority, caption, fill, stroke, null, position, maxTextWidth));
@@ -284,14 +284,14 @@ namespace org.mapsforge.map.layer.renderer
 			renderContext.labels.Add(new SymbolContainer(centerPosition, display, priority, symbol));
 		}
 
-		public void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PointOfInterest poi)
+		public void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, IPaint fill, IPaint stroke, Position position, int maxTextWidth, PointOfInterest poi)
 		{
 			Point poiPosition = MercatorProjection.GetPixelAbsolute(poi.Position, renderContext.rendererJob.tile.MapSize);
 
 			renderContext.labels.Add(this.graphicFactory.CreatePointTextContainer(poiPosition.Offset(horizontalOffset, verticalOffset), display, priority, caption, fill, stroke, null, position, maxTextWidth));
 		}
 
-		public void RenderPointOfInterestCircle(RenderContext renderContext, float radius, Paint fill, Paint stroke, int level, PointOfInterest poi)
+		public void RenderPointOfInterestCircle(RenderContext renderContext, float radius, IPaint fill, IPaint stroke, int level, PointOfInterest poi)
 		{
 			Point poiPosition = MercatorProjection.GetPixelRelativeToTile(poi.Position, renderContext.rendererJob.tile);
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(new CircleContainer(poiPosition, radius), stroke));
@@ -304,7 +304,7 @@ namespace org.mapsforge.map.layer.renderer
 			renderContext.labels.Add(new SymbolContainer(poiPosition, display, priority, symbol));
 		}
 
-		public void RenderWay(RenderContext renderContext, Paint stroke, float dy, int level, PolylineContainer way)
+		public void RenderWay(RenderContext renderContext, IPaint stroke, float dy, int level, PolylineContainer way)
 		{
 			renderContext.AddToCurrentDrawingLayer(level, new ShapePaintContainer(way, stroke, dy));
 		}
@@ -314,7 +314,7 @@ namespace org.mapsforge.map.layer.renderer
 			WayDecorator.RenderSymbol(symbol, display, priority, dy, alignCenter, repeat, repeatGap, repeatStart, rotate, way.CoordinatesAbsolute, renderContext.labels);
 		}
 
-		public void RenderWayText(RenderContext renderContext, Display display, int priority, string textKey, float dy, Paint fill, Paint stroke, PolylineContainer way)
+		public void RenderWayText(RenderContext renderContext, Display display, int priority, string textKey, float dy, IPaint fill, IPaint stroke, PolylineContainer way)
 		{
 			WayDecorator.RenderText(way.Tile, textKey, display, priority, dy, fill, stroke, way.CoordinatesAbsolute, renderContext.labels);
 		}

@@ -23,10 +23,7 @@ namespace MapsforgeSharp.Core.Util
 {
     using System;
     using System.Collections.Generic;
-
-    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
-	using Dimension = MapsforgeSharp.Core.Model.Dimension;
-	using LatLong = MapsforgeSharp.Core.Model.LatLong;
+    using MapsforgeSharp.Core.Model;
 
 	/// <summary>
 	/// A utility class to convert, parse and validate geographical latitude/longitude coordinates.

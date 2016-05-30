@@ -2,13 +2,13 @@
 /// Found at http://stackoverflow.com/questions/9346526/what-is-the-equivalent-of-linkedhashset-java-in-c
 /// 
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace MapsforgeSharp.Core.Util
 {
-    public class LinkedHashSet<T> : ISet<T>
+	using System;
+	using System.Collections;
+	using System.Collections.Generic;
+
+	public class LinkedHashSet<T> : ISet<T>
     {
         private readonly IDictionary<T, LinkedListNode<T>> dict;
         private readonly LinkedList<T> list;

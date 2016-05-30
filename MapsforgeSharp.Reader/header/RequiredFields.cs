@@ -18,6 +18,7 @@
 
 namespace MapsforgeSharp.Reader.Header
 {
+	using MapsforgeSharp.Core.Util;
 	using MapsforgeSharp.Core.Model;
 
 	internal sealed class RequiredFields

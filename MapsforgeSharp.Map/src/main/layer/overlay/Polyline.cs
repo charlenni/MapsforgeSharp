@@ -23,9 +23,9 @@ namespace org.mapsforge.map.layer.overlay
     using core.util;
 
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
-    using Path = MapsforgeSharp.Core.Graphics.Path;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
+    using IPath = MapsforgeSharp.Core.Graphics.IPath;
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using Point = MapsforgeSharp.Core.Model.Point;
@@ -34,33 +34,33 @@ namespace org.mapsforge.map.layer.overlay
     /// <summary>
     /// A {@code Polyline} draws a connected series of line segments specified by a list of <seealso cref="LatLong LatLongs"/>.
     /// <para>
-    /// A {@code Polyline} holds a <seealso cref="Paint"/> object which defines drawing parameters such as color, stroke width, pattern
+    /// A {@code Polyline} holds a <seealso cref="IPaint"/> object which defines drawing parameters such as color, stroke width, pattern
     /// and transparency.
     /// </para>
     /// </summary>
     public class Polyline : Layer
 	{
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private readonly bool keepAligned;
 		private readonly IList<LatLong> latLongs = new CopyOnWriteArrayList<LatLong>();
-		private Paint paintStroke;
+		private IPaint paintStroke;
 
 		/// <param name="paintStroke">
 		///            the initial {@code Paint} used to stroke this polyline (may be null). </param>
 		/// <param name="graphicFactory">
-		///            the GraphicFactory </param>
-		public Polyline(Paint paintStroke, GraphicFactory graphicFactory) : this(paintStroke, graphicFactory, false)
+		///            the IGraphicFactory </param>
+		public Polyline(IPaint paintStroke, IGraphicFactory graphicFactory) : this(paintStroke, graphicFactory, false)
 		{
 		}
 
 		/// <param name="paintStroke">
 		///            the initial {@code Paint} used to stroke this polyline (may be null). </param>
 		/// <param name="graphicFactory">
-		///            the GraphicFactory </param>
+		///            the IGraphicFactory </param>
 		/// <param name="keepAligned">
 		///            if set to true it will keep the bitmap aligned with the map,
 		///            to avoid a moving effect of a bitmap shader. </param>
-		public Polyline(Paint paintStroke, GraphicFactory graphicFactory, bool keepAligned) : base()
+		public Polyline(IPaint paintStroke, IGraphicFactory graphicFactory, bool keepAligned) : base()
 		{
 
 			this.keepAligned = keepAligned;
@@ -88,7 +88,7 @@ namespace org.mapsforge.map.layer.overlay
 				float x = (float)(MercatorProjection.LongitudeToPixelX(latLong.Longitude, mapSize) - topLeftPoint.X);
 				float y = (float)(MercatorProjection.LatitudeToPixelY(latLong.Latitude, mapSize) - topLeftPoint.Y);
         
-				Path path = this.graphicFactory.CreatePath();
+				IPath path = this.graphicFactory.CreatePath();
 				path.MoveTo(x, y);
         
 				while (iterator.MoveNext())
@@ -118,7 +118,7 @@ namespace org.mapsforge.map.layer.overlay
 		}
 
 		/// <returns> the {@code Paint} used to stroke this polyline (may be null). </returns>
-		public virtual Paint PaintStroke
+		public virtual IPaint PaintStroke
 		{
 			get
 			{

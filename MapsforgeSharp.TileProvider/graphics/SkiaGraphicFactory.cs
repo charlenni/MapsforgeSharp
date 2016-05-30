@@ -24,7 +24,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
 	using System.Reflection;
 	using SkiaSharp;
 
-	public class SkiaGraphicFactory : GraphicFactory
+	public class SkiaGraphicFactory : IGraphicFactory
     {
         private static readonly string PREFIX_ASSETS = "assets:";
 
@@ -53,42 +53,42 @@ namespace MapsforgeSharp.TileProvider.Graphics
             return (int)(alpha << 24 & red << 16 & green << 8 & blue);
         }
 
-        public Matrix CreateMatrix()
+        public IMatrix CreateMatrix()
         {
             return new SkiaMatrix();
         }
 
-        public Paint CreatePaint()
+        public IPaint CreatePaint()
         {
             return new SkiaPaint();
         }
 
-        public Paint CreatePaint(Paint paint)
+        public IPaint CreatePaint(IPaint paint)
         {
             return new SkiaPaint(paint);
         }
 
-        public MapsforgeSharp.Core.Graphics.Path CreatePath()
+        public MapsforgeSharp.Core.Graphics.IPath CreatePath()
         {
             return new SkiaPath();
         }
 
-        public PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth)
+        public PointTextContainer CreatePointTextContainer(Point xy, Display display, int priority, string text, IPaint paintFront, IPaint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth)
         {
 			return new SkiaPointTextContainer(xy, display, priority, text, paintFront, paintBack, symbolContainer, position, maxTextWidth);
         }
 
-        public ResourceBitmap CreateResourceBitmap(Stream inputStream, int hash)
+        public IResourceBitmap CreateResourceBitmap(Stream inputStream, int hash)
         {
             throw new NotImplementedException();
         }
 
-        public TileBitmap CreateTileBitmap(int tileSize, bool isTransparent)
+        public ITileBitmap CreateTileBitmap(int tileSize, bool isTransparent)
         {
             return new SkiaTileBitmap(tileSize, isTransparent);
         }
 
-        public TileBitmap CreateTileBitmap(Stream inputStream, int tileSize, bool isTransparent)
+        public ITileBitmap CreateTileBitmap(Stream inputStream, int tileSize, bool isTransparent)
         {
             throw new NotImplementedException();
         }
@@ -111,7 +111,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
             return null;
         }
 
-        public ResourceBitmap RenderSvg(Stream inputStream, float scaleFactor, int width, int height, int percent, int hash)
+        public IResourceBitmap RenderSvg(Stream inputStream, float scaleFactor, int width, int height, int percent, int hash)
         {
             throw new NotImplementedException();
         }

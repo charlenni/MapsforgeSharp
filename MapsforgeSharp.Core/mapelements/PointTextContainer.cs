@@ -18,19 +18,16 @@
 
 namespace MapsforgeSharp.Core.Mapelements
 {
-	using MapsforgeSharp.Core.Graphics;
 	using System.Text;
-
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
-	using Point = MapsforgeSharp.Core.Model.Point;
+	using MapsforgeSharp.Core.Graphics;
+	using MapsforgeSharp.Core.Model;
 
 	public abstract class PointTextContainer : MapElementContainer
 	{
 		public readonly bool isVisible;
 		public readonly int maxTextWidth;
-		public readonly Paint paintBack;
-		public readonly Paint paintFront;
+		public readonly IPaint paintBack;
+		public readonly IPaint paintFront;
 		public readonly Position position;
 		public readonly SymbolContainer symbolContainer;
 		public readonly string text;
@@ -41,7 +38,7 @@ namespace MapsforgeSharp.Core.Mapelements
 		/// Create a new point container, that holds the x-y coordinates of a point, a text variable, two paint objects, and
 		/// a reference on a symbolContainer, if the text is connected with a POI.
 		/// </summary>
-		protected internal PointTextContainer(Point point, Display display, int priority, string text, Paint paintFront, Paint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth) : base(point, display, priority)
+		protected internal PointTextContainer(Point point, Display display, int priority, string text, IPaint paintFront, IPaint paintBack, SymbolContainer symbolContainer, Position position, int maxTextWidth) : base(point, display, priority)
 		{
 
 			this.maxTextWidth = maxTextWidth;

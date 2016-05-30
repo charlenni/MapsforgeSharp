@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	public interface Matrix
+	public interface IMatrix
 	{
 		void Reset();
 

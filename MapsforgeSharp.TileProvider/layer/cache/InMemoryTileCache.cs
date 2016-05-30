@@ -21,7 +21,7 @@ namespace org.mapsforge.map.layer.cache
 	using Acrotech.PortableLogAdapter;
 	using MapsforgeSharp.Core.Util;
 
-	using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+	using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using Job = org.mapsforge.map.layer.queue.Job;
 	using Observable = org.mapsforge.map.model.common.Observable;
 	using Observer = org.mapsforge.map.model.common.Observer;
@@ -61,11 +61,11 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap Get(Job key)
+		public virtual ITileBitmap Get(Job key)
 		{
 			lock (this)
 			{
-				TileBitmap bitmap = this.lruCache.Get(key);
+				ITileBitmap bitmap = this.lruCache.Get(key);
 				if (bitmap != null)
 				{
 					bitmap.IncrementRefCount();
@@ -103,7 +103,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap GetImmediately(Job key)
+		public virtual ITileBitmap GetImmediately(Job key)
 		{
 			return Get(key);
 		}
@@ -117,7 +117,7 @@ namespace org.mapsforge.map.layer.cache
 			this.lruCache.Clear();
 		}
 
-		public virtual void Put(Job key, TileBitmap bitmap)
+		public virtual void Put(Job key, ITileBitmap bitmap)
 		{
 			lock (this)
 			{
@@ -130,7 +130,7 @@ namespace org.mapsforge.map.layer.cache
 					throw new System.ArgumentException("bitmap must not be null");
 				}
         
-				TileBitmap old = this.lruCache.Get(key);
+				ITileBitmap old = this.lruCache.Get(key);
 				if (old != null)
 				{
 					old.DecrementRefCount();
@@ -167,7 +167,7 @@ namespace org.mapsforge.map.layer.cache
 		}
 	}
 
-	internal class BitmapLRUCache : WorkingSetCache<Job, TileBitmap>
+	internal class BitmapLRUCache : WorkingSetCache<Job, ITileBitmap>
 	{
 		private const long serialVersionUID = 1L;
 
@@ -175,11 +175,11 @@ namespace org.mapsforge.map.layer.cache
 		{
 		}
 
-		protected override bool RemoveEldestEntry(KeyValuePair<Job, TileBitmap> eldest)
+		protected override bool RemoveEldestEntry(KeyValuePair<Job, ITileBitmap> eldest)
 		{
 			if (this.Size() > this.Capacity)
 			{
-				TileBitmap bitmap = eldest.Value;
+				ITileBitmap bitmap = eldest.Value;
 				if (bitmap != null)
 				{
 					bitmap.DecrementRefCount();

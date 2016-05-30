@@ -20,10 +20,7 @@
 namespace MapsforgeSharp.Core.Util
 {
     using System;
-
-    using LatLong = MapsforgeSharp.Core.Model.LatLong;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Tile = MapsforgeSharp.Core.Model.Tile;
+    using MapsforgeSharp.Core.Model;
 
 	/// <summary>
 	/// An implementation of the spherical Mercator projection.

@@ -22,7 +22,7 @@ namespace org.mapsforge.map.layer.renderer
     using Acrotech.PortableLogAdapter;
     using queue;
 
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using TileCache = org.mapsforge.map.layer.cache.TileCache;
 
     public class MapWorkerPool : Runnable
@@ -117,7 +117,7 @@ namespace org.mapsforge.map.layer.renderer
 
 			public override void run()
 			{
-				TileBitmap bitmap = null;
+				ITileBitmap bitmap = null;
 				try
 				{
 					long start = 0;

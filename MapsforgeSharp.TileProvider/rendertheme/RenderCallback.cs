@@ -21,7 +21,7 @@ namespace org.mapsforge.map.rendertheme
 {
 	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using Paint = MapsforgeSharp.Core.Graphics.Paint;
+	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
 	using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
 	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
 
@@ -39,7 +39,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="stroke">
 		///            an optional paint for the area casing (may be null). </param>
 		/// <param name="level"> </param>
-		void RenderArea(RenderContext renderContext, Paint fill, Paint stroke, int level, PolylineContainer way);
+		void RenderArea(RenderContext renderContext, IPaint fill, IPaint stroke, int level, PolylineContainer way);
 
 		/// <summary>
 		/// Renders an area caption with the given text. </summary>
@@ -54,7 +54,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="position"> optional position (may be null) </param>
 		/// <param name="maxTextWidth"> maximum text width . </param>
 		/// <param name="way"> the way for the caption. </param>
-		 void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PolylineContainer way);
+		 void RenderAreaCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, IPaint fill, IPaint stroke, Position position, int maxTextWidth, PolylineContainer way);
 
 		/// <summary>
 		/// Renders an area symbol with the given bitmap.
@@ -79,7 +79,7 @@ namespace org.mapsforge.map.rendertheme
 		///            an optional paint for the text casing (may be null). </param>
 		/// <param name="position">
 		///  </param>
-		void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, Paint fill, Paint stroke, Position position, int maxTextWidth, PointOfInterest poi);
+		void RenderPointOfInterestCaption(RenderContext renderContext, Display display, int priority, string caption, float horizontalOffset, float verticalOffset, IPaint fill, IPaint stroke, Position position, int maxTextWidth, PointOfInterest poi);
 
 		/// <summary>
 		/// Renders a point of interest circle with the given parameters.
@@ -92,7 +92,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="stroke">
 		///            an optional paint for the circle casing (may be null). </param>
 		/// <param name="level"> </param>
-		void RenderPointOfInterestCircle(RenderContext renderContext, float radius, Paint fill, Paint stroke, int level, PointOfInterest poi);
+		void RenderPointOfInterestCircle(RenderContext renderContext, float radius, IPaint fill, IPaint stroke, int level, PointOfInterest poi);
 
 		/// <summary>
 		/// Renders a point of interest symbol with the given bitmap.
@@ -110,7 +110,7 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="dy">
 		///            the offset of the way. </param>
 		/// <param name="level"> </param>
-		void RenderWay(RenderContext renderContext, Paint stroke, float dy, int level, PolylineContainer way);
+		void RenderWay(RenderContext renderContext, IPaint stroke, float dy, int level, PolylineContainer way);
 
 		/// <summary>
 		/// Renders a way with the given symbol along the way path.
@@ -140,6 +140,6 @@ namespace org.mapsforge.map.rendertheme
 		/// <param name="fill">
 		///            the paint to be used for rendering the text. </param>
 		/// <param name="stroke"> </param>
-		void RenderWayText(RenderContext renderContext, Display display, int priority, string text, float dy, Paint fill, Paint stroke, PolylineContainer way);
+		void RenderWayText(RenderContext renderContext, Display display, int priority, string text, float dy, IPaint fill, IPaint stroke, PolylineContainer way);
 	}
 }

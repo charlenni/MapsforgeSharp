@@ -24,8 +24,8 @@ namespace org.mapsforge.map.scalebar
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
 	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using GraphicContext = MapsforgeSharp.Core.Graphics.GraphicContext;
-	using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+	using IGraphicContext = MapsforgeSharp.Core.Graphics.IGraphicContext;
+	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
 	using MapPosition = MapsforgeSharp.Core.Model.MapPosition;
 	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using DisplayModel = org.mapsforge.map.model.DisplayModel;
@@ -59,7 +59,7 @@ namespace org.mapsforge.map.scalebar
 
 		protected internal readonly DisplayModel displayModel;
 		protected internal DistanceUnitAdapter distanceUnitAdapter;
-		protected internal readonly GraphicFactory graphicFactory;
+		protected internal readonly IGraphicFactory graphicFactory;
 		protected internal readonly IBitmap mapScaleBitmap;
 		protected internal readonly Canvas mapScaleCanvas;
 		private readonly MapViewDimension mapViewDimension;
@@ -86,7 +86,7 @@ namespace org.mapsforge.map.scalebar
 			}
 		}
 
-		public MapScaleBar(MapViewPosition mapViewPosition, MapViewDimension mapViewDimension, DisplayModel displayModel, GraphicFactory graphicFactory, int width, int height)
+		public MapScaleBar(MapViewPosition mapViewPosition, MapViewDimension mapViewDimension, DisplayModel displayModel, IGraphicFactory graphicFactory, int width, int height)
 		{
 			this.mapViewPosition = mapViewPosition;
 			this.mapViewDimension = mapViewDimension;
@@ -273,7 +273,7 @@ namespace org.mapsforge.map.scalebar
 		/// </summary>
 		/// <param name="graphicContext">
 		///            The graphicContext to use to draw the MapScaleBar </param>
-		public virtual void Draw(GraphicContext graphicContext)
+		public virtual void Draw(IGraphicContext graphicContext)
 		{
 			if (!this.visible)
 			{

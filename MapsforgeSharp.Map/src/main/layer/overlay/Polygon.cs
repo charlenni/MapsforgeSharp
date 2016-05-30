@@ -23,9 +23,9 @@ namespace org.mapsforge.map.layer.overlay
     using core.util;
 
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
-    using Paint = MapsforgeSharp.Core.Graphics.Paint;
-    using Path = MapsforgeSharp.Core.Graphics.Path;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
+    using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
+    using IPath = MapsforgeSharp.Core.Graphics.IPath;
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
     using Point = MapsforgeSharp.Core.Model.Point;
@@ -35,25 +35,25 @@ namespace org.mapsforge.map.layer.overlay
     /// A {@code Polygon} draws a closed connected series of line segments specified by a list of <seealso cref="LatLong LatLongs"/>.
     /// If the first and the last {@code LatLong} are not equal, the {@code Polygon} will be closed automatically.
     /// <para>
-    /// A {@code Polygon} holds two <seealso cref="Paint"/> objects to allow for different outline and filling. These paints define
+    /// A {@code Polygon} holds two <seealso cref="IPaint"/> objects to allow for different outline and filling. These paints define
     /// drawing parameters such as color, stroke width, pattern and transparency.
     /// </para>
     /// </summary>
     public class Polygon : Layer
 	{
-		private readonly GraphicFactory graphicFactory;
+		private readonly IGraphicFactory graphicFactory;
 		private readonly bool keepAligned;
 		private readonly IList<LatLong> latLongs = new CopyOnWriteArrayList<LatLong>();
-		private Paint paintFill;
-		private Paint paintStroke;
+		private IPaint paintFill;
+		private IPaint paintStroke;
 
 		/// <param name="paintFill">
 		///            the initial {@code Paint} used to fill this polygon (may be null). </param>
 		/// <param name="paintStroke">
 		///            the initial {@code Paint} used to stroke this polygon (may be null). </param>
 		/// <param name="graphicFactory">
-		///            the GraphicFactory </param>
-		public Polygon(Paint paintFill, Paint paintStroke, GraphicFactory graphicFactory) : this(paintFill, paintStroke, graphicFactory, false)
+		///            the IGraphicFactory </param>
+		public Polygon(IPaint paintFill, IPaint paintStroke, IGraphicFactory graphicFactory) : this(paintFill, paintStroke, graphicFactory, false)
 		{
 		}
 
@@ -62,11 +62,11 @@ namespace org.mapsforge.map.layer.overlay
 		/// <param name="paintStroke">
 		///            the initial {@code Paint} used to stroke this polygon (may be null). </param>
 		/// <param name="graphicFactory">
-		///            the GraphicFactory </param>
+		///            the IGraphicFactory </param>
 		/// <param name="keepAligned">
 		///            if set to true it will keep the bitmap aligned with the map,
 		///            to avoid a moving effect of a bitmap shader. </param>
-		public Polygon(Paint paintFill, Paint paintStroke, GraphicFactory graphicFactory, bool keepAligned) : base()
+		public Polygon(IPaint paintFill, IPaint paintStroke, IGraphicFactory graphicFactory, bool keepAligned) : base()
 		{
 			this.keepAligned = keepAligned;
 			this.paintFill = paintFill;
@@ -85,7 +85,7 @@ namespace org.mapsforge.map.layer.overlay
         
 				IEnumerator<LatLong> iterator = this.latLongs.GetEnumerator();
         
-				Path path = this.graphicFactory.CreatePath();
+				IPath path = this.graphicFactory.CreatePath();
 				LatLong latLong = iterator.Current;
 				long mapSize = MercatorProjection.GetMapSize(zoomLevel, displayModel.TileSize);
 				float x = (float)(MercatorProjection.LongitudeToPixelX(latLong.Longitude, mapSize) - topLeftPoint.X);
@@ -131,7 +131,7 @@ namespace org.mapsforge.map.layer.overlay
 		}
 
 		/// <returns> the {@code Paint} used to fill this polygon (may be null). </returns>
-		public virtual Paint PaintFill
+		public virtual IPaint PaintFill
 		{
 			get
 			{
@@ -150,7 +150,7 @@ namespace org.mapsforge.map.layer.overlay
 		}
 
 		/// <returns> the {@code Paint} used to stroke this polygon (may be null). </returns>
-		public virtual Paint PaintStroke
+		public virtual IPaint PaintStroke
 		{
 			get
 			{

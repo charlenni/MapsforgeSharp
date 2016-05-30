@@ -17,7 +17,7 @@
 
 namespace MapsforgeSharp.Core.Graphics
 {
-	public interface TileBitmap : IBitmap
+	public interface ITileBitmap : IBitmap
 	{
 
 		/// <summary>

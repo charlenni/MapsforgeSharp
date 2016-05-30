@@ -20,10 +20,7 @@
 namespace MapsforgeSharp.Core.Datastore
 {
     using System;
-    using System.Globalization;
-    using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
-    using LatLong = MapsforgeSharp.Core.Model.LatLong;
-    using Tile = MapsforgeSharp.Core.Model.Tile;
+    using MapsforgeSharp.Core.Model;
 
     /// <summary>
     /// Base class for map data retrieval.

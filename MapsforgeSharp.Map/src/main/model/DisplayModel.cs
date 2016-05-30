@@ -25,7 +25,7 @@ namespace org.mapsforge.map.model
 	/// Encapsulates the display characteristics for a MapView, such as tile size and background color. The size of map tiles
 	/// is used to adapt to devices with differing pixel densities and users with different preferences: The larger the tile,
 	/// the larger everything is rendered, the effect is one of effectively stretching everything. The default device
-	/// dependent scale factor is determined at the GraphicFactory level, while the DisplayModel allows further adaptation to
+	/// dependent scale factor is determined at the IGraphicFactory level, while the DisplayModel allows further adaptation to
 	/// cater for user needs or application development (maybe a small map and large map, or to prevent upscaling for
 	/// downloaded tiles that do not scale well).
 	/// </summary>

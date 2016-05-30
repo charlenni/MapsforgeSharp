@@ -23,7 +23,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
     using Display = MapsforgeSharp.Core.Graphics.Display;
-    using GraphicFactory = MapsforgeSharp.Core.Graphics.GraphicFactory;
+    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
     using PolylineContainer = org.mapsforge.map.layer.renderer.PolylineContainer;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
     using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
@@ -41,7 +41,7 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 		private readonly string relativePathPrefix;
 		private string src;
 
-		public Symbol(GraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, string relativePathPrefix) : base(graphicFactory, displayModel)
+		public Symbol(IGraphicFactory graphicFactory, DisplayModel displayModel, string elementName, XmlReader reader, string relativePathPrefix) : base(graphicFactory, displayModel)
 		{
 			this.relativePathPrefix = relativePathPrefix;
 			this.display = Display.Ifspace;

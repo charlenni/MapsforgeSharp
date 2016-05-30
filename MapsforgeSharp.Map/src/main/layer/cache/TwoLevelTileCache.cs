@@ -20,7 +20,7 @@ namespace org.mapsforge.map.layer.cache
     using System;
     using System.Collections.Generic;
 
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
 	using Job = org.mapsforge.map.layer.queue.Job;
 	using Observer = org.mapsforge.map.model.common.Observer;
 
@@ -49,9 +49,9 @@ namespace org.mapsforge.map.layer.cache
 			this.secondLevelTileCache.Destroy();
 		}
 
-		public virtual TileBitmap Get(Job key)
+		public virtual ITileBitmap Get(Job key)
 		{
-			TileBitmap returnBitmap = this.firstLevelTileCache.Get(key);
+			ITileBitmap returnBitmap = this.firstLevelTileCache.Get(key);
 			if (returnBitmap != null)
 			{
 				return returnBitmap;
@@ -81,7 +81,7 @@ namespace org.mapsforge.map.layer.cache
 			}
 		}
 
-		public virtual TileBitmap GetImmediately(Job key)
+		public virtual ITileBitmap GetImmediately(Job key)
 		{
 			return firstLevelTileCache.Get(key);
 		}
@@ -92,7 +92,7 @@ namespace org.mapsforge.map.layer.cache
 			this.secondLevelTileCache.Purge();
 		}
 
-		public virtual void Put(Job key, TileBitmap bitmap)
+		public virtual void Put(Job key, ITileBitmap bitmap)
 		{
 			if (this.workingSet.Contains(key))
 			{
@@ -113,7 +113,7 @@ namespace org.mapsforge.map.layer.cache
 				{
 					if (!firstLevelTileCache.ContainsKey(job) && secondLevelTileCache.ContainsKey(job))
 					{
-						TileBitmap tileBitmap = secondLevelTileCache.Get(job);
+						ITileBitmap tileBitmap = secondLevelTileCache.Get(job);
 						if (tileBitmap != null)
 						{
 							firstLevelTileCache.Put(job, tileBitmap);

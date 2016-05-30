@@ -17,7 +17,6 @@
 
 namespace MapsforgeSharp.Core.Model
 {
-    using System;
     using System.Text;
     using System.Runtime.Serialization;
 

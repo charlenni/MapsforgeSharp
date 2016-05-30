@@ -24,8 +24,8 @@ namespace org.mapsforge.map.layer
 
     using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
     using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-    using Matrix = MapsforgeSharp.Core.Graphics.Matrix;
-    using TileBitmap = MapsforgeSharp.Core.Graphics.TileBitmap;
+    using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
+    using ITileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
     using Point = MapsforgeSharp.Core.Model.Point;
     using Tile = MapsforgeSharp.Core.Model.Tile;
@@ -43,13 +43,13 @@ namespace org.mapsforge.map.layer
 		protected internal JobQueue<T> jobQueue;
 		protected internal readonly TileCache tileCache;
 		private readonly MapViewPosition mapViewPosition;
-		private readonly Matrix matrix;
+		private readonly IMatrix matrix;
 
-		public TileLayer(TileCache tileCache, MapViewPosition mapViewPosition, Matrix matrix, bool isTransparent) : this(tileCache, mapViewPosition, matrix, isTransparent, true)
+		public TileLayer(TileCache tileCache, MapViewPosition mapViewPosition, IMatrix matrix, bool isTransparent) : this(tileCache, mapViewPosition, matrix, isTransparent, true)
 		{
 		}
 
-		public TileLayer(TileCache tileCache, MapViewPosition mapViewPosition, Matrix matrix, bool isTransparent, bool hasJobQueue) : base()
+		public TileLayer(TileCache tileCache, MapViewPosition mapViewPosition, IMatrix matrix, bool isTransparent, bool hasJobQueue) : base()
 		{
 
 			if (tileCache == null)
@@ -100,7 +100,7 @@ namespace org.mapsforge.map.layer
 				Point point = tilePosition.Point;
 				Tile tile = tilePosition.Tile;
 				T job = CreateJob(tile);
-				TileBitmap bitmap = this.tileCache.GetImmediately(job);
+				ITileBitmap bitmap = this.tileCache.GetImmediately(job);
 
 				if (bitmap == null)
 				{
@@ -172,7 +172,7 @@ namespace org.mapsforge.map.layer
 		///            A tile. </param>
 		/// <param name="bitmap">
 		///            The bitmap for {@code tile} currently held in the layer's cache. </param>
-		protected internal abstract bool IsTileStale(Tile tile, TileBitmap bitmap);
+		protected internal abstract bool IsTileStale(Tile tile, ITileBitmap bitmap);
 
 		protected internal virtual void RetrieveLabelsOnly(T job)
 		{
