@@ -16,18 +16,11 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace MapsforgeSharp.TileProvider.Graphics
+namespace MapsforgeSharp.Graphics
 {
 	using MapsforgeSharp.Core.Graphics;
-
-	using Canvas = MapsforgeSharp.Core.Graphics.Canvas;
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using IMatrix = MapsforgeSharp.Core.Graphics.IMatrix;
-	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
-	using PointTextContainer = MapsforgeSharp.Core.Mapelements.PointTextContainer;
-	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
+	using MapsforgeSharp.Core.Mapelements;
+	using MapsforgeSharp.Core.Model;
 
 	public class SkiaPointTextContainer : PointTextContainer
 	{

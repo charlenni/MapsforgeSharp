@@ -23,36 +23,24 @@ namespace org.mapsforge.map.layer.renderer
 	using System.Collections.Generic;
 	using System.Linq;
 	using Acrotech.PortableLogAdapter;
+	using MapsforgeSharp.Core.Datastore;
 	using MapsforgeSharp.Core.Graphics;
+	using MapsforgeSharp.Core.Mapelements;
+	using MapsforgeSharp.Core.Model;
+	using MapsforgeSharp.Core.Util;
+	using MapsforgeSharp.Graphics;
+	using SkiaSharp;
 
-	using IBitmap = MapsforgeSharp.Core.Graphics.IBitmap;
-	using Color = MapsforgeSharp.Core.Graphics.Color;
-	using Display = MapsforgeSharp.Core.Graphics.Display;
-	using MapElementContainer = MapsforgeSharp.Core.Mapelements.MapElementContainer;
-	using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
-	using IPaint = MapsforgeSharp.Core.Graphics.IPaint;
-	using SymbolContainer = MapsforgeSharp.Core.Mapelements.SymbolContainer;
-	using TileBitmap = MapsforgeSharp.Core.Graphics.ITileBitmap;
-	using LatLong = MapsforgeSharp.Core.Model.LatLong;
-	using Point = MapsforgeSharp.Core.Model.Point;
-	using Rectangle = MapsforgeSharp.Core.Model.Rectangle;
-	using Tag = MapsforgeSharp.Core.Model.Tag;
-	using Tile = MapsforgeSharp.Core.Model.Tile;
-	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 	using TileCache = org.mapsforge.map.layer.cache.TileCache;
 	using TileBasedLabelStore = org.mapsforge.map.layer.labels.TileBasedLabelStore;
-	using MapDataStore = MapsforgeSharp.Core.Datastore.MapDataStore;
-	using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
-	using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
-	using Way = MapsforgeSharp.Core.Datastore.Way;
 	using RenderCallback = org.mapsforge.map.rendertheme.RenderCallback;
 	using RenderContext = org.mapsforge.map.rendertheme.RenderContext;
 	using RenderTheme = org.mapsforge.map.rendertheme.rule.RenderTheme;
 	using LayerUtil = org.mapsforge.map.util.LayerUtil;
-	using SkiaSharp;
-	using MapsforgeSharp.TileProvider.Graphics; /// <summary>
-												/// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
-												/// </summary>
+
+	/// <summary>
+	/// The DatabaseRenderer renders map tiles by reading from a <seealso cref="org.mapsforge.map.datastore.MapDataStore"/>.
+	/// </summary>
 	public class DatabaseRenderer : RenderCallback
 	{
 		private static readonly sbyte? DEFAULT_START_ZOOM_LEVEL = (sbyte) 12;
@@ -183,16 +171,6 @@ namespace org.mapsforge.map.layer.renderer
 					//		//renderContext.canvasRasterer.FillOutsideAreas(Color.Transparent, insideArea);
 					//	}
 					//}
-
-					//renderContext.canvasRasterer.Fill(0x7f808080);
-					//var path = new SKPath();
-					//path.MoveTo(45, 30);
-					//path.LineTo(230, 180);
-					//var paint = new SKPaint();
-					//paint.IsAntialias = true;
-					//paint.IsStroke = true;
-					//paint.Color = SKColors.GreenYellow;
-					//((SkiaCanvas)renderContext.canvasRasterer.Canvas).NativeCanvas.DrawPath(path, paint);
 
 					return ((SkiaCanvas)renderContext.canvasRasterer.Canvas).Image;
 				}

@@ -14,15 +14,15 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace MapsforgeSharp.TileProvider.Graphics
+namespace MapsforgeSharp.Graphics
 {
 	using System;
-	using MapsforgeSharp.Core.Mapelements;
-	using MapsforgeSharp.Core.Model;
 	using System.IO;
-	using MapsforgeSharp.Core.Graphics;
 	using System.Reflection;
 	using SkiaSharp;
+	using MapsforgeSharp.Core.Mapelements;
+	using MapsforgeSharp.Core.Model;
+	using MapsforgeSharp.Core.Graphics;
 
 	public class SkiaGraphicFactory : IGraphicFactory
     {

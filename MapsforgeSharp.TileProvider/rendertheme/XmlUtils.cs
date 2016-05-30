@@ -23,12 +23,9 @@ namespace org.mapsforge.map.rendertheme
     using System.IO;
     using System.Reflection;
     using PCLStorage;
-    using SkiaSharp;
     using MapsforgeSharp.Core.Graphics;
   	using System.Globalization;
 
-    using IGraphicFactory = MapsforgeSharp.Core.Graphics.IGraphicFactory;
-    using IResourceBitmap = MapsforgeSharp.Core.Graphics.IResourceBitmap;
     using DisplayModel = org.mapsforge.map.model.DisplayModel;
 
     public sealed class XmlUtils

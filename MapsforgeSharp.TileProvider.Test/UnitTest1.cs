@@ -18,7 +18,7 @@ namespace org.mapsforge.provider.test
 {
     using NUnit.Framework;
     using PCLStorage;
-    using MapsforgeSharp.TileProvider.Graphics;
+    using MapsforgeSharp.Graphics;
     using MapsforgeSharp.Core.Graphics;
     using org.mapsforge.map.layer.renderer;
     using MapsforgeSharp.Reader;

@@ -102,6 +102,10 @@
       <Project>{d141d385-2c78-482f-bfff-dfa66f05e0bd}</Project>
       <Name>MapsforgeSharp.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MapsforgeSharp.Graphics\MapsforgeSharp.Graphics.csproj">
+      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
+      <Name>MapsforgeSharp.Graphics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MapsforgeSharp.Reader\MapsforgeSharp.Reader.csproj">
       <Project>{7e26da13-4aa1-485e-b819-6f88c6a5139a}</Project>
       <Name>MapsforgeSharp.Reader</Name>

@@ -1,5 +1,4 @@
 ﻿/*
- * Copyright 2015 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
  *
  * This program is free software: you can redistribute it and/or modify it under the
@@ -14,31 +13,26 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace MapsforgeSharp.TileProvider.Graphics
+namespace MapsforgeSharp.Graphics
 {
-	using MapsforgeSharp.Core.Graphics;
-    using SkiaSharp;
     using System;
     using System.IO;
+    using SkiaSharp;
+    using MapsforgeSharp.Core.Graphics;
 
-    public class SkiaTileBitmap : ITileBitmap
+    public class SkiaBitmap : IBitmap
     {
-        public SKBitmap nativeBitmap;
+        SKBitmap nativeBitmap;
 
-        public SkiaTileBitmap()
-        {
-            nativeBitmap = new SKBitmap();
-        }
-
-        public SkiaTileBitmap(int width, int height)
+        public SkiaBitmap(int width, int height)
         {
             nativeBitmap = new SKBitmap(width, height);
         }
 
-        public SkiaTileBitmap(int tileSize, bool isTransparent)
-        {
-            nativeBitmap = new SKBitmap(tileSize, tileSize, isTransparent);
-        }
+		public SKBitmap NativeBitmap
+		{
+			get { return nativeBitmap;  }
+		}
 
         public int BackgroundColor
         {
@@ -48,42 +42,11 @@ namespace MapsforgeSharp.TileProvider.Graphics
             }
         }
 
-        public long Expiration
-        {
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool Expired
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public int Height
         {
             get
             {
-                throw new NotImplementedException();
-            }
-        }
-
-		private long timestamp;
-
-        public long Timestamp
-        {
-            get
-            {
-				return timestamp;
-            }
-
-            set
-            {
-				timestamp = value;
+                return nativeBitmap.Height;
             }
         }
 
@@ -91,7 +54,7 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             get
             {
-                throw new NotImplementedException();
+                return nativeBitmap.Width;
             }
         }
 
