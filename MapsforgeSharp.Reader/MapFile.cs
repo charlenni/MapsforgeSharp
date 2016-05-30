@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
     using System;
     using System.Collections.Generic;
@@ -35,10 +35,10 @@ namespace org.mapsforge.reader
     using PoiWayBundle = MapsforgeSharp.Core.Datastore.PoiWayBundle;
     using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
     using Way = MapsforgeSharp.Core.Datastore.Way;
-    using MapFileException = org.mapsforge.reader.header.MapFileException;
-    using MapFileHeader = org.mapsforge.reader.header.MapFileHeader;
-    using MapFileInfo = org.mapsforge.reader.header.MapFileInfo;
-    using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
+    using MapFileException = MapsforgeSharp.Reader.Header.MapFileException;
+    using MapFileHeader = MapsforgeSharp.Reader.Header.MapFileHeader;
+    using MapFileInfo = MapsforgeSharp.Reader.Header.MapFileInfo;
+    using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
 
     /// <summary>
     /// A class for reading binary map files.

@@ -14,9 +14,9 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
-	using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
+	using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
 
 	/// <summary>
 	/// An immutable container class which is the key for the index cache.

@@ -16,12 +16,12 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
     using System;
 
     using Tile = MapsforgeSharp.Core.Model.Tile;
-	using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
+	using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
 
 	internal class QueryParameters
 	{

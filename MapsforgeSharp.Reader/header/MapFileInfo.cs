@@ -16,7 +16,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader.header
+namespace MapsforgeSharp.Reader.Header
 {
 	using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
 	using LatLong = MapsforgeSharp.Core.Model.LatLong;
@@ -25,7 +25,7 @@ namespace org.mapsforge.reader.header
 	/// <summary>
 	/// Contains the immutable metadata of a map file.
 	/// </summary>
-	/// <seealso cref= org.mapsforge.reader.MapFile#getMapFileInfo() </seealso>
+	/// <seealso cref= MapsforgeSharp.Reader.MapFile#getMapFileInfo() </seealso>
 	public class MapFileInfo
 	{
 		/// <summary>

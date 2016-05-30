@@ -15,14 +15,14 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
 	using System;
 	using System.IO;
 	using MapsforgeSharp.Core.Util;
 
 	//using LRUCache = MapsforgeSharp.Core.Util.LRUCache;
-	using SubFileParameter = org.mapsforge.reader.header.SubFileParameter;
+	using SubFileParameter = MapsforgeSharp.Reader.Header.SubFileParameter;
 
 	/// <summary>
 	/// A cache for database index blocks with a fixed size and LRU policy.

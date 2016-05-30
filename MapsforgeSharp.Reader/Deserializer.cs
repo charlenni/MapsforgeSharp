@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
 	/// <summary>
 	/// An utility class to convert byte arrays to numbers.

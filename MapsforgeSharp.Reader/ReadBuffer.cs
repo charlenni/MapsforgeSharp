@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
     using Acrotech.PortableLogAdapter;
     using System;

@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader.header
+namespace MapsforgeSharp.Reader.Header
 {
 	/// <summary>
 	/// A MapFileException is thrown if a file is opened as a MapFile that is somehow invalid.

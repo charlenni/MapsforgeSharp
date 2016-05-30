@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
     using NUnit.Framework;
     using PCLStorage;
@@ -27,7 +27,7 @@ namespace org.mapsforge.reader
     using MapReadResult = MapsforgeSharp.Core.Datastore.MapReadResult;
     using PointOfInterest = MapsforgeSharp.Core.Datastore.PointOfInterest;
     using Way = MapsforgeSharp.Core.Datastore.Way;
-    using MapFileInfo = org.mapsforge.reader.header.MapFileInfo;
+    using MapFileInfo = MapsforgeSharp.Reader.Header.MapFileInfo;
 
     public class MapFileWithDataTest
 	{

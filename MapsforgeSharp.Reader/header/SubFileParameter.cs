@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader.header
+namespace MapsforgeSharp.Reader.Header
 {
 	using MercatorProjection = MapsforgeSharp.Core.Util.MercatorProjection;
 

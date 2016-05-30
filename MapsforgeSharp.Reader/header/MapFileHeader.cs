@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader.header
+namespace MapsforgeSharp.Reader.Header
 {
 	/// <summary>
 	/// Reads and validates the header data from a binary map file.
@@ -90,7 +90,7 @@ namespace org.mapsforge.reader.header
 		/// <exception cref="IOException">
 		///             if an error occurs while reading the file. </exception>
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
-//ORIGINAL LINE: public void readHeader(org.mapsforge.reader.ReadBuffer readBuffer, long fileSize) throws java.io.IOException
+//ORIGINAL LINE: public void readHeader(MapsforgeSharp.Reader.ReadBuffer readBuffer, long fileSize) throws java.io.IOException
 		public virtual void ReadHeader(ReadBuffer readBuffer, long fileSize)
 		{
 			RequiredFields.ReadMagicByte(readBuffer);

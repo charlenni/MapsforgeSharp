@@ -15,7 +15,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace org.mapsforge.reader
+namespace MapsforgeSharp.Reader
 {
     using NUnit.Framework;
     using PCLStorage;
@@ -23,7 +23,7 @@ namespace org.mapsforge.reader
 
     using BoundingBox = MapsforgeSharp.Core.Model.BoundingBox;
     using LatLong = MapsforgeSharp.Core.Model.LatLong;
-    using MapFileInfo = org.mapsforge.reader.header.MapFileInfo;
+    using MapFileInfo = MapsforgeSharp.Reader.Header.MapFileInfo;
 
     public class MapFileFileHeaderTest
 	{
