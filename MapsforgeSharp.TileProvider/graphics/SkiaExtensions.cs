@@ -29,15 +29,15 @@ namespace MapsforgeSharp.TileProvider.Graphics
         {
             SKTypefaceStyle result = SKTypefaceStyle.Normal;
 
-            if (style == FontStyle.BOLD)
+            if (style == FontStyle.Bold)
             {
                 result = SKTypefaceStyle.Bold;
             }
-            if (style == FontStyle.ITALIC)
+            if (style == FontStyle.Italic)
             {
                 result = SKTypefaceStyle.Italic;
             }
-            if (style == FontStyle.BOLD_ITALIC)
+            if (style == FontStyle.BoldItalic)
             {
                 result = SKTypefaceStyle.BoldItalic;
             }

@@ -1,6 +1,7 @@
 ﻿/*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -38,15 +39,15 @@ namespace org.mapsforge.map.rendertheme.rule
 
 		private static ClosedMatcher GetClosedMatcher(Closed closed)
 		{
-            if (closed == Closed.YES)
+            if (closed == Closed.Yes)
             {
                 return ClosedWayMatcher.INSTANCE;
             }
-            if (closed == Closed.NO)
+            if (closed == Closed.No)
             {
                 return LinearWayMatcher.INSTANCE;
             }
-            if (closed == Closed.ANY)
+            if (closed == Closed.Any)
             {
 				return AnyMatcher.INSTANCE;
 			}
@@ -56,15 +57,15 @@ namespace org.mapsforge.map.rendertheme.rule
 
 		private static ElementMatcher getElementMatcher(Element element)
 		{
-            if (element == Element.NODE)
+            if (element == Element.Node)
             {
                 return ElementNodeMatcher.INSTANCE;
             }
-            if (element == Element.WAY)
+            if (element == Element.Way)
             {
                 return ElementWayMatcher.INSTANCE;
             }
-            if (element == Element.ANY)
+            if (element == Element.Any)
             {
 				return AnyMatcher.INSTANCE;
 			}
@@ -122,7 +123,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		{
 			this.ruleStack = ruleStack;
 
-			this.closed = Closed.ANY;
+			this.closed = Closed.Any;
 			this.zoomMin = 0;
 			this.zoomMax = sbyte.MaxValue;
 
@@ -158,7 +159,7 @@ namespace org.mapsforge.map.rendertheme.rule
 
 				if (E.Equals(name))
 				{
-					this.element = Element.FromString(value);
+					this.element = value.ToElement();
 				}
 				else if (K.Equals(name))
 				{
@@ -174,7 +175,7 @@ namespace org.mapsforge.map.rendertheme.rule
 				}
 				else if (CLOSED.Equals(name))
 				{
-					this.closed = Closed.FromString(value);
+					this.closed = value.ToClosed();
 				}
 				else if (ZOOM_MIN.Equals(name))
 				{

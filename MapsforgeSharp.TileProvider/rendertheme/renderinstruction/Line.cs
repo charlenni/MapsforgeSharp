@@ -60,9 +60,9 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 			this.relativePathPrefix = relativePathPrefix;
 
 			this.stroke = graphicFactory.CreatePaint();
-			this.stroke.Color = Color.GREEN.ToARGB();
-			this.stroke.Style = Style.STROKE;
-			this.stroke.StrokeCap = Cap.ROUND;
+			this.stroke.Color = Color.Green.ToARGB();
+			this.stroke.Style = Style.Stroke;
+			this.stroke.StrokeCap = Cap.Round;
 			this.stroke.StrokeJoin = Join.ROUND;
 			this.strokes = new Dictionary<sbyte?, Paint>();
 			this.dyScaled = new Dictionary<sbyte?, float?>();
@@ -169,11 +169,11 @@ namespace org.mapsforge.map.rendertheme.renderinstruction
 				}
 				else if (STROKE_LINECAP.Equals(name))
 				{
-					this.stroke.StrokeCap = Cap.FromString(value);
+					this.stroke.StrokeCap = value.ToCap();
 				}
 				else if (STROKE_LINEJOIN.Equals(name))
 				{
-					this.stroke.StrokeJoin = Join.FromString(value);
+					this.stroke.StrokeJoin = value.ToJoin();
 				}
 				else if (SYMBOL_HEIGHT.Equals(name))
 				{

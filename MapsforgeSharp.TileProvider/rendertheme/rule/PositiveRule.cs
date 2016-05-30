@@ -35,12 +35,12 @@ namespace org.mapsforge.map.rendertheme.rule
 
 		internal override bool MatchesNode(IList<Tag> tags, sbyte zoomLevel)
 		{
-			return this.zoomMin <= zoomLevel && this.zoomMax >= zoomLevel && this.elementMatcher.Matches(Element.NODE) && this.keyMatcher.Matches(tags) && this.valueMatcher.Matches(tags);
+			return this.zoomMin <= zoomLevel && this.zoomMax >= zoomLevel && this.elementMatcher.Matches(Element.Node) && this.keyMatcher.Matches(tags) && this.valueMatcher.Matches(tags);
 		}
 
 		internal override bool MatchesWay(IList<Tag> tags, sbyte zoomLevel, Closed closed)
 		{
-			return this.zoomMin <= zoomLevel && this.zoomMax >= zoomLevel && this.elementMatcher.Matches(Element.WAY) && this.closedMatcher.Matches(closed) && this.keyMatcher.Matches(tags) && this.valueMatcher.Matches(tags);
+			return this.zoomMin <= zoomLevel && this.zoomMax >= zoomLevel && this.elementMatcher.Matches(Element.Way) && this.closedMatcher.Matches(closed) && this.keyMatcher.Matches(tags) && this.valueMatcher.Matches(tags);
 		}
 	}
 }

@@ -2,6 +2,7 @@
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  * Copyright 2014 Ludwig M Brinckmann
  * Copyright 2016 Dirk Weltz
+ * Copyright 2016 Michael Oed
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -50,7 +51,7 @@ namespace org.mapsforge.map.rendertheme.rule
 		{
 			this.baseStrokeWidth = 1f;
 			this.baseTextSize = 1f;
-			this.mapBackground = Color.WHITE.ToARGB();
+			this.mapBackground = Color.White.ToARGB();
 
 			ExtractValues(elementName, reader);
 		}

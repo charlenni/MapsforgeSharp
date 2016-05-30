@@ -14,95 +14,27 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
+using System;
+
 namespace MapsforgeSharp.Core.Graphics
 {
-    using System.Collections.Generic;
+    public enum Join
+    {
+        Bevel,
+        Mitter,
+        ROUND
+    }
 
-    /// <summary>
-    /// Specifies the shape to be used for the endpoints of a line.
-    /// </summary>
-    public sealed class Join
-	{
-		public static readonly Join BEVEL = new Join("BEVEL", InnerEnum.BEVEL);
-		public static readonly Join MITER = new Join("MITER", InnerEnum.MITER);
-		public static readonly Join ROUND = new Join("ROUND", InnerEnum.ROUND);
-
-		private static readonly IList<Join> valueList = new List<Join>();
-
-		static Join()
-		{
-			valueList.Add(BEVEL);
-			valueList.Add(MITER);
-			valueList.Add(ROUND);
-		}
-
-		public enum InnerEnum
-		{
-			BEVEL,
-			MITER,
-			ROUND
-		}
-
-		private readonly string nameValue;
-		private readonly int ordinalValue;
-		private readonly InnerEnum innerEnumValue;
-		private static int nextOrdinal = 0;
-
-		private Join(string name, InnerEnum innerEnum)
-		{
-			nameValue = name;
-			ordinalValue = nextOrdinal++;
-			innerEnumValue = innerEnum;
-		}
-
-		public static Join FromString(string value)
-		{
-			if ("bevel".Equals(value))
-			{
-				return BEVEL;
-			}
-			else if (("round").Equals(value))
-			{
-				return ROUND;
-			}
-			else if ("miter".Equals(value))
-			{
-				return MITER;
-			}
-			throw new System.ArgumentException("Invalid value for Join: " + value);
-		}
-
-
-		public static IList<Join> Values()
-		{
-			return valueList;
-		}
-
-		public InnerEnum InnerEnumValue()
-		{
-			return innerEnumValue;
-		}
-
-		public int Ordinal()
-		{
-			return ordinalValue;
-		}
-
-		public override string ToString()
-		{
-			return nameValue;
-		}
-
-		public static Join ValueOf(string name)
-		{
-			foreach (Join enumInstance in Join.Values())
-			{
-				if (enumInstance.nameValue == name)
-				{
-					return enumInstance;
-				}
-			}
-			throw new System.ArgumentException(name);
-		}
-	}
+    public static class JoinHelper
+    {
+        public static Join ToJoin(this string value)
+        {
+            Join ret;
+            if (!Enum.TryParse<Join>(value, true, out ret))
+            {
+                throw new ArgumentException("Invalid value for Join: " + value);
+            }
+            return ret;
+        }
+    }
 }

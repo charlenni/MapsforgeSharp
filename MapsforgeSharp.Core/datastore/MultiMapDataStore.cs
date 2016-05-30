@@ -28,12 +28,12 @@ namespace MapsforgeSharp.Core.Datastore
 	/// <summary>
 	/// A MapDatabase that reads and combines data from multiple map files.
 	/// The MultiMapDatabase supports the following modes for reading from multiple files:
-	/// - RETURN_FIRST: the data from the first database to support a tile will be returned. This is the
+	/// - ReturnFirst: the data from the first database to support a tile will be returned. This is the
 	/// fastest operation suitable when you know there is no overlap between map files.
-	/// - RETURN_ALL: the data from all files will be returned, the data will be combined. This is suitable
+	/// - ReturnAll: the data from all files will be returned, the data will be combined. This is suitable
 	/// if more than one file can contain data for a tile, but you know there is no semantic overlap, e.g.
 	/// one file contains contour lines, another road data.
-	/// - DEDUPLICATE: the data from all files will be returned but duplicates will be eliminated. This is
+	/// - Deduplicate: the data from all files will be returned but duplicates will be eliminated. This is
 	/// suitable when multiple maps cover the different areas, but there is some overlap at boundaries. This
 	/// is the most expensive operation and often it is actually faster to double paint objects as otherwise
 	/// all objects have to be compared with all others.
@@ -42,9 +42,9 @@ namespace MapsforgeSharp.Core.Datastore
 	{
 		public enum DataPolicy
 		{
-			RETURN_FIRST, // return the first set of data
-			RETURN_ALL, // return all data from databases
-			DEDUPLICATE // return all data but eliminate duplicates
+			ReturnFirst, // return the first set of data
+			ReturnAll, // return all data from databases
+			Deduplicate // return all data but eliminate duplicates
 		}
 
 		private BoundingBox boundingBox;
@@ -111,7 +111,7 @@ namespace MapsforgeSharp.Core.Datastore
 		{
 			switch (this.dataPolicy)
 			{
-				case DataPolicy.RETURN_FIRST:
+				case DataPolicy.ReturnFirst:
 					foreach (MapDataStore mdb in mapDatabases)
 					{
 						if (mdb.SupportsTile(tile))
@@ -120,8 +120,8 @@ namespace MapsforgeSharp.Core.Datastore
 						}
 					}
 					return 0;
-				case DataPolicy.RETURN_ALL:
-				case DataPolicy.DEDUPLICATE:
+				case DataPolicy.ReturnAll:
+				case DataPolicy.Deduplicate:
 					long result = 0;
 					foreach (MapDataStore mdb in mapDatabases)
 					{
@@ -139,7 +139,7 @@ namespace MapsforgeSharp.Core.Datastore
 		{
 			switch (this.dataPolicy)
 			{
-				case DataPolicy.RETURN_FIRST:
+				case DataPolicy.ReturnFirst:
 					foreach (MapDataStore mdb in mapDatabases)
 					{
 						if (mdb.SupportsTile(tile))
@@ -148,9 +148,9 @@ namespace MapsforgeSharp.Core.Datastore
 						}
 					}
 					return null;
-				case DataPolicy.RETURN_ALL:
+				case DataPolicy.ReturnAll:
 					return ReadMapData(tile, false);
-				case DataPolicy.DEDUPLICATE:
+				case DataPolicy.Deduplicate:
 					return ReadMapData(tile, true);
 			}
 			throw new System.InvalidOperationException("Invalid data policy for multi map database");

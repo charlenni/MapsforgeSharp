@@ -180,7 +180,7 @@ namespace org.mapsforge.map.layer.renderer
 					//	}
 					//	else
 					//	{
-					//		//renderContext.canvasRasterer.FillOutsideAreas(Color.TRANSPARENT, insideArea);
+					//		//renderContext.canvasRasterer.FillOutsideAreas(Color.Transparent, insideArea);
 					//	}
 					//}
 

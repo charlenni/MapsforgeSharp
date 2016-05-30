@@ -34,7 +34,7 @@ namespace org.mapsforge.map.layer.renderer
 		{
 			get
 			{
-				return ShapeType.CIRCLE;
+				return ShapeType.Circle;
 			}
 		}
 	}

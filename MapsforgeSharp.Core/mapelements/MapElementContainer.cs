@@ -133,7 +133,7 @@ namespace MapsforgeSharp.Core.Mapelements
 		public virtual bool ClashesWith(MapElementContainer other)
 		{
 			// if either of the elements is always drawn, the elements do not clash
-			if (Display.ALWAYS == this.display || Display.ALWAYS == other.display)
+			if (Display.Always == this.display || Display.Always == other.display)
 			{
 				return false;
 			}

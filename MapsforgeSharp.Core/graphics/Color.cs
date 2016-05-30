@@ -14,22 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
-using System;
-
 namespace MapsforgeSharp.Core.Graphics
 {
 	public enum Color
 	{
-		BLACK,
-		BLUE,
-		GREEN,
-		RED,
-		TRANSPARENT,
-		WHITE
+		Black,
+		Blue,
+		Green,
+		Red,
+		Transparent,
+		White
 	}
 
-    public static class ColorExtensions
+    public static class ColorHelper
     {
         public static int ToARGB(this Color color)
         {
@@ -37,19 +34,19 @@ namespace MapsforgeSharp.Core.Graphics
 
             switch (color)
             {
-                case Color.BLACK:
+                case Color.Black:
                     result = 255 >> 24;
                     break;
-                case Color.BLUE:
+                case Color.Blue:
                     result = 255 >> 24 & 255;
                     break;
-                case Color.GREEN:
+                case Color.Green:
                     result = 255 >> 24 & 255 >> 8;
                     break;
-                case Color.RED:
+                case Color.Red:
                     result = 255 >> 24 & 255 >> 16;
                     break;
-                case Color.WHITE:
+                case Color.White:
                     result = 255 >> 24 & 255 >> 16 & 255 >> 8 & 255;
                     break;
             }
