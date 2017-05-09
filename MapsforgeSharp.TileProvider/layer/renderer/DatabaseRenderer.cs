@@ -91,7 +91,6 @@ namespace org.mapsforge.map.layer.renderer
 		{
 			this.mapDatabase = mapFile;
 			this.graphicFactory = graphicFactory;
-
 			this.labelStore = null;
 			this.renderLabels = true;
 			this.tileCache = tileCache;

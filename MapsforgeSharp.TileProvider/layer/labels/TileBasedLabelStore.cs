@@ -32,6 +32,7 @@ namespace org.mapsforge.map.layer.labels
 		private const long serialVersionUID = 1L;
 
 		private ISet<Tile> lastVisibleTileSet;
+		private object lockObj = new object();
 		private int version;
 
 		public TileBasedLabelStore(int capacity) : base(capacity)
@@ -51,7 +52,7 @@ namespace org.mapsforge.map.layer.labels
 		/// <param name="mapItems"> the map elements. </param>
 		public virtual void StoreMapItems(Tile tile, ICollection<MapElementContainer> mapItems)
 		{
-			lock (this)
+			lock (lockObj)
 			{
 				this.Add(tile, LayerUtil.CollisionFreeOrdered(mapItems));
 				this.version += 1;
@@ -68,7 +69,7 @@ namespace org.mapsforge.map.layer.labels
 
 		public virtual IList<MapElementContainer> GetVisibleItems(ISet<Tile> tiles)
 		{
-			lock (this)
+			lock (lockObj)
 			{
 				lastVisibleTileSet = tiles;
         
@@ -88,9 +89,9 @@ namespace org.mapsforge.map.layer.labels
 		/// Returns if a tile is in the current tile set and no data is stored for this tile. </summary>
 		/// <param name="tile"> the tile </param>
 		/// <returns> true if the tile is in the current tile set, but no data is stored for it. </returns>
-		public virtual bool requiresTile(Tile tile)
+		public virtual bool RequiresTile(Tile tile)
 		{
-			lock (this)
+			lock (lockObj)
 			{
 				return this.lastVisibleTileSet.Contains(tile) && !this.ContainsKey(tile);
 			}
@@ -102,6 +103,7 @@ namespace org.mapsforge.map.layer.labels
 			{
 				return true;
 			}
+
 			return false;
 		}
 	}
