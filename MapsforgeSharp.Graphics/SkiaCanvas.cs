@@ -35,7 +35,7 @@ namespace MapsforgeSharp.Graphics
 
 		public SkiaCanvas(int width, int height)
 		{
-			nativeSurface = SKSurface.Create(width, height, SKColorType.Bgra_8888, SKAlphaType.Premul);
+			nativeSurface = SKSurface.Create(width, height, SKColorType.Bgra8888, SKAlphaType.Premul);
 			nativeCanvas = nativeSurface.Canvas;
 
 			this.width = width;
